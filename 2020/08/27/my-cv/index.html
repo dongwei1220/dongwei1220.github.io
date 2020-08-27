@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="R,CV,">
 
 
 
@@ -81,17 +81,30 @@
 
 
 
-<meta name="description" content="Cease to struggle and you cease to live!">
-<meta name="keywords" content="NGS, Single Cell Omics, 3D Genomics">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Davey&#39;s Blog">
-<meta property="og:url" content="https://dongwei1220.github.io/archives/index.html">
+<meta name="description" content="先看下简历的最终效果：    下载并安装所需的R包 简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：https://github.com/nstrayer/cv的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个`position.csv`文件中，使用比较方便。   12345678# 安装所需的Rrm(list = ls()) optio">
+<meta name="keywords" content="R,CV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用R pagedown给自己做一份精致的简历">
+<meta property="og:url" content="https://dongwei1220.github.io/2020/08/27/my-cv/index.html">
 <meta property="og:site_name" content="Davey&#39;s Blog">
-<meta property="og:description" content="Cease to struggle and you cease to live!">
+<meta property="og:description" content="先看下简历的最终效果：    下载并安装所需的R包 简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：https://github.com/nstrayer/cv的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个`position.csv`文件中，使用比较方便。   12345678# 安装所需的Rrm(list = ls()) optio">
 <meta property="og:locale" content="zh">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-46b3804cca9b311a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-6ea76cdf92f33311?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-b2d1a8fdf47e0656?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-c854bee8a4766475?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-83e0ad0d227627d2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-15935b37e76112b6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-21efdaf4fb61cb40?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-0cfe17c13be61aa3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-6d97b664c888449e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-6e0d52e4bb3e8f8f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-576a39ab53a209ae?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2020-08-27T07:07:13.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Davey&#39;s Blog">
-<meta name="twitter:description" content="Cease to struggle and you cease to live!">
+<meta name="twitter:title" content="使用R pagedown给自己做一份精致的简历">
+<meta name="twitter:description" content="先看下简历的最终效果：    下载并安装所需的R包 简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：https://github.com/nstrayer/cv的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个`position.csv`文件中，使用比较方便。   12345678# 安装所需的Rrm(list = ls()) optio">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8723194-46b3804cca9b311a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -121,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://dongwei1220.github.io/archives/">
+  <link rel="canonical" href="https://dongwei1220.github.io/2020/08/27/my-cv/">
 
 
 
 
 
-  <title>Archive | Davey's Blog</title>
+  <title>使用R pagedown给自己做一份精致的简历 | Davey's Blog</title>
   
 
 
@@ -146,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -282,182 +295,269 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dongwei1220.github.io/2020/08/27/my-cv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wei Dong">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/people.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Davey's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">使用R pagedown给自己做一份精致的简历</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-27T13:01:05+08:00">
+                2020-08-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-08-27T15:07:13+08:00">
+                2020-08-27
+              </time>
+            
+          </span>
+
           
-        
-        Um..! 4 posts in total. Keep on posting.
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Research/" itemprop="url" rel="index">
+                    <span itemprop="name">Research</span>
+                  </a>
+                </span>
 
-      
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Research/CV/" itemprop="url" rel="index">
+                    <span itemprop="name">CV</span>
+                  </a>
+                </span>
 
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/27/samtools-usage/" itemprop="url">
-              
-                <span itemprop="name">Samtools使用大全</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-27T15:11:52+08:00" content="2020-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/27/my-cv/" itemprop="url">
-              
-                <span itemprop="name">使用R pagedown给自己做一份精致的简历</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-08-27T13:01:05+08:00" content="2020-08-27">
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/13/volcano-plot/" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">11.火山图绘制</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  4.4k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-13T10:04:52+08:00" content="2019-07-13">
-          07-13
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4 mins.
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/13/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-13T09:47:40+08:00" content="2019-07-13">
-          07-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h3 id="先看下简历的最终效果："><a href="#先看下简历的最终效果：" class="headerlink" title="先看下简历的最终效果："></a>先看下简历的最终效果：</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-46b3804cca9b311a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6ea76cdf92f33311?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-b2d1a8fdf47e0656?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<hr>
+<h3 id="下载并安装所需的R包"><a href="#下载并安装所需的R包" class="headerlink" title="下载并安装所需的R包"></a>下载并安装所需的R包</h3><blockquote>
+<p>简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：<a href="https://github.com/nstrayer/cv的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个`position.csv`文件中，使用比较方便。" target="_blank" rel="noopener">https://github.com/nstrayer/cv的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个`position.csv`文件中，使用比较方便。</a></p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-c854bee8a4766475?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装所需的R</span></span><br><span class="line">rm(list = ls()) </span><br><span class="line">options(<span class="string">"repos"</span> = c(CRAN=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span>))</span><br><span class="line">install.packages(<span class="string">"tidyverse"</span>)</span><br><span class="line">install.packages(<span class="string">"rmarkdown"</span>)</span><br><span class="line">install.packages(<span class="string">"glue"</span>)</span><br><span class="line">install.packages(<span class="string">"devtools"</span>)</span><br><span class="line">devtools::install_github(<span class="string">'rstudio/pagedown'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="编辑并填写个人简历信息"><a href="#编辑并填写个人简历信息" class="headerlink" title="编辑并填写个人简历信息"></a>编辑并填写个人简历信息</h3><p>用Excel打开<code>position.csv</code>文件，根据相应的条目填写个人简历信息</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-83e0ad0d227627d2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h3 id="在Rstudio中编辑更改index-Rmd文件"><a href="#在Rstudio中编辑更改index-Rmd文件" class="headerlink" title="在Rstudio中编辑更改index.Rmd文件"></a>在Rstudio中编辑更改index.Rmd文件</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-15935b37e76112b6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h3 id="使用kint生成index-html网页文件"><a href="#使用kint生成index-html网页文件" class="headerlink" title="使用kint生成index.html网页文件"></a>使用kint生成index.html网页文件</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-21efdaf4fb61cb40?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>运行完kint后会在自己的文件夹中生成一个<code>index.html</code>格式的网页版简历</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-0cfe17c13be61aa3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>简历整体的布局形式可以通过<code>styles.css</code>文件进行调整</p>
+<h3 id="将网页文件另存为pdf文件"><a href="#将网页文件另存为pdf文件" class="headerlink" title="将网页文件另存为pdf文件"></a>将网页文件另存为pdf文件</h3><p>使用谷歌浏览器打开<code>index.html</code>文件，通过快捷键Ctrl + P进行页面打印，然后选择另存为PDF进行pdf文件的保存。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6d97b664c888449e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>最后可以将自己的代码上传到github上进行存储共享<a href="https://github.com/dongwei1220/cv" target="_blank" rel="noopener">https://github.com/dongwei1220/cv</a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6e0d52e4bb3e8f8f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>▼更多精彩推荐，请关注我们▼<br><img src="https://upload-images.jianshu.io/upload_images/8723194-576a39ab53a209ae?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>参考来源：【质感满满的简历，你也可以有！】<a href="https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ</a></p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Wei Dong
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://dongwei1220.github.io/2020/08/27/my-cv/" title="使用R pagedown给自己做一份精致的简历">https://dongwei1220.github.io/2020/08/27/my-cv/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+            <a href="/tags/CV/" rel="tag"># CV</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/13/volcano-plot/" rel="next" title="11.火山图绘制">
+                <i class="fa fa-chevron-left"></i> 11.火山图绘制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/27/samtools-usage/" rel="prev" title="Samtools使用大全">
+                Samtools使用大全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -465,6 +565,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -485,8 +589,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -577,6 +690,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#先看下简历的最终效果："><span class="nav-number">1.</span> <span class="nav-text">先看下简历的最终效果：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载并安装所需的R包"><span class="nav-number">2.</span> <span class="nav-text">下载并安装所需的R包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑并填写个人简历信息"><span class="nav-number">3.</span> <span class="nav-text">编辑并填写个人简历信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Rstudio中编辑更改index-Rmd文件"><span class="nav-number">4.</span> <span class="nav-text">在Rstudio中编辑更改index.Rmd文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用kint生成index-html网页文件"><span class="nav-number">5.</span> <span class="nav-text">使用kint生成index.html网页文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将网页文件另存为pdf文件"><span class="nav-number">6.</span> <span class="nav-text">将网页文件另存为pdf文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -730,6 +859,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

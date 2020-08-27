@@ -2,35 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/about/index.html</loc>
+    <loc>https://dongwei1220.github.io/categories/index.html</loc>
     
-    <lastmod>2019-07-13T06:06:44.542Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
-    
-    <lastmod>2019-07-13T04:58:58.728Z</lastmod>
+    <lastmod>2020-08-27T08:37:02.933Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>https://dongwei1220.github.io/tags/index.html</loc>
     
-    <lastmod>2019-07-13T04:57:35.620Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/07/13/test-my-blog/</loc>
-    
-    <lastmod>2019-07-13T02:04:52.398Z</lastmod>
+    <lastmod>2020-08-27T08:36:34.072Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/07/13/hello-world/</loc>
+    <loc>https://dongwei1220.github.io/about/index.html</loc>
+    
+    <lastmod>2020-08-27T07:25:09.343Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongwei1220.github.io/2020/08/27/samtools-usage/</loc>
+    
+    <lastmod>2020-08-27T07:16:47.961Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongwei1220.github.io/2020/08/27/my-cv/</loc>
+    
+    <lastmod>2020-08-27T07:07:13.180Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongwei1220.github.io/2019/07/13/volcano-plot/</loc>
+    
+    <lastmod>2020-08-27T06:55:04.808Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongwei1220.github.io/2019/07/13/hello-world/</loc>
     
     <lastmod>2019-07-13T01:47:40.787Z</lastmod>
     

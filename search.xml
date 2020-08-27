@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/07/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>使用R pagedown给自己做一份精致的简历</title>
+    <url>/2020/08/27/my-cv/</url>
+    <content><![CDATA[<h3 id="先看下简历的最终效果："><a href="#先看下简历的最终效果：" class="headerlink" title="先看下简历的最终效果："></a>先看下简历的最终效果：</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-46b3804cca9b311a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6ea76cdf92f33311?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-b2d1a8fdf47e0656?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<hr>
+<h3 id="下载并安装所需的R包"><a href="#下载并安装所需的R包" class="headerlink" title="下载并安装所需的R包"></a>下载并安装所需的R包</h3><blockquote>
+<p>简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：<a href="https://github.com/nstrayer/cv的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个`position.csv`文件中，使用比较方便。" target="_blank" rel="noopener">https://github.com/nstrayer/cv的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个`position.csv`文件中，使用比较方便。</a></p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-c854bee8a4766475?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装所需的R</span></span><br><span class="line">rm(list = ls()) </span><br><span class="line">options(<span class="string">"repos"</span> = c(CRAN=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span>))</span><br><span class="line">install.packages(<span class="string">"tidyverse"</span>)</span><br><span class="line">install.packages(<span class="string">"rmarkdown"</span>)</span><br><span class="line">install.packages(<span class="string">"glue"</span>)</span><br><span class="line">install.packages(<span class="string">"devtools"</span>)</span><br><span class="line">devtools::install_github(<span class="string">'rstudio/pagedown'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="编辑并填写个人简历信息"><a href="#编辑并填写个人简历信息" class="headerlink" title="编辑并填写个人简历信息"></a>编辑并填写个人简历信息</h3><p>用Excel打开<code>position.csv</code>文件，根据相应的条目填写个人简历信息</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-83e0ad0d227627d2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h3 id="在Rstudio中编辑更改index-Rmd文件"><a href="#在Rstudio中编辑更改index-Rmd文件" class="headerlink" title="在Rstudio中编辑更改index.Rmd文件"></a>在Rstudio中编辑更改index.Rmd文件</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-15935b37e76112b6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h3 id="使用kint生成index-html网页文件"><a href="#使用kint生成index-html网页文件" class="headerlink" title="使用kint生成index.html网页文件"></a>使用kint生成index.html网页文件</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-21efdaf4fb61cb40?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>运行完kint后会在自己的文件夹中生成一个<code>index.html</code>格式的网页版简历</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-0cfe17c13be61aa3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>简历整体的布局形式可以通过<code>styles.css</code>文件进行调整</p>
+<h3 id="将网页文件另存为pdf文件"><a href="#将网页文件另存为pdf文件" class="headerlink" title="将网页文件另存为pdf文件"></a>将网页文件另存为pdf文件</h3><p>使用谷歌浏览器打开<code>index.html</code>文件，通过快捷键Ctrl + P进行页面打印，然后选择另存为PDF进行pdf文件的保存。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6d97b664c888449e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>最后可以将自己的代码上传到github上进行存储共享<a href="https://github.com/dongwei1220/cv" target="_blank" rel="noopener">https://github.com/dongwei1220/cv</a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6e0d52e4bb3e8f8f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>▼更多精彩推荐，请关注我们▼<br><img src="https://upload-images.jianshu.io/upload_images/8723194-576a39ab53a209ae?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>参考来源：【质感满满的简历，你也可以有！】<a href="https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ</a></p>
+]]></content>
+      <categories>
+        <category>Research</category>
+        <category>CV</category>
+      </categories>
+      <tags>
+        <tag>R</tag>
+        <tag>CV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>11.火山图绘制</title>
+    <url>/2019/07/13/volcano-plot/</url>
+    <content><![CDATA[<h3 id="清除当前环境中的变量"><a href="#清除当前环境中的变量" class="headerlink" title="清除当前环境中的变量"></a>清除当前环境中的变量</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm(list=ls())</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置工作目录"><a href="#设置工作目录" class="headerlink" title="设置工作目录"></a>设置工作目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">setwd(&quot;C:/Users/Dell/Desktop/R_Plots/11volcano/&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="读取示例数据"><a href="#读取示例数据" class="headerlink" title="读取示例数据"></a>读取示例数据</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data &lt;- read.table(&quot;demo_volcano.txt&quot;,header = T,</span><br><span class="line">                   check.names = F,row.names = 1,sep=&quot;\t&quot;)</span><br><span class="line"></span><br><span class="line"># 查看示例数据</span><br><span class="line">head(data)</span><br><span class="line">##                LOG_count WT0_count LOG_rpkm WT0_rpkm log2_Ratio(WT0/LOG)</span><br><span class="line">## Unigene0000003     17243     17525 931.5677 942.4515          0.01675776</span><br><span class="line">## Unigene0000004        65       101   4.1156   6.3657          0.62921640</span><br><span class="line">## Unigene0000005       909       984  36.8859  39.7458          0.10773298</span><br><span class="line">## Unigene0000006      1376      1082  74.7026  58.4714         -0.35342732</span><br><span class="line">## Unigene0000007       121        73  15.6800   9.4163         -0.73569337</span><br><span class="line">## Unigene0000008       221       308  13.1401  18.2287          0.47223542</span><br><span class="line">##                      Pvalue          FDR significant</span><br><span class="line">## Unigene0000003 0.5149484880 0.6733042200          no</span><br><span class="line">## Unigene0000004 0.0066439000 0.0178825370          no</span><br><span class="line">## Unigene0000005 0.1259729560 0.2246500490          no</span><br><span class="line">## Unigene0000006 0.0000000117 0.0000000686          no</span><br><span class="line">## Unigene0000007 0.0007419290 0.0024460860          no</span><br><span class="line">## Unigene0000008 0.0003037820 0.0010721500          no</span><br></pre></td></tr></table></figure>
+
+<h2 id="base-plot函数绘制火山图"><a href="#base-plot函数绘制火山图" class="headerlink" title="base plot函数绘制火山图"></a>base plot函数绘制火山图</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">attach(data)</span><br><span class="line"># 基础火山图</span><br><span class="line">plot(x=`log2_Ratio(WT0/LOG)`,y=-1*log10(FDR))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-34534a04ad20fe6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加颜色和标题</span><br><span class="line">plot(x=`log2_Ratio(WT0/LOG)`,y=-1*log10(FDR),</span><br><span class="line">     type = &quot;p&quot;, pch=20, col=significant,</span><br><span class="line">     main=&quot;Volcano plot&quot;,</span><br><span class="line">     xlab=&quot;log2(FC)&quot;,ylab=&quot;-log10(FDR)&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6e41b45b117558fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加水平线和垂直线</span><br><span class="line">abline(v=c(-1,1),lty=2,lwd = 2,col=&quot;red&quot;)</span><br><span class="line">abline(h=-log10(0.05),lty=2,lwd=2,col=&quot;blue&quot;</span><br><span class="line"># 添加图例</span><br><span class="line">legend(&quot;topright&quot;, inset = 0.01, title = &quot;Significant&quot;, c(&quot;yes&quot;,&quot;no&quot;),</span><br><span class="line">       pch=c(16,16),col = c(&quot;red&quot;,&quot;black&quot;))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-dd14d6e376147e46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加gene注释信息</span><br><span class="line">gene_selected &lt;- c(&quot;Unigene0034898&quot;,&quot;Unigene0038455&quot;,&quot;Unigene0003997&quot;,</span><br><span class="line">                   &quot;Unigene0026444&quot;,&quot;Unigene0039482&quot;,&quot;Unigene0028163&quot;</span><br><span class="line">                   )</span><br><span class="line">data_selected &lt;- data[gene_selected,]</span><br><span class="line">text(x=data_selected$`log2_Ratio(WT0/LOG)`,y=-1*log10(data_selected$FDR),</span><br><span class="line">     labels = rownames(data_selected),col=&quot;red&quot;,adj = 0.5)</span><br><span class="line">detach(data)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-c615f54231401244.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="ggplot2包绘制火山图"><a href="#ggplot2包绘制火山图" class="headerlink" title="ggplot2包绘制火山图"></a>ggplot2包绘制火山图</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">library(ggplot2)</span><br><span class="line">head(data)</span><br><span class="line">##                LOG_count WT0_count LOG_rpkm WT0_rpkm log2_Ratio(WT0/LOG)</span><br><span class="line">## Unigene0000003     17243     17525 931.5677 942.4515          0.01675776</span><br><span class="line">## Unigene0000004        65       101   4.1156   6.3657          0.62921640</span><br><span class="line">## Unigene0000005       909       984  36.8859  39.7458          0.10773298</span><br><span class="line">## Unigene0000006      1376      1082  74.7026  58.4714         -0.35342732</span><br><span class="line">## Unigene0000007       121        73  15.6800   9.4163         -0.73569337</span><br><span class="line">## Unigene0000008       221       308  13.1401  18.2287          0.47223542</span><br><span class="line">##                      Pvalue          FDR significant</span><br><span class="line">## Unigene0000003 0.5149484880 0.6733042200          no</span><br><span class="line">## Unigene0000004 0.0066439000 0.0178825370          no</span><br><span class="line">## Unigene0000005 0.1259729560 0.2246500490          no</span><br><span class="line">## Unigene0000006 0.0000000117 0.0000000686          no</span><br><span class="line">## Unigene0000007 0.0007419290 0.0024460860          no</span><br><span class="line">## Unigene0000008 0.0003037820 0.0010721500          no</span><br><span class="line"></span><br><span class="line"># 基础火山图</span><br><span class="line">ggplot(data,aes(`log2_Ratio(WT0/LOG)`,-log10(FDR))) + geom_point()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-c5a37685aabf8f0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加颜色和标题</span><br><span class="line">ggplot(data,aes(`log2_Ratio(WT0/LOG)`,-log10(FDR),color=significant)) +</span><br><span class="line">  geom_point() +</span><br><span class="line">  labs(title=&quot;Volcano plot&quot;,x=expression(log[2](FC)), y=expression(-log[10](FDR)))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-398bf3c15686b458.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 更改颜色，主题，添加水平线和垂直线，去掉网格线</span><br><span class="line">p &lt;- ggplot(data,aes(`log2_Ratio(WT0/LOG)`,-log10(FDR),color=significant)) +</span><br><span class="line">  geom_point() + theme_bw() +</span><br><span class="line">  labs(title=&quot;Volcano plot&quot;,x=expression(log[2](FC)), y=expression(-log[10](FDR))) +</span><br><span class="line">  scale_color_manual(values = c(&quot;blue&quot;,&quot;red&quot;)) +</span><br><span class="line">  geom_vline(xintercept=-1, linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  geom_vline(xintercept=1, linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  geom_hline(yintercept=-log(0.05), linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  theme(plot.title = element_text(hjust = 0.5)) +</span><br><span class="line">  theme(panel.grid.major = element_blank(),</span><br><span class="line">        panel.grid.minor = element_blank(),</span><br><span class="line">        panel.background = element_blank())</span><br><span class="line">p</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-103405766d01d474.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加基因注释信息</span><br><span class="line">library(ggrepel)</span><br><span class="line">p + geom_text_repel(data=data_selected,</span><br><span class="line">                    aes(label=rownames(data_selected)))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-edc254b64a0342d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">p + geom_label_repel(data=data_selected,</span><br><span class="line">                     aes(label=rownames(data_selected)))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-9f7e96a2edf62ebb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="ggpubr包绘制火山图"><a href="#ggpubr包绘制火山图" class="headerlink" title="ggpubr包绘制火山图"></a>ggpubr包绘制火山图</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">library(ggpubr)</span><br><span class="line">data$FDR &lt;- -log10(data$FDR)</span><br><span class="line">data$FC &lt;- data$`log2_Ratio(WT0/LOG)`</span><br><span class="line">head(data)</span><br><span class="line">##                LOG_count WT0_count LOG_rpkm WT0_rpkm log2_Ratio(WT0/LOG)</span><br><span class="line">## Unigene0000003     17243     17525 931.5677 942.4515          0.01675776</span><br><span class="line">## Unigene0000004        65       101   4.1156   6.3657          0.62921640</span><br><span class="line">## Unigene0000005       909       984  36.8859  39.7458          0.10773298</span><br><span class="line">## Unigene0000006      1376      1082  74.7026  58.4714         -0.35342732</span><br><span class="line">## Unigene0000007       121        73  15.6800   9.4163         -0.73569337</span><br><span class="line">## Unigene0000008       221       308  13.1401  18.2287          0.47223542</span><br><span class="line">##                      Pvalue       FDR significant          FC</span><br><span class="line">## Unigene0000003 0.5149484880 0.1717887          no  0.01675776</span><br><span class="line">## Unigene0000004 0.0066439000 1.7475709          no  0.62921640</span><br><span class="line">## Unigene0000005 0.1259729560 0.6484935          no  0.10773298</span><br><span class="line">## Unigene0000006 0.0000000117 7.1636759          no -0.35342732</span><br><span class="line">## Unigene0000007 0.0007419290 2.6115283          no -0.73569337</span><br><span class="line">## Unigene0000008 0.0003037820 2.9697445          no  0.47223542</span><br><span class="line"></span><br><span class="line"># 基础火山图</span><br><span class="line">ggscatter(data,x=&quot;FC&quot;,y=&quot;FDR&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-51512ede162a780f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加颜色，标题，坐标轴标签</span><br><span class="line">ggscatter(data,x=&quot;FC&quot;,y=&quot;FDR&quot;,size = 1.5,</span><br><span class="line">          color = &quot;significant&quot;, palette = c(&quot;#BBBBBB&quot;,&quot;#CC0000&quot;),</span><br><span class="line">          title = &quot;Volcano plot&quot;,xlab = &quot;log2(FC)&quot;,ylab = &quot;-log10(FDR)&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-7d55b31bc518a67e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加水平线和垂直线，标题居中</span><br><span class="line">ggscatter(data,x=&quot;FC&quot;,y=&quot;FDR&quot;,size = 1.5,</span><br><span class="line">          color = &quot;significant&quot;, palette = c(&quot;#BBBBBB&quot;,&quot;#CC0000&quot;),</span><br><span class="line">          title = &quot;Volcano plot&quot;,xlab = &quot;log2(FC)&quot;,ylab = &quot;-log10(FDR)&quot;) +</span><br><span class="line">  geom_vline(xintercept=c(-1,1), linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  geom_hline(yintercept=-log(0.05), linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  theme(plot.title = element_text(hjust = 0.5))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-d6e49ad02150cc42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sessionInfo()</span><br><span class="line">## R version 3.6.0 (2019-04-26)</span><br><span class="line">## Platform: x86_64-w64-mingw32/x64 (64-bit)</span><br><span class="line">## Running under: Windows 10 x64 (build 18363)</span><br><span class="line">##</span><br><span class="line">## Matrix products: default</span><br><span class="line">##</span><br><span class="line">## locale:</span><br><span class="line">## [1] LC_COLLATE=Chinese (Simplified)_China.936</span><br><span class="line">## [2] LC_CTYPE=Chinese (Simplified)_China.936</span><br><span class="line">## [3] LC_MONETARY=Chinese (Simplified)_China.936</span><br><span class="line">## [4] LC_NUMERIC=C</span><br><span class="line">## [5] LC_TIME=Chinese (Simplified)_China.936</span><br><span class="line">##</span><br><span class="line">## attached base packages:</span><br><span class="line">## [1] stats     graphics  grDevices utils     datasets  methods   base</span><br><span class="line">##</span><br><span class="line">## other attached packages:</span><br><span class="line">## [1] ggpubr_0.2.1  magrittr_1.5  ggrepel_0.8.1 ggplot2_3.2.0</span><br><span class="line">##</span><br><span class="line">## loaded via a namespace (and not attached):</span><br><span class="line">##  [1] Rcpp_1.0.5       knitr_1.23       tidyselect_0.2.5 munsell_0.5.0</span><br><span class="line">##  [5] colorspace_1.4-1 R6_2.4.0         rlang_0.4.7      stringr_1.4.0</span><br><span class="line">##  [9] dplyr_0.8.3      tools_3.6.0      grid_3.6.0       gtable_0.3.0</span><br><span class="line">## [13] xfun_0.8         withr_2.1.2      htmltools_0.3.6  yaml_2.2.0</span><br><span class="line">## [17] lazyeval_0.2.2   digest_0.6.20    assertthat_0.2.1 tibble_2.1.3</span><br><span class="line">## [21] ggsignif_0.5.0   crayon_1.3.4     purrr_0.3.2      glue_1.3.1</span><br><span class="line">## [25] evaluate_0.14    rmarkdown_1.13   labeling_0.3     stringi_1.4.3</span><br><span class="line">## [29] compiler_3.6.0   pillar_1.4.2     scales_1.0.0     pkgconfig_2.0.2</span><br></pre></td></tr></table></figure>
+
+<p>▼更多精彩推荐，请关注我们▼</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-e68184a658204a7c?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Visualization</category>
+      </categories>
+      <tags>
+        <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Samtools使用大全</title>
+    <url>/2020/08/27/samtools-usage/</url>
+    <content><![CDATA[<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><blockquote>
+<p>Samtools是一个用于操作sam和bam格式文件的应用程序集合，具有众多的功能。 它从SAM（序列比对/映射）格式导入和导出，进行排序，合并和索引，并允许快速检索任何区域中的读数。SAM和BAM格式的比对文件主要由bwa、bowtie2、tophat和hisat2等序列比对工具产生，用于记录测序reads在参考基因组上的映射信息。其中，BAM格式文件是SAM文件的 的二进制格式，占据内存较小且运算速度更快。 </p>
+</blockquote>
+<h2 id="二、基本用法"><a href="#二、基本用法" class="headerlink" title="二、基本用法"></a>二、基本用法</h2><p>Samtools由一系列的子命令组成，可以对sam和bam格式的文件进行不同的整合与处理。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">Program: samtools (Tools <span class="keyword">for</span> alignments <span class="keyword">in</span> the SAM format)</span><br><span class="line">Version: 1.3.1 (using htslib 1.3.1)</span><br><span class="line"></span><br><span class="line">Usage:   samtools &lt;<span class="built_in">command</span>&gt; [options]</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  -- Indexing</span><br><span class="line">     dict           create a sequence dictionary file</span><br><span class="line">     faidx          index/extract FASTA</span><br><span class="line">     index          index alignment</span><br><span class="line"></span><br><span class="line">  -- Editing</span><br><span class="line">     calmd          recalculate MD/NM tags and <span class="string">'='</span> bases</span><br><span class="line">     fixmate        fix mate information</span><br><span class="line">     reheader       replace BAM header</span><br><span class="line">     rmdup          remove PCR duplicates</span><br><span class="line">     targetcut      cut fosmid regions (<span class="keyword">for</span> fosmid pool only)</span><br><span class="line">     addreplacerg   adds or replaces RG tags</span><br><span class="line"></span><br><span class="line">  -- File operations</span><br><span class="line">     collate        shuffle and group alignments by name</span><br><span class="line">     cat            concatenate BAMs</span><br><span class="line">     merge          merge sorted alignments</span><br><span class="line">     mpileup        multi-way pileup</span><br><span class="line">     sort           sort alignment file</span><br><span class="line">     split          splits a file by <span class="built_in">read</span> group</span><br><span class="line">     quickcheck     quickly check <span class="keyword">if</span> SAM/BAM/CRAM file appears intact</span><br><span class="line">     fastq          converts a BAM to a FASTQ</span><br><span class="line">     fasta          converts a BAM to a FASTA</span><br><span class="line"></span><br><span class="line">  -- Statistics</span><br><span class="line">     bedcov         <span class="built_in">read</span> depth per BED region</span><br><span class="line">     depth          compute the depth</span><br><span class="line">     flagstat       simple stats</span><br><span class="line">     idxstats       BAM index stats</span><br><span class="line">     phase          phase heterozygotes</span><br><span class="line">     stats          generate stats (former bamcheck)</span><br><span class="line"></span><br><span class="line">  -- Viewing</span><br><span class="line">     flags          explain BAM flags</span><br><span class="line">     tview          text alignment viewer</span><br><span class="line">     view           SAM&lt;-&gt;BAM&lt;-&gt;CRAM conversion</span><br><span class="line">     depad          convert padded BAM to unpadded BAM</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-1-构建索引-Indexing"><a href="#2-1-构建索引-Indexing" class="headerlink" title="2.1 构建索引(Indexing)"></a>2.1 构建索引(Indexing)</h3><ul>
+<li><p><strong>dict</strong> – 对fasta格式的参考基因组序列构建字典索引</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools dict</span><br><span class="line"></span><br><span class="line">About:   Create a sequence dictionary file from a fasta file</span><br><span class="line">Usage:   samtools dict [options] &lt;file.fa|file.fa.gz&gt;</span><br><span class="line"></span><br><span class="line">Options: -a, --assembly STR    assembly</span><br><span class="line">         -H, --no-header       <span class="keyword">do</span> not <span class="built_in">print</span> @HD line</span><br><span class="line">         -o, --output STR      file to write out dict file [stdout]</span><br><span class="line">         -s, --species STR     species</span><br><span class="line">         -u, --uri STR         URI [file:///abs/path/to/file.fa]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example：<code>samtools dict -a GRCh38 -s &quot;Homo sapiens&quot; hg38.fasta -o hg38.dict</code></li>
+<li>构建完成后会生成一个hg38.dict的参考基因组索引文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ head hg38.dict <span class="comment"># 查看索引文件的前十行</span></span><br><span class="line"></span><br><span class="line">@HD     VN:1.0  SO:unsorted</span><br><span class="line">@SQ     SN:chr1 LN:248956422    M5:2648ae1bacce4ec4b6cf337dcae37816     UR:file:///data/public/refGenome/bwa_index/hg38/hg38.fa AS:GRCh38  SP:Homo sapiens</span><br><span class="line">@SQ     SN:chr2 LN:242193529    M5:4bb4f82880a14111eb7327169ffb729b     UR:file:///data/public/refGenome/bwa_index/hg38/hg38.fa AS:GRCh38  SP:Homo sapiens</span><br><span class="line">@SQ     SN:chr3 LN:198295559    M5:a48af509898d3736ba95dc0912c0b461     UR:file:///data/public/refGenome/bwa_index/hg38/hg38.fa AS:GRCh38  SP:Homo sapiens</span><br><span class="line">@SQ     SN:chr4 LN:190214555    M5:3210fecf1eb92d5489da4346b3fddc6e     UR:file:///data/public/refGenome/bwa_index/hg38/hg38.fa AS:GRCh38  SP:Homo sapiens</span><br><span class="line">@SQ     SN:chr5 LN:181538259    M5:f7f05fb7ceea78cbc32ce652c540ff2d     UR:file:///data/public/refGenome/bwa_index/hg38/hg38.fa AS:GRCh38  SP:Homo sapiens</span><br><span class="line">@SQ     SN:chr6 LN:170805979    M5:6a48dfa97e854e3c6f186c8ff973f7dd     UR:file:///data/public/refGenome/bwa_index/hg38/hg38.fa AS:GRCh38  SP:Homo sapiens</span><br><span class="line">@SQ     SN:chr7 LN:159345973    M5:94eef2b96fd5a7c8db162c8c74378039     UR:file:///data/public/refGenome/bwa_index/hg38/hg38.fa AS:GRCh38  SP:Homo sapiens</span><br><span class="line">@SQ     SN:chr8 LN:145138636    M5:c67955b5f7815a9a1edfaa15893d3616     UR:file:///data/public/refGenome/bwa_index/hg38/hg38.fa AS:GRCh38  SP:Homo sapiens</span><br><span class="line">@SQ     SN:chr9 LN:138394717    M5:addd2795560986b7491c40b1faa3978a     UR:file:///data/public/refGenome/bwa_index/hg38/hg38.fa AS:GRCh38  SP:Homo sapiens</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p><strong>faidx</strong> –  对fasta格式的文件建立索引，生成的索引文件以.fai后缀结尾。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools faidx</span><br><span class="line"></span><br><span class="line">Usage:   samtools faidx &lt;file.fa|file.fa.gz&gt; [&lt;reg&gt; [...]]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Example：<code>samtools faidx hg38.fasta</code></p>
+</li>
+<li><p>构建完成后会生成一个hg38.fasta.fai的索引文件，该文件共有五列，分别表示：</p>
+<p>第一列：序列的名称</p>
+<p>第二列：序列的长度</p>
+<p>第三列：第一个碱基的偏移量，从0开始计数</p>
+<p>第四列：除了最后一行外，序列中每行的碱基数</p>
+<p>第五列：除了最后一行外，序列中每行的长度（包括换行符）</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ head hg38.fasta.fai</span><br><span class="line"></span><br><span class="line">chr1    248956422       6       50      51</span><br><span class="line">chr2    242193529       253935563       50      51</span><br><span class="line">chr3    198295559       500972969       50      51</span><br><span class="line">chr4    190214555       703234446       50      51</span><br><span class="line">chr5    181538259       897253299       50      51</span><br><span class="line">chr6    170805979       1082422330      50      51</span><br><span class="line">chr7    159345973       1256644435      50      51</span><br><span class="line">chr8    145138636       1419177334      50      51</span><br><span class="line">chr9    138394717       1567218749      50      51</span><br><span class="line">chr10   133797422       1708381368      50      51</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>该命令也可以根据索引文件，快速提取fasta文件中任意区域的序列文件 </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 提取1号染色体的序列信息</span></span><br><span class="line">$ samtools faidx ha38.fasta chr1 &gt; hg38.chr1.fa</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取1号染色体200-1000bp之间的序列</span></span><br><span class="line">$ samtools faidx hg38.fasta chr1:200-1000 &gt; hg38.chr1_200_1000.fa</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p><strong>index</strong> – 对bam格式的比对文件构建索引，需对bam文件进行排序后才能构建索引</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools index</span><br><span class="line"></span><br><span class="line">Usage: samtools index [-bc] [-m INT] &lt;in.bam&gt; [out.index]</span><br><span class="line">Options:</span><br><span class="line">  -b       Generate BAI-format index <span class="keyword">for</span> BAM files [default]</span><br><span class="line">  -c       Generate CSI-format index <span class="keyword">for</span> BAM files</span><br><span class="line">  -m INT   Set minimum interval size <span class="keyword">for</span> CSI indices to 2^INT [14]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Example： <code>samtools index aln.sorted.bam</code></p>
+</li>
+<li><p>构建完成后将产生后缀为.bai的文件，用于快速的随机处理</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-文件编辑-Editing"><a href="#2-2-文件编辑-Editing" class="headerlink" title="2.2 文件编辑(Editing)"></a>2.2 文件编辑(Editing)</h3><ul>
+<li><p><strong>calmd</strong>  – recalculate MD/NM tags and ‘=’ bases 计算MD tag标签值（ 记录了mismatch信息 ）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools calmd</span><br><span class="line">Usage: samtools calmd [-eubrAES] &lt;aln.bam&gt; &lt;ref.fasta&gt;</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -e       change identical bases to <span class="string">'='</span></span><br><span class="line">  -u       uncompressed BAM output (<span class="keyword">for</span> piping)</span><br><span class="line">  -b       compressed BAM output</span><br><span class="line">  -S       ignored (input format is auto-detected)</span><br><span class="line">  -A       modify the quality string</span><br><span class="line">  -r       compute the BQ tag (without -A) or <span class="built_in">cap</span> baseQ by BAQ (with -A)</span><br><span class="line">  -E       extended BAQ <span class="keyword">for</span> better sensitivity but lower specificity</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example：<code>samtools calmd -AEur aln.bam ref.fa</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>fixmate</strong> – fix mate information  为以名称排序定位的alignment填入配对坐标，ISIZE（inferred insert size推测的插入序列大小）和配对相应的标签（flag） </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools fixmate</span><br><span class="line"></span><br><span class="line">Usage: samtools fixmate &lt;in.nameSrt.bam&gt; &lt;out.nameSrt.bam&gt;</span><br><span class="line">Options:</span><br><span class="line">  -r           Remove unmapped reads and secondary alignments</span><br><span class="line">  -p           Disable FR proper pair check</span><br><span class="line">  -c           Add template cigar ct tag</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">  -O, --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br><span class="line"></span><br><span class="line">As elsewhere <span class="keyword">in</span> samtools, use <span class="string">'-'</span> as the filename <span class="keyword">for</span> stdin/stdout. The input</span><br><span class="line">file must be grouped by <span class="built_in">read</span> name (e.g. sorted by name). Coordinated sorted</span><br><span class="line">input is not accepted.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example：<code>samtools fixmate in.namesorted.sam out.bam</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>reheader</strong>  – replace BAM header 替换bam文件头注释信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools reheader</span><br><span class="line"></span><br><span class="line">Usage: samtools reheader [-P] in.header.sam in.bam &gt; out.bam</span><br><span class="line">   or  samtools reheader [-P] -i in.header.sam file.bam</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    -P, --no-PG      Do not generate an @PG header line.</span><br><span class="line">    -i, --<span class="keyword">in</span>-place   Modify the bam/cram file directly.</span><br><span class="line">                     (Defaults to outputting to stdout.)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p><strong>rmdup</strong> – remove PCR duplicates 去除bam文件中的PCR重复信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools rmdup</span><br><span class="line"></span><br><span class="line">Usage:  samtools rmdup [-sS] &lt;input.srt.bam&gt; &lt;output.bam&gt;</span><br><span class="line"></span><br><span class="line">Option: -s    rmdup <span class="keyword">for</span> SE reads</span><br><span class="line">        -S    treat PE reads as SE <span class="keyword">in</span> rmdup (force -s)</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example：<code>samtools rmdup -sS in.sorted.bam output.bam</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>targetcut</strong>  – cut fosmid regions (for fosmid pool only)   此命令仅用于从fosmid混池测序中切除fosmid克隆序列</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools targetcut</span><br><span class="line"></span><br><span class="line">Usage: samtools targetcut [-Q minQ] [-i inPen] [-0 em0] [-1 em1] [-2 em2] &lt;in.bam&gt;</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">  -f, --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p><strong>addreplacerg</strong> – adds or replaces RG tags 该命令用于添加或更改bam文件中的RG tag标签值</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools addreplacerg</span><br><span class="line"></span><br><span class="line">Usage: samtools addreplacerg [options] [-r &lt;@RG line&gt; | -R &lt;existing id&gt;] [-o &lt;output.bam&gt;] &lt;input.bam&gt;</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -m MODE   Set the mode of operation from one of overwrite_all, orphan_only [overwrite_all]</span><br><span class="line">  -o FILE   Where to write output to [stdout]</span><br><span class="line">  -r STRING @RG line text</span><br><span class="line">  -R STRING ID of @RG line <span class="keyword">in</span> existing header to use</span><br><span class="line">      --input-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify input format (SAM, BAM, CRAM)</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">  -O, --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example ：<code>samtools addreplacerg -r &#39;ID:fish&#39; -r &#39;LB:1334&#39; -r &#39;SM:alpha&#39; -o output.bam input.bam</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-文件处理-File-operations"><a href="#2-3-文件处理-File-operations" class="headerlink" title="2.3 文件处理(File operations)"></a>2.3 文件处理(File operations)</h3><ul>
+<li><p><strong>collate</strong> – shuffle and group alignments by name 根据read name信息将bam文件进行随机打散和分组</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools collate</span><br><span class="line"></span><br><span class="line">Usage:   samtools collate [-Ou] [-n nFiles] [-c cLevel] &lt;in.bam&gt; &lt;out.prefix&gt;</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">      -O       output to stdout</span><br><span class="line">      -u       uncompressed BAM output</span><br><span class="line">      -l INT   compression level [1]</span><br><span class="line">      -n INT   number of temporary files [64]</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools collate -o aln.name_collated.bam aln.sorted.bam</code> </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>cat</strong> – concatenate BAMs  将多个bam文件合并为一个bam文件（与merge命令的区别是cat不需要将bam文件提前进行排序） </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools cat</span><br><span class="line"></span><br><span class="line">Usage: samtools cat [-h header.sam] [-o out.bam] &lt;in1.bam&gt; [...]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools cat -o out.bam in1.bam in2.bam</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>merge</strong>  – merge sorted alignments 将多个已经sort的bam文件进行合并</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools merge</span><br><span class="line"></span><br><span class="line">Usage: samtools merge [-nurlf] [-h inh.sam] [-b &lt;bamlist.fofn&gt;] &lt;out.bam&gt; &lt;in1.bam&gt; [&lt;in2.bam&gt; ... &lt;inN.bam&gt;]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -n         Input files are sorted by <span class="built_in">read</span> name</span><br><span class="line">  -r         Attach RG tag (inferred from file names)</span><br><span class="line">  -u         Uncompressed BAM output</span><br><span class="line">  -f         Overwrite the output BAM <span class="keyword">if</span> exist</span><br><span class="line">  -1         Compress level 1</span><br><span class="line">  -l INT     Compression level, from 0 to 9 [-1]</span><br><span class="line">  -R STR     Merge file <span class="keyword">in</span> the specified region STR [all]</span><br><span class="line">  -h FILE    Copy the header <span class="keyword">in</span> FILE to &lt;out.bam&gt; [in1.bam]</span><br><span class="line">  -c         Combine @RG headers with colliding IDs [alter IDs to be distinct]</span><br><span class="line">  -p         Combine @PG headers with colliding IDs [alter IDs to be distinct]</span><br><span class="line">  -s VALUE   Override random seed</span><br><span class="line">  -b FILE    List of input BAM filenames, one per line [null]</span><br><span class="line">  -@, --threads INT</span><br><span class="line">             Number of BAM/CRAM compression threads [0]</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">  -O, --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools merge merged.bam in1.sorted.bam in2.sorted.bam</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>mpileup</strong>  – multi-way pileup  对参考基因组每个位点做碱基堆积，用于call SNP和INDEL。主要是生成BCF、VCF文件或者pileup一个或多个bam文件。比对记录以在@RG中的样本名作为区分标识符。如果样本标识符缺失，那么每一个输入文件则视为一个样本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools mpileup</span><br><span class="line"></span><br><span class="line">Usage: samtools mpileup [options] in1.bam [in2.bam [...]]</span><br><span class="line"></span><br><span class="line">Input options:</span><br><span class="line">  -6, --illumina1.3+      quality is <span class="keyword">in</span> the Illumina-1.3+ encoding</span><br><span class="line">  -A, --count-orphans     <span class="keyword">do</span> not discard anomalous <span class="built_in">read</span> pairs</span><br><span class="line">  -b, --bam-list FILE     list of input BAM filenames, one per line</span><br><span class="line">  -B, --no-BAQ            <span class="built_in">disable</span> BAQ (per-Base Alignment Quality)</span><br><span class="line">  -C, --adjust-MQ INT     adjust mapping quality; recommended:50, <span class="built_in">disable</span>:0 [0]</span><br><span class="line">  -d, --max-depth INT     max per-file depth; avoids excessive memory usage [250]</span><br><span class="line">  -E, --redo-BAQ          recalculate BAQ on the fly, ignore existing BQs</span><br><span class="line">  -f, --fasta-ref FILE    faidx indexed reference sequence file</span><br><span class="line">  -G, --exclude-RG FILE   exclude <span class="built_in">read</span> groups listed <span class="keyword">in</span> FILE</span><br><span class="line">  -l, --positions FILE    skip unlisted positions (chr pos) or regions (BED)</span><br><span class="line">  -q, --min-MQ INT        skip alignments with mapQ smaller than INT [0]</span><br><span class="line">  -Q, --min-BQ INT        skip bases with baseQ/BAQ smaller than INT [13]</span><br><span class="line">  -r, --region REG        region <span class="keyword">in</span> <span class="built_in">which</span> pileup is generated</span><br><span class="line">  -R, --ignore-RG         ignore RG tags (one BAM = one sample)</span><br><span class="line">  --rf, --incl-flags STR|INT  required flags: skip reads with mask bits <span class="built_in">unset</span> []</span><br><span class="line">  --ff, --excl-flags STR|INT  filter flags: skip reads with mask bits <span class="built_in">set</span></span><br><span class="line">                                            [UNMAP,SECONDARY,QCFAIL,DUP]</span><br><span class="line">  -x, --ignore-overlaps   <span class="built_in">disable</span> <span class="built_in">read</span>-pair overlap detection</span><br><span class="line"></span><br><span class="line">Output options:</span><br><span class="line">  -o, --output FILE       write output to FILE [standard output]</span><br><span class="line">  -g, --BCF               generate genotype likelihoods <span class="keyword">in</span> BCF format</span><br><span class="line">  -v, --VCF               generate genotype likelihoods <span class="keyword">in</span> VCF format</span><br><span class="line"></span><br><span class="line">Output options <span class="keyword">for</span> mpileup format (without -g/-v):</span><br><span class="line">  -O, --output-BP         output base positions on reads</span><br><span class="line">  -s, --output-MQ         output mapping quality</span><br><span class="line"></span><br><span class="line">Output options <span class="keyword">for</span> genotype likelihoods (when -g/-v is used):</span><br><span class="line">  -t, --output-tags LIST  optional tags to output:</span><br><span class="line">               DP,AD,ADF,ADR,SP,INFO/AD,INFO/ADF,INFO/ADR []</span><br><span class="line">  -u, --uncompressed      generate uncompressed VCF/BCF output</span><br><span class="line"></span><br><span class="line">SNP/INDEL genotype likelihoods options (effective with -g/-v):</span><br><span class="line">  -e, --ext-prob INT      Phred-scaled gap extension seq error probability [20]</span><br><span class="line">  -F, --gap-frac FLOAT    minimum fraction of gapped reads [0.002]</span><br><span class="line">  -h, --tandem-qual INT   coefficient <span class="keyword">for</span> homopolymer errors [100]</span><br><span class="line">  -I, --skip-indels       <span class="keyword">do</span> not perform indel calling</span><br><span class="line">  -L, --max-idepth INT    maximum per-file depth <span class="keyword">for</span> INDEL calling [250]</span><br><span class="line">  -m, --min-ireads INT    minimum number gapped reads <span class="keyword">for</span> indel candidates [1]</span><br><span class="line">  -o, --open-prob INT     Phred-scaled gap open seq error probability [40]</span><br><span class="line">  -p, --per-sample-mF     apply -m and -F per-sample <span class="keyword">for</span> increased sensitivity</span><br><span class="line">  -P, --platforms STR     comma separated list of platforms <span class="keyword">for</span> indels [all]</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br><span class="line"></span><br><span class="line">Notes: Assuming diploid individuals.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Example: <code>samtools mpileup -C 50 -f ref.fasta -r chr3:1,000-2,000 in1.bam in2.bam</code></p>
+</li>
+<li><p>主要参数解读：</p>
+<p>-A：在检测变异中，不忽略异常的reads对</p>
+<p>-C：用于调节比对质量的系数，如果reads中含有过多的错配，不能设置为零</p>
+<p>-D：输出每个样本的reads深度</p>
+<p>-l：BED文件或者包含区域位点的位置列表文件</p>
+<p>注意：位置文件包含两列，染色体和位置，从1开始计数。BED文件至少包含3列，染色体、起始和终止位置，开始端从0开始计数。</p>
+<p>-r：在指定区域产生pileup，需已建立索引的bam文件，通常和-l参数一起使用</p>
+<p>-o/g/v：输出文件类型（标准格式文件或者VCF、BCF文件）</p>
+<p>-t：设置FORMAT和INFO的列表内容，以逗号分割</p>
+<p>-u：生成未压缩的VCF和BCF文件</p>
+<p>-I：跳过INDEL检测</p>
+<p>-m：候选INDEL的最小间隔的reads</p>
+<p>-f：输入有索引文件的fasta参考序列</p>
+<p>-F ：含有间隔reads的最小片段 </p>
+</li>
+<li><p>mpileup生成的结果包含6列：1) 参考序列名，2) 位置，3) 参考碱基，4) 比对上的reads数，5) 比对情况，6) 比对上的碱基的质量。其中第5列比较复杂,解释如下：<br>a) ‘.’代表与参考序列正链匹配。<br>b) ‘,’代表与参考序列负链匹配。<br>c) ‘ATCGN’代表在正链上的不匹配。<br>d) ‘atcgn’代表在负链上的不匹配。<br>e) ‘*’代表模糊碱基<br>f) ‘’代表匹配的碱基是一个read的开始；’’后面紧跟的ascii码减去33代表比对质量；这两个符号修饰的是后面的碱基，其后紧跟的碱基(.,ATCGatcgNn)代表该read的第一个碱基。<br>g) ‘$’代表一个read的结束，该符号修饰的是其前面的碱基。<br>h) 正则式’+[0-9]+[ACGTNacgtn]+’代表在该位点后插入的碱基；<br>i) 正则式’-[0-9]+[ACGTNacgtn]+’代表在该位点后缺失的碱基；</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>sort</strong> – sort alignment file 对比对后的bam文件进行排序，默认按coordinate进行排序</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools sort</span><br><span class="line"></span><br><span class="line">Usage: samtools sort [options...] [in.bam]</span><br><span class="line">Options:</span><br><span class="line">  -l INT     Set compression level, from 0 (uncompressed) to 9 (best)</span><br><span class="line">  -m INT     Set maximum memory per thread; suffix K/M/G recognized [768M]</span><br><span class="line">  -n         Sort by <span class="built_in">read</span> name</span><br><span class="line">  -o FILE    Write final output to FILE rather than standard output</span><br><span class="line">  -T PREFIX  Write temporary files to PREFIX.nnnn.bam</span><br><span class="line">  -@, --threads INT</span><br><span class="line">             Set number of sorting and compression threads [1]</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">  -O, --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Example: <code>samtools sort -T /tmp/aln.sorted -o aln.sorted.bam aln.bam</code></p>
+</li>
+<li><p>主要参数释义：</p>
+<p>-l：设置文件压缩等级，0不压缩，9压缩最高</p>
+<p>-m：每个线程运行内存大小（可使用K M G表示）</p>
+<p>-n：按照read名称进行排序</p>
+<p>-o：排序后的输出文件</p>
+<p>-T：PREFIX临时文件前缀</p>
+<p>-@：设置排序和压缩的线程数，默认单线程</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>split</strong> – splits a file by read group 根据read group标签将bam文件进行分割 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools split</span><br><span class="line"></span><br><span class="line">Usage: samtools split [-u &lt;unaccounted.bam&gt;[:&lt;unaccounted_header.sam&gt;]]</span><br><span class="line">                      [-f &lt;format_string&gt;] [-v] &lt;merged.bam&gt;</span><br><span class="line">Options:</span><br><span class="line">  -f STRING       output filename format string [<span class="string">"%*_%#.%."</span>]</span><br><span class="line">  -u FILE1        put reads with no RG tag or an unrecognised RG tag <span class="keyword">in</span> FILE1</span><br><span class="line">  -u FILE1:FILE2  ...and override the header with FILE2</span><br><span class="line">  -v              verbose output</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br><span class="line"></span><br><span class="line">Format string expansions:</span><br><span class="line">  %%     %</span><br><span class="line">  %*     basename</span><br><span class="line">  %<span class="comment">#     @RG index</span></span><br><span class="line">  %!     @RG ID</span><br><span class="line">  %.     filename extension <span class="keyword">for</span> output format</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools split merged.bam</code> </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>quickcheck</strong> – quickly check if SAM/BAM/CRAM file appears intact  检查SAM/BAM/CRAM文件的完整性</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools quickcheck</span><br><span class="line"></span><br><span class="line">Usage: samtools quickcheck [options] &lt;input&gt; [...]</span><br><span class="line">Options:</span><br><span class="line">  -v              verbose output (repeat <span class="keyword">for</span> more verbosity)</span><br><span class="line"></span><br><span class="line">Notes:</span><br><span class="line"></span><br><span class="line">1. In order to use this <span class="built_in">command</span> effectively, you should check its <span class="built_in">exit</span> status;</span><br><span class="line">   without any -v options it will NOT <span class="built_in">print</span> any output, even when some files</span><br><span class="line">   fail the check. One way to use quickcheck might be as a check that all</span><br><span class="line">   BAM files <span class="keyword">in</span> a directory are okay:</span><br><span class="line"></span><br><span class="line">        samtools quickcheck *.bam &amp;&amp; <span class="built_in">echo</span> <span class="string">'all ok'</span> \</span><br><span class="line">           || <span class="built_in">echo</span> <span class="string">'fail!'</span></span><br><span class="line"></span><br><span class="line">   To also determine <span class="built_in">which</span> files have failed, use the -v option:</span><br><span class="line"></span><br><span class="line">        samtools quickcheck -v *.bam &gt; bad_bams.fofn \</span><br><span class="line">           &amp;&amp; <span class="built_in">echo</span> <span class="string">'all ok'</span> \</span><br><span class="line">           || <span class="built_in">echo</span> <span class="string">'some files failed check, see bad_bams.fofn'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools quickcheck in1.bam in2.cram</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>fastq</strong> – converts a BAM to a FASTQ 将bam格式文件转换为fastq文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools fastq</span><br><span class="line"></span><br><span class="line">Usage: samtools fastq [options...] &lt;in.bam&gt;</span><br><span class="line">Options:</span><br><span class="line">  -0 FILE   write paired reads flagged both or neither READ1 and READ2 to FILE</span><br><span class="line">  -1 FILE   write paired reads flagged READ1 to FILE</span><br><span class="line">  -2 FILE   write paired reads flagged READ2 to FILE</span><br><span class="line">  -f INT    only include reads with all bits <span class="built_in">set</span> <span class="keyword">in</span> INT <span class="built_in">set</span> <span class="keyword">in</span> FLAG [0]</span><br><span class="line">  -F INT    only include reads with none of the bits <span class="built_in">set</span> <span class="keyword">in</span> INT <span class="built_in">set</span> <span class="keyword">in</span> FLAG [0]</span><br><span class="line">  -n        don<span class="string">'t append /1 and /2 to the read name</span></span><br><span class="line"><span class="string">  -O        output quality in the OQ tag if present</span></span><br><span class="line"><span class="string">  -s FILE   write singleton reads to FILE [assume single-end]</span></span><br><span class="line"><span class="string">  -t        copy RG, BC and QT tags to the FASTQ header line</span></span><br><span class="line"><span class="string">  -v INT    default quality score if not given in file [1]</span></span><br><span class="line"><span class="string">      --input-fmt-option OPT[=VAL]</span></span><br><span class="line"><span class="string">               Specify a single input file format option in the form</span></span><br><span class="line"><span class="string">               of OPTION or OPTION=VALUE</span></span><br><span class="line"><span class="string">      --reference FILE</span></span><br><span class="line"><span class="string">               Reference sequence FASTA FILE [null]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools fastq input.bam &gt; output.fastq</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>fasta</strong> – converts a BAM to a FASTA 将bam格式文件转换为fasta文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools fasta</span><br><span class="line"></span><br><span class="line">Usage: samtools fasta [options...] &lt;in.bam&gt;</span><br><span class="line">Options:</span><br><span class="line">  -0 FILE   write paired reads flagged both or neither READ1 and READ2 to FILE</span><br><span class="line">  -1 FILE   write paired reads flagged READ1 to FILE</span><br><span class="line">  -2 FILE   write paired reads flagged READ2 to FILE</span><br><span class="line">  -f INT    only include reads with all bits <span class="built_in">set</span> <span class="keyword">in</span> INT <span class="built_in">set</span> <span class="keyword">in</span> FLAG [0]</span><br><span class="line">  -F INT    only include reads with none of the bits <span class="built_in">set</span> <span class="keyword">in</span> INT <span class="built_in">set</span> <span class="keyword">in</span> FLAG [0]</span><br><span class="line">  -n        don<span class="string">'t append /1 and /2 to the read name</span></span><br><span class="line"><span class="string">  -s FILE   write singleton reads to FILE [assume single-end]</span></span><br><span class="line"><span class="string">  -t        copy RG, BC and QT tags to the FASTA header line</span></span><br><span class="line"><span class="string">      --input-fmt-option OPT[=VAL]</span></span><br><span class="line"><span class="string">               Specify a single input file format option in the form</span></span><br><span class="line"><span class="string">               of OPTION or OPTION=VALUE</span></span><br><span class="line"><span class="string">      --reference FILE</span></span><br><span class="line"><span class="string">               Reference sequence FASTA FILE [null]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools fasta input.bam &gt; output.fasta</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-4-数据统计-Statistics"><a href="#2-4-数据统计-Statistics" class="headerlink" title="2.4 数据统计(Statistics)"></a>2.4 数据统计(Statistics)</h3><ul>
+<li><p><strong>bedcov</strong> – read depth per BED region 统计给定region区间内reads的深度，每个碱基的深度叠加在一起</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools bedcov</span><br><span class="line"></span><br><span class="line">Usage: samtools bedcov [options] &lt;in.bed&gt; &lt;in1.bam&gt; [...]</span><br><span class="line"></span><br><span class="line">  -Q INT       Only count bases of at least INT quality [0]</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools bedcov in.bed aln.sorted.bam</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>depth</strong> – compute the depth 统计每个碱基位点的测序深度，注意计算前必须对bam文件排序并构建索引</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools depth</span><br><span class="line"></span><br><span class="line">Usage: samtools depth [options] in1.bam [in2.bam [...]]</span><br><span class="line">Options:</span><br><span class="line">   -a                  output all positions (including zero depth)</span><br><span class="line">   -a -a (or -aa)      output absolutely all positions, including unused ref. sequences</span><br><span class="line">   -b &lt;bed&gt;            list of positions or regions</span><br><span class="line">   -f &lt;list&gt;           list of input BAM filenames, one per line [null]</span><br><span class="line">   -l &lt;int&gt;            <span class="built_in">read</span> length threshold (ignore reads shorter than &lt;int&gt;)</span><br><span class="line">   -d/-m &lt;int&gt;         maximum coverage depth [8000]</span><br><span class="line">   -q &lt;int&gt;            base quality threshold</span><br><span class="line">   -Q &lt;int&gt;            mapping quality threshold</span><br><span class="line">   -r &lt;chr:from-to&gt;    region</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br><span class="line"></span><br><span class="line">The output is a simple tab-separated table with three columns: reference name,</span><br><span class="line">position, and coverage depth.  Note that positions with zero coverage may be</span><br><span class="line">omitted by default; see the -a option.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools depth aln.sorted.bam</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>flagstat</strong> – simple stats 统计bam文件中read的比对情况</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools flagstat</span><br><span class="line"></span><br><span class="line">Usage: samtools flagstat [--input-fmt-option OPT=VAL] &lt;in.bam&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools flagstat aln.sorted.bam</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>idxstats</strong> – BAM index stats  统计bam索引文件里的比对信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools idxstats</span><br><span class="line"></span><br><span class="line">Usage: samtools idxstats &lt;in.bam&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools idxstats aln.sorted.bam</code></li>
+<li>idxstats生成一个统计表格，共有4列，分别为”序列名，序列长度，比对上的reads数，unmapped reads number”。第4列应该是paired reads中有一端能匹配到该scaffold上，而另外一端不匹配到任何scaffolds上的reads数。 </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>phase</strong> – Call and phase heterozygous SNPs </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools phase</span><br><span class="line"></span><br><span class="line">Usage:   samtools phase [options] &lt;in.bam&gt;</span><br><span class="line"></span><br><span class="line">Options: -k INT    block length [13]</span><br><span class="line">         -b STR    prefix of BAMs to output [null]</span><br><span class="line">         -q INT    min het phred-LOD [37]</span><br><span class="line">         -Q INT    min base quality <span class="keyword">in</span> het calling [13]</span><br><span class="line">         -D INT    max <span class="built_in">read</span> depth [256]</span><br><span class="line">         -F        <span class="keyword">do</span> not attempt to fix chimeras</span><br><span class="line">         -A        drop reads with ambiguous phase</span><br><span class="line"></span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools phase test.bam</code> </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>stats</strong> – generate stats (former bamcheck)  对bam文件做详细统计, 统计结果可用mics/plot-bamstats作图 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools stats</span><br><span class="line"></span><br><span class="line">About: The program collects statistics from BAM files. The output can be visualized using plot-bamstats.</span><br><span class="line">Usage: samtools stats [OPTIONS] file.bam</span><br><span class="line">       samtools stats [OPTIONS] file.bam chr:from-to</span><br><span class="line">Options:</span><br><span class="line">    -c, --coverage &lt;int&gt;,&lt;int&gt;,&lt;int&gt;    Coverage distribution min,max,step [1,1000,1]</span><br><span class="line">    -d, --remove-dups                   Exclude from statistics reads marked as duplicates</span><br><span class="line">    -f, --required-flag  &lt;str|int&gt;      Required flag, 0 <span class="keyword">for</span> <span class="built_in">unset</span>. See also `samtools flags` [0]</span><br><span class="line">    -F, --filtering-flag &lt;str|int&gt;      Filtering flag, 0 <span class="keyword">for</span> <span class="built_in">unset</span>. See also `samtools flags` [0]</span><br><span class="line">        --GC-depth &lt;<span class="built_in">float</span>&gt;              the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]</span><br><span class="line">    -h, --<span class="built_in">help</span>                          This <span class="built_in">help</span> message</span><br><span class="line">    -i, --insert-size &lt;int&gt;             Maximum insert size [8000]</span><br><span class="line">    -I, --id &lt;string&gt;                   Include only listed <span class="built_in">read</span> group or sample name</span><br><span class="line">    -l, --<span class="built_in">read</span>-length &lt;int&gt;             Include <span class="keyword">in</span> the statistics only reads with the given <span class="built_in">read</span> length []</span><br><span class="line">    -m, --most-inserts &lt;<span class="built_in">float</span>&gt;          Report only the main part of inserts [0.99]</span><br><span class="line">    -P, --split-prefix &lt;str&gt;            Path or string prefix <span class="keyword">for</span> filepaths output by -S (default is input filename)</span><br><span class="line">    -q, --trim-quality &lt;int&gt;            The BWA trimming parameter [0]</span><br><span class="line">    -r, --ref-seq &lt;file&gt;                Reference sequence (required <span class="keyword">for</span> GC-depth and mismatches-per-cycle calculation).</span><br><span class="line">    -s, --sam                           Ignored (input format is auto-detected).</span><br><span class="line">    -S, --split &lt;tag&gt;                   Also write statistics to separate files split by tagged field.</span><br><span class="line">    -t, --target-regions &lt;file&gt;         Do stats <span class="keyword">in</span> these regions only. Tab-delimited file chr,from,to, 1-based, inclusive.</span><br><span class="line">    -x, --sparse                        Suppress outputting IS rows <span class="built_in">where</span> there are no insertions.</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools stats aln.sorted.bam</code></li>
+<li>输出的信息比较多，部分如下：<br>Summary Numbers，raw total sequences，filtered sequences, reads mapped, reads mapped and paired,reads properly paired等信息<br>Fragment Qualitites：根据cycle统计每个位点上的碱基质量分布<br>Coverage distribution：深度为1，2，3，，，的碱基数目<br>ACGT content per cycle：ACGT在每个cycle中的比例<br>Insert sizes：插入长度的统计<br>Read lengths：read的长度分布 </li>
+</ul>
+</li>
+</ul>
+<h3 id="2-5-可视化-Viewing"><a href="#2-5-可视化-Viewing" class="headerlink" title="2.5 可视化(Viewing)"></a>2.5 可视化(Viewing)</h3><ul>
+<li><p><strong>flags</strong> – explain BAM flags   查看不同flag值的含义</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools flags</span><br><span class="line"></span><br><span class="line">About: Convert between textual and numeric flag representation</span><br><span class="line">Usage: samtools flags INT|STR[,...]</span><br><span class="line"></span><br><span class="line">Flags:</span><br><span class="line">        0x1     PAIRED        .. paired-end (or multiple-segment) sequencing technology</span><br><span class="line">        0x2     PROPER_PAIR   .. each segment properly aligned according to the aligner</span><br><span class="line">        0x4     UNMAP         .. segment unmapped</span><br><span class="line">        0x8     MUNMAP        .. next segment <span class="keyword">in</span> the template unmapped</span><br><span class="line">        0x10    REVERSE       .. SEQ is reverse complemented</span><br><span class="line">        0x20    MREVERSE      .. SEQ of the next segment <span class="keyword">in</span> the template is reversed</span><br><span class="line">        0x40    READ1         .. the first segment <span class="keyword">in</span> the template</span><br><span class="line">        0x80    READ2         .. the last segment <span class="keyword">in</span> the template</span><br><span class="line">        0x100   SECONDARY     .. secondary alignment</span><br><span class="line">        0x200   QCFAIL        .. not passing quality controls</span><br><span class="line">        0x400   DUP           .. PCR or optical duplicate</span><br><span class="line">        0x800   SUPPLEMENTARY .. supplementary alignment</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Example: <code>samtools flags PAIRED,UNMAP,MUNMAP</code></p>
+</li>
+<li><p><strong>FLAGS:</strong></p>
+<table>
+<thead>
+<tr>
+<th>0x1</th>
+<th>PAIRED</th>
+<th align="center">paired-end (or multiple-segment) sequencing technology</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0x2</td>
+<td>PROPER_PAIR</td>
+<td align="center">each segment properly aligned according to the aligner</td>
+</tr>
+<tr>
+<td>0x4</td>
+<td>UNMAP</td>
+<td align="center">segment unmapped</td>
+</tr>
+<tr>
+<td>0x8</td>
+<td>MUNMAP</td>
+<td align="center">next segment in the template unmapped</td>
+</tr>
+<tr>
+<td>0x10</td>
+<td>REVERSE</td>
+<td align="center">SEQ is reverse complemented</td>
+</tr>
+<tr>
+<td>0x20</td>
+<td>MREVERSE</td>
+<td align="center">SEQ of the next segment in the template is reverse complemented</td>
+</tr>
+<tr>
+<td>0x40</td>
+<td>READ1</td>
+<td align="center">the first segment in the template</td>
+</tr>
+<tr>
+<td>0x80</td>
+<td>READ2</td>
+<td align="center">the last segment in the template</td>
+</tr>
+<tr>
+<td>0x100</td>
+<td>SECONDARY</td>
+<td align="center">secondary alignment</td>
+</tr>
+<tr>
+<td>0x200</td>
+<td>QCFAIL</td>
+<td align="center">not passing quality controls</td>
+</tr>
+<tr>
+<td>0x400</td>
+<td>DUP</td>
+<td align="center">PCR or optical duplicate</td>
+</tr>
+<tr>
+<td>0x800</td>
+<td>SUPPLEMENTARY</td>
+<td align="center">supplementary alignment</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>tview</strong> – text alignment viewer  直观地显示reads比对到参考基因组的情况，类似于基因组浏览器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools tview</span><br><span class="line"></span><br><span class="line">Usage: samtools tview [options] &lt;aln.bam&gt; [ref.fasta]</span><br><span class="line">Options:</span><br><span class="line">   -d display      output as (H)tml or (C)urses or (T)ext</span><br><span class="line">   -p chr:pos      go directly to this position</span><br><span class="line">   -s STR          display only reads from this sample or group</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools tview aln.sorted.bam ref.fasta</code></li>
+<li>需先对bam文件进行排序并构建索引</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>view</strong> – SAM&lt;-&gt;BAM&lt;-&gt;CRAM conversion 将sam和bam文件进行格式互换</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools view</span><br><span class="line"></span><br><span class="line">Usage: samtools view [options] &lt;in.bam&gt;|&lt;in.sam&gt;|&lt;in.cram&gt; [region ...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -b       output BAM</span><br><span class="line">  -C       output CRAM (requires -T)</span><br><span class="line">  -1       use fast BAM compression (implies -b)</span><br><span class="line">  -u       uncompressed BAM output (implies -b)</span><br><span class="line">  -h       include header <span class="keyword">in</span> SAM output</span><br><span class="line">  -H       <span class="built_in">print</span> SAM header only (no alignments)</span><br><span class="line">  -c       <span class="built_in">print</span> only the count of matching records</span><br><span class="line">  -o FILE  output file name [stdout]</span><br><span class="line">  -U FILE  output reads not selected by filters to FILE [null]</span><br><span class="line">  -t FILE  FILE listing reference names and lengths (see long <span class="built_in">help</span>) [null]</span><br><span class="line">  -L FILE  only include reads overlapping this BED FILE [null]</span><br><span class="line">  -r STR   only include reads <span class="keyword">in</span> <span class="built_in">read</span> group STR [null]</span><br><span class="line">  -R FILE  only include reads with <span class="built_in">read</span> group listed <span class="keyword">in</span> FILE [null]</span><br><span class="line">  -q INT   only include reads with mapping quality &gt;= INT [0]</span><br><span class="line">  -l STR   only include reads <span class="keyword">in</span> library STR [null]</span><br><span class="line">  -m INT   only include reads with number of CIGAR operations consuming</span><br><span class="line">           query sequence &gt;= INT [0]</span><br><span class="line">  -f INT   only include reads with all bits <span class="built_in">set</span> <span class="keyword">in</span> INT <span class="built_in">set</span> <span class="keyword">in</span> FLAG [0]</span><br><span class="line">  -F INT   only include reads with none of the bits <span class="built_in">set</span> <span class="keyword">in</span> INT <span class="built_in">set</span> <span class="keyword">in</span> FLAG [0]</span><br><span class="line">  -x STR   <span class="built_in">read</span> tag to strip (repeatable) [null]</span><br><span class="line">  -B       collapse the backward CIGAR operation</span><br><span class="line">  -s FLOAT <span class="built_in">integer</span> part sets seed of random number generator [0];</span><br><span class="line">           rest sets fraction of templates to subsample [no subsampling]</span><br><span class="line">  -@, --threads INT</span><br><span class="line">           number of BAM/CRAM compression threads [0]</span><br><span class="line">  -?       <span class="built_in">print</span> long <span class="built_in">help</span>, including note about region specification</span><br><span class="line">  -S       ignored (input format is auto-detected)</span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">  -O, --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">  -T, --reference FILE</span><br><span class="line">               Reference sequence FASTA FILE [null]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Example ：<code>samtools view -bS  test.sam &gt; test.bam</code> </p>
+</li>
+<li><p>重要参数解读：</p>
+<p>-b：输出bam格式</p>
+<p>-C：输出CRAM文件</p>
+<p>-1：快速压缩（需要-b）</p>
+<p>-u：输出未压缩的bam文件，节约时间，占据较多磁盘空间（需要-b）</p>
+<p>-h：默认输出sam文件不带表头，该参数设定后输出带表头信息</p>
+<p>-H：仅仅输出表头信息</p>
+<p>-c：仅打印匹配数</p>
+<p>-o：输出文件（stdout标准输出）</p>
+<p>-U：输出没有经过过滤选择的reads</p>
+<p>-t：制表分隔符文件（需要提供额外的参考数据，比如参考基因组的索引）</p>
+<p>-L：仅包括和bed文件有重叠的reads</p>
+<p>-r：仅输出在STR读段组中的reads</p>
+<p>-R：仅输出特定reads</p>
+<p>-q：定位的质量大于INT[默认0]</p>
+<p>-l：仅输出在STR 库中的reads</p>
+<p>-F：获得比对上（mapped）的过滤设置[默认0]</p>
+<p>-f：获得未必对上（unmapped）的过滤设置[默认0]</p>
+<p>-T：使用fasta格式的参考序列</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>depad</strong> – convert padded BAM to unpadded BAM</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools depad</span><br><span class="line"></span><br><span class="line">Usage:   samtools depad &lt;in.bam&gt;</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -s           Output is SAM (default is BAM)</span><br><span class="line">  -S           Input is SAM (default is BAM)</span><br><span class="line">  -u           Uncompressed BAM output (can<span class="string">'t use with -s)</span></span><br><span class="line"><span class="string">  -1           Fast compression BAM output (can'</span>t use with -s)</span><br><span class="line">  -T, --reference FILE</span><br><span class="line">               Padded reference sequence file [null]</span><br><span class="line">  -o FILE      Output file name [stdout]</span><br><span class="line">  -?           Longer <span class="built_in">help</span></span><br><span class="line">      --input-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single input file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br><span class="line">      --output-fmt FORMAT[,OPT[=VAL]]...</span><br><span class="line">               Specify output format (SAM, BAM, CRAM)</span><br><span class="line">      --output-fmt-option OPT[=VAL]</span><br><span class="line">               Specify a single output file format option <span class="keyword">in</span> the form</span><br><span class="line">               of OPTION or OPTION=VALUE</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Example: <code>samtools depad input.bam</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="三、常用示例"><a href="#三、常用示例" class="headerlink" title="三、常用示例"></a>三、常用示例</h2><ol>
+<li>sam/bam格式文件互换</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools view -bS -1 test.sam &gt; test.bam <span class="comment"># sam转bam</span></span><br><span class="line">$ samtools view -h test.bam &gt; test.sam <span class="comment"># bam转sam</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>提取比对到参考基因组上的数据</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools view -bF 4 test.bam &gt; test.F.bam</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>提取没有比对到参考基因组上的数据</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools view -bf 4 test.bam &gt; test.f.bam</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>双端reads都比对到参考基因组上的数据</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools view -bF 12 test.bam &gt; test.12.bam</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>单端reads1比对到参考基因组上的数据</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">samtools view -bF 4 -f 8  <span class="built_in">test</span> .bam &gt; test1.bam</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>单端reads2比对到参考基因组上的数据</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools view -bF 8 -f 4 test.bam &gt; test2.bam</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>提取bam文件中比对到scaffold1上的比对结果，并保存到sam文件格式</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools view abc.bam scaffold1 &gt; scaffold1.sam</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>提取scaffold1上能比对到30k到100k区域的比对结果</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools view abc.bam scaffold1:30000-100000 &gt; scaffold1_30k-100k.sam</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>根据fasta文件，将 header 加入到 sam 或 bam 文件中</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools view -T genome.fasta -h scaffold1.sam &gt; scaffold1.h.sam</span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>call SNP和INDEL等变异信息</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ samtools mpileup -f genome.fasta abc.bam &gt; abc.txt</span><br><span class="line">$ samtools mpileup -gSDf genome.fasta abc.bam &gt; abc.bcf</span><br><span class="line">$ samtools mpileup -guSDf genome.fasta abc.bam | \</span><br><span class="line">           bcftools view -cvNg - &gt; abc.vcf</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参考来源：<br><a href="http://www.htslib.org/doc/samtools.html" target="_blank" rel="noopener">http://www.htslib.org/doc/samtools.html</a><br><a href="https://www.cnblogs.com/xiaofeiIDO/p/6805373.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaofeiIDO/p/6805373.html</a><br><a href="https://blog.csdn.net/sunchengquan/article/details/85176940" target="_blank" rel="noopener">https://blog.csdn.net/sunchengquan/article/details/85176940</a> </p>
+</blockquote>
+<p>▼更多精彩推荐，请关注我们▼</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-23037b02cac7415b?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp" alt="image"></p>
+]]></content>
+      <categories>
+        <category>NGS</category>
+        <category>Biosoftware</category>
+      </categories>
+      <tags>
+        <tag>NGS</tag>
+        <tag>Samtools</tag>
+      </tags>
+  </entry>
+</search>

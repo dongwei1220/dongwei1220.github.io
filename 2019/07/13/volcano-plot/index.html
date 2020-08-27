@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="R,">
 
 
 
@@ -81,18 +81,32 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="NGS, Single Cell Omics, 3D Genomics">
+<meta name="description" content="清除当前环境中的变量1rm(list=ls())  设置工作目录1setwd(&amp;quot;C:/Users/Dell/Desktop/R_Plots/11volcano/&amp;quot;)  读取示例数据12345678910111213141516171819data &amp;lt;- read.table(&amp;quot;demo_volcano.txt&amp;quot;,header = T,">
+<meta name="keywords" content="R">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://dongwei1220.github.io/2019/07/13/hello-world/index.html">
+<meta property="og:title" content="11.火山图绘制">
+<meta property="og:url" content="https://dongwei1220.github.io/2019/07/13/volcano-plot/index.html">
 <meta property="og:site_name" content="Davey&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="清除当前环境中的变量1rm(list=ls())  设置工作目录1setwd(&amp;quot;C:/Users/Dell/Desktop/R_Plots/11volcano/&amp;quot;)  读取示例数据12345678910111213141516171819data &amp;lt;- read.table(&amp;quot;demo_volcano.txt&amp;quot;,header = T,">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-07-13T01:47:40.787Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-34534a04ad20fe6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-6e41b45b117558fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-dd14d6e376147e46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-c615f54231401244.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-c5a37685aabf8f0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-398bf3c15686b458.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-103405766d01d474.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-edc254b64a0342d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-9f7e96a2edf62ebb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-51512ede162a780f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-7d55b31bc518a67e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-d6e49ad02150cc42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-e68184a658204a7c?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp">
+<meta property="og:updated_time" content="2020-08-27T06:55:04.808Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="11.火山图绘制">
+<meta name="twitter:description" content="清除当前环境中的变量1rm(list=ls())  设置工作目录1setwd(&amp;quot;C:/Users/Dell/Desktop/R_Plots/11volcano/&amp;quot;)  读取示例数据12345678910111213141516171819data &amp;lt;- read.table(&amp;quot;demo_volcano.txt&amp;quot;,header = T,">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8723194-34534a04ad20fe6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -122,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://dongwei1220.github.io/2019/07/13/hello-world/">
+  <link rel="canonical" href="https://dongwei1220.github.io/2019/07/13/volcano-plot/">
 
 
 
 
 
-  <title>Hello World | Davey's Blog</title>
+  <title>11.火山图绘制 | Davey's Blog</title>
   
 
 
@@ -297,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dongwei1220.github.io/2019/07/13/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://dongwei1220.github.io/2019/07/13/volcano-plot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wei Dong">
@@ -314,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">11.火山图绘制</h1>
         
 
         <div class="post-meta">
@@ -326,7 +340,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-13T09:47:40+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-13T10:04:52+08:00">
                 2019-07-13
               </time>
             
@@ -342,12 +356,34 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-13T09:47:40+08:00">
-                2019-07-13
+              <time title="Post modified" itemprop="dateModified" datetime="2020-08-27T14:55:04+08:00">
+                2020-08-27
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Visualization/" itemprop="url" rel="index">
+                    <span itemprop="name">Visualization</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -370,7 +406,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  2.4k
+                  21k
                 </span>
               
 
@@ -386,7 +422,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  2 mins.
+                  19 mins.
                 </span>
               
             </div>
@@ -407,19 +443,52 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h3 id="清除当前环境中的变量"><a href="#清除当前环境中的变量" class="headerlink" title="清除当前环境中的变量"></a>清除当前环境中的变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm(list=ls())</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="设置工作目录"><a href="#设置工作目录" class="headerlink" title="设置工作目录"></a>设置工作目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setwd(&quot;C:/Users/Dell/Desktop/R_Plots/11volcano/&quot;)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="读取示例数据"><a href="#读取示例数据" class="headerlink" title="读取示例数据"></a>读取示例数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">data &lt;- read.table(&quot;demo_volcano.txt&quot;,header = T,</span><br><span class="line">                   check.names = F,row.names = 1,sep=&quot;\t&quot;)</span><br><span class="line"></span><br><span class="line"># 查看示例数据</span><br><span class="line">head(data)</span><br><span class="line">##                LOG_count WT0_count LOG_rpkm WT0_rpkm log2_Ratio(WT0/LOG)</span><br><span class="line">## Unigene0000003     17243     17525 931.5677 942.4515          0.01675776</span><br><span class="line">## Unigene0000004        65       101   4.1156   6.3657          0.62921640</span><br><span class="line">## Unigene0000005       909       984  36.8859  39.7458          0.10773298</span><br><span class="line">## Unigene0000006      1376      1082  74.7026  58.4714         -0.35342732</span><br><span class="line">## Unigene0000007       121        73  15.6800   9.4163         -0.73569337</span><br><span class="line">## Unigene0000008       221       308  13.1401  18.2287          0.47223542</span><br><span class="line">##                      Pvalue          FDR significant</span><br><span class="line">## Unigene0000003 0.5149484880 0.6733042200          no</span><br><span class="line">## Unigene0000004 0.0066439000 0.0178825370          no</span><br><span class="line">## Unigene0000005 0.1259729560 0.2246500490          no</span><br><span class="line">## Unigene0000006 0.0000000117 0.0000000686          no</span><br><span class="line">## Unigene0000007 0.0007419290 0.0024460860          no</span><br><span class="line">## Unigene0000008 0.0003037820 0.0010721500          no</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="base-plot函数绘制火山图"><a href="#base-plot函数绘制火山图" class="headerlink" title="base plot函数绘制火山图"></a>base plot函数绘制火山图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">attach(data)</span><br><span class="line"># 基础火山图</span><br><span class="line">plot(x=`log2_Ratio(WT0/LOG)`,y=-1*log10(FDR))</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-34534a04ad20fe6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 添加颜色和标题</span><br><span class="line">plot(x=`log2_Ratio(WT0/LOG)`,y=-1*log10(FDR),</span><br><span class="line">     type = &quot;p&quot;, pch=20, col=significant,</span><br><span class="line">     main=&quot;Volcano plot&quot;,</span><br><span class="line">     xlab=&quot;log2(FC)&quot;,ylab=&quot;-log10(FDR)&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6e41b45b117558fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 添加水平线和垂直线</span><br><span class="line">abline(v=c(-1,1),lty=2,lwd = 2,col=&quot;red&quot;)</span><br><span class="line">abline(h=-log10(0.05),lty=2,lwd=2,col=&quot;blue&quot;</span><br><span class="line"># 添加图例</span><br><span class="line">legend(&quot;topright&quot;, inset = 0.01, title = &quot;Significant&quot;, c(&quot;yes&quot;,&quot;no&quot;),</span><br><span class="line">       pch=c(16,16),col = c(&quot;red&quot;,&quot;black&quot;))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-dd14d6e376147e46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 添加gene注释信息</span><br><span class="line">gene_selected &lt;- c(&quot;Unigene0034898&quot;,&quot;Unigene0038455&quot;,&quot;Unigene0003997&quot;,</span><br><span class="line">                   &quot;Unigene0026444&quot;,&quot;Unigene0039482&quot;,&quot;Unigene0028163&quot;</span><br><span class="line">                   )</span><br><span class="line">data_selected &lt;- data[gene_selected,]</span><br><span class="line">text(x=data_selected$`log2_Ratio(WT0/LOG)`,y=-1*log10(data_selected$FDR),</span><br><span class="line">     labels = rownames(data_selected),col=&quot;red&quot;,adj = 0.5)</span><br><span class="line">detach(data)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-c615f54231401244.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="ggplot2包绘制火山图"><a href="#ggplot2包绘制火山图" class="headerlink" title="ggplot2包绘制火山图"></a>ggplot2包绘制火山图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br><span class="line">head(data)</span><br><span class="line">##                LOG_count WT0_count LOG_rpkm WT0_rpkm log2_Ratio(WT0/LOG)</span><br><span class="line">## Unigene0000003     17243     17525 931.5677 942.4515          0.01675776</span><br><span class="line">## Unigene0000004        65       101   4.1156   6.3657          0.62921640</span><br><span class="line">## Unigene0000005       909       984  36.8859  39.7458          0.10773298</span><br><span class="line">## Unigene0000006      1376      1082  74.7026  58.4714         -0.35342732</span><br><span class="line">## Unigene0000007       121        73  15.6800   9.4163         -0.73569337</span><br><span class="line">## Unigene0000008       221       308  13.1401  18.2287          0.47223542</span><br><span class="line">##                      Pvalue          FDR significant</span><br><span class="line">## Unigene0000003 0.5149484880 0.6733042200          no</span><br><span class="line">## Unigene0000004 0.0066439000 0.0178825370          no</span><br><span class="line">## Unigene0000005 0.1259729560 0.2246500490          no</span><br><span class="line">## Unigene0000006 0.0000000117 0.0000000686          no</span><br><span class="line">## Unigene0000007 0.0007419290 0.0024460860          no</span><br><span class="line">## Unigene0000008 0.0003037820 0.0010721500          no</span><br><span class="line"></span><br><span class="line"># 基础火山图</span><br><span class="line">ggplot(data,aes(`log2_Ratio(WT0/LOG)`,-log10(FDR))) + geom_point()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-c5a37685aabf8f0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 添加颜色和标题</span><br><span class="line">ggplot(data,aes(`log2_Ratio(WT0/LOG)`,-log10(FDR),color=significant)) +</span><br><span class="line">  geom_point() +</span><br><span class="line">  labs(title=&quot;Volcano plot&quot;,x=expression(log[2](FC)), y=expression(-log[10](FDR)))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-398bf3c15686b458.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 更改颜色，主题，添加水平线和垂直线，去掉网格线</span><br><span class="line">p &lt;- ggplot(data,aes(`log2_Ratio(WT0/LOG)`,-log10(FDR),color=significant)) +</span><br><span class="line">  geom_point() + theme_bw() +</span><br><span class="line">  labs(title=&quot;Volcano plot&quot;,x=expression(log[2](FC)), y=expression(-log[10](FDR))) +</span><br><span class="line">  scale_color_manual(values = c(&quot;blue&quot;,&quot;red&quot;)) +</span><br><span class="line">  geom_vline(xintercept=-1, linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  geom_vline(xintercept=1, linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  geom_hline(yintercept=-log(0.05), linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  theme(plot.title = element_text(hjust = 0.5)) +</span><br><span class="line">  theme(panel.grid.major = element_blank(),</span><br><span class="line">        panel.grid.minor = element_blank(),</span><br><span class="line">        panel.background = element_blank())</span><br><span class="line">p</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-103405766d01d474.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 添加基因注释信息</span><br><span class="line">library(ggrepel)</span><br><span class="line">p + geom_text_repel(data=data_selected,</span><br><span class="line">                    aes(label=rownames(data_selected)))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-edc254b64a0342d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p + geom_label_repel(data=data_selected,</span><br><span class="line">                     aes(label=rownames(data_selected)))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-9f7e96a2edf62ebb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="ggpubr包绘制火山图"><a href="#ggpubr包绘制火山图" class="headerlink" title="ggpubr包绘制火山图"></a>ggpubr包绘制火山图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">library(ggpubr)</span><br><span class="line">data$FDR &lt;- -log10(data$FDR)</span><br><span class="line">data$FC &lt;- data$`log2_Ratio(WT0/LOG)`</span><br><span class="line">head(data)</span><br><span class="line">##                LOG_count WT0_count LOG_rpkm WT0_rpkm log2_Ratio(WT0/LOG)</span><br><span class="line">## Unigene0000003     17243     17525 931.5677 942.4515          0.01675776</span><br><span class="line">## Unigene0000004        65       101   4.1156   6.3657          0.62921640</span><br><span class="line">## Unigene0000005       909       984  36.8859  39.7458          0.10773298</span><br><span class="line">## Unigene0000006      1376      1082  74.7026  58.4714         -0.35342732</span><br><span class="line">## Unigene0000007       121        73  15.6800   9.4163         -0.73569337</span><br><span class="line">## Unigene0000008       221       308  13.1401  18.2287          0.47223542</span><br><span class="line">##                      Pvalue       FDR significant          FC</span><br><span class="line">## Unigene0000003 0.5149484880 0.1717887          no  0.01675776</span><br><span class="line">## Unigene0000004 0.0066439000 1.7475709          no  0.62921640</span><br><span class="line">## Unigene0000005 0.1259729560 0.6484935          no  0.10773298</span><br><span class="line">## Unigene0000006 0.0000000117 7.1636759          no -0.35342732</span><br><span class="line">## Unigene0000007 0.0007419290 2.6115283          no -0.73569337</span><br><span class="line">## Unigene0000008 0.0003037820 2.9697445          no  0.47223542</span><br><span class="line"></span><br><span class="line"># 基础火山图</span><br><span class="line">ggscatter(data,x=&quot;FC&quot;,y=&quot;FDR&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-51512ede162a780f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 添加颜色，标题，坐标轴标签</span><br><span class="line">ggscatter(data,x=&quot;FC&quot;,y=&quot;FDR&quot;,size = 1.5,</span><br><span class="line">          color = &quot;significant&quot;, palette = c(&quot;#BBBBBB&quot;,&quot;#CC0000&quot;),</span><br><span class="line">          title = &quot;Volcano plot&quot;,xlab = &quot;log2(FC)&quot;,ylab = &quot;-log10(FDR)&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-7d55b31bc518a67e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 添加水平线和垂直线，标题居中</span><br><span class="line">ggscatter(data,x=&quot;FC&quot;,y=&quot;FDR&quot;,size = 1.5,</span><br><span class="line">          color = &quot;significant&quot;, palette = c(&quot;#BBBBBB&quot;,&quot;#CC0000&quot;),</span><br><span class="line">          title = &quot;Volcano plot&quot;,xlab = &quot;log2(FC)&quot;,ylab = &quot;-log10(FDR)&quot;) +</span><br><span class="line">  geom_vline(xintercept=c(-1,1), linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  geom_hline(yintercept=-log(0.05), linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  theme(plot.title = element_text(hjust = 0.5))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-d6e49ad02150cc42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">sessionInfo()</span><br><span class="line">## R version 3.6.0 (2019-04-26)</span><br><span class="line">## Platform: x86_64-w64-mingw32/x64 (64-bit)</span><br><span class="line">## Running under: Windows 10 x64 (build 18363)</span><br><span class="line">##</span><br><span class="line">## Matrix products: default</span><br><span class="line">##</span><br><span class="line">## locale:</span><br><span class="line">## [1] LC_COLLATE=Chinese (Simplified)_China.936</span><br><span class="line">## [2] LC_CTYPE=Chinese (Simplified)_China.936</span><br><span class="line">## [3] LC_MONETARY=Chinese (Simplified)_China.936</span><br><span class="line">## [4] LC_NUMERIC=C</span><br><span class="line">## [5] LC_TIME=Chinese (Simplified)_China.936</span><br><span class="line">##</span><br><span class="line">## attached base packages:</span><br><span class="line">## [1] stats     graphics  grDevices utils     datasets  methods   base</span><br><span class="line">##</span><br><span class="line">## other attached packages:</span><br><span class="line">## [1] ggpubr_0.2.1  magrittr_1.5  ggrepel_0.8.1 ggplot2_3.2.0</span><br><span class="line">##</span><br><span class="line">## loaded via a namespace (and not attached):</span><br><span class="line">##  [1] Rcpp_1.0.5       knitr_1.23       tidyselect_0.2.5 munsell_0.5.0</span><br><span class="line">##  [5] colorspace_1.4-1 R6_2.4.0         rlang_0.4.7      stringr_1.4.0</span><br><span class="line">##  [9] dplyr_0.8.3      tools_3.6.0      grid_3.6.0       gtable_0.3.0</span><br><span class="line">## [13] xfun_0.8         withr_2.1.2      htmltools_0.3.6  yaml_2.2.0</span><br><span class="line">## [17] lazyeval_0.2.2   digest_0.6.20    assertthat_0.2.1 tibble_2.1.3</span><br><span class="line">## [21] ggsignif_0.5.0   crayon_1.3.4     purrr_0.3.2      glue_1.3.1</span><br><span class="line">## [25] evaluate_0.14    rmarkdown_1.13   labeling_0.3     stringi_1.4.3</span><br><span class="line">## [29] compiler_3.6.0   pillar_1.4.2     scales_1.0.0     pkgconfig_2.0.2</span><br></pre></td></tr></table></figure>
+
+<p>▼更多精彩推荐，请关注我们▼</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-e68184a658204a7c?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp" alt="image"></p>
 
       
     </div>
@@ -440,7 +509,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://dongwei1220.github.io/2019/07/13/hello-world/" title="Hello World">https://dongwei1220.github.io/2019/07/13/hello-world/</a>
+    <a href="https://dongwei1220.github.io/2019/07/13/volcano-plot/" title="11.火山图绘制">https://dongwei1220.github.io/2019/07/13/volcano-plot/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -453,6 +522,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+        </div>
+      
 
       
       
@@ -462,14 +537,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/07/13/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/13/volcano-plot/" rel="prev" title="11.火山图绘制">
-                11.火山图绘制 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/08/27/my-cv/" rel="prev" title="使用R pagedown给自己做一份精致的简历">
+                使用R pagedown给自己做一份精致的简历 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -633,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#清除当前环境中的变量"><span class="nav-number">1.</span> <span class="nav-text">清除当前环境中的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置工作目录"><span class="nav-number">2.</span> <span class="nav-text">设置工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取示例数据"><span class="nav-number">3.</span> <span class="nav-text">读取示例数据</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#base-plot函数绘制火山图"><span class="nav-number"></span> <span class="nav-text">base plot函数绘制火山图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ggplot2包绘制火山图"><span class="nav-number"></span> <span class="nav-text">ggplot2包绘制火山图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ggpubr包绘制火山图"><span class="nav-number"></span> <span class="nav-text">ggpubr包绘制火山图</span></a></li></div>
             
 
           </div>
