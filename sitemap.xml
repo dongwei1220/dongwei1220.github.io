@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongwei1220.github.io/2020/08/28/linux-basic-command2/</loc>
+    
+    <lastmod>2020-08-28T12:03:46.318Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongwei1220.github.io/2020/08/28/linux-basic-command1/</loc>
+    
+    <lastmod>2020-08-28T10:59:50.719Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongwei1220.github.io/about/index.html</loc>
+    
+    <lastmod>2020-08-28T07:52:58.432Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongwei1220.github.io/links/index.html</loc>
+    
+    <lastmod>2020-08-28T03:21:27.939Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongwei1220.github.io/categories/index.html</loc>
     
     <lastmod>2020-08-27T08:37:02.933Z</lastmod>
@@ -12,13 +40,6 @@
     <loc>https://dongwei1220.github.io/tags/index.html</loc>
     
     <lastmod>2020-08-27T08:36:34.072Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongwei1220.github.io/about/index.html</loc>
-    
-    <lastmod>2020-08-27T07:25:09.343Z</lastmod>
     
   </url>
   

@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,Shell,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Davey's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="1. 目录和文件管理1.1目录相关1.1.1 mkdir功能说明：创建目录语 法：mkdir [-p] &amp;lt;dir1 [dir2 …]&amp;gt;参 数：-p 若所要建立目录的上层目录目前尚未建立，则会一并建立上层目录。Example ： 12mkdir testdirmkdir -p newdir/childdir  1.1.2 rmdir功能说明：删除（空）目录补充说明：该命令只能删除空目录，">
+<meta name="keywords" content="Linux,Shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础常用命令大全(一)">
+<meta property="og:url" content="https://dongwei1220.github.io/2020/08/28/linux-basic-command1/index.html">
+<meta property="og:site_name" content="Davey&#39;s Blog">
+<meta property="og:description" content="1. 目录和文件管理1.1目录相关1.1.1 mkdir功能说明：创建目录语 法：mkdir [-p] &amp;lt;dir1 [dir2 …]&amp;gt;参 数：-p 若所要建立目录的上层目录目前尚未建立，则会一并建立上层目录。Example ： 12mkdir testdirmkdir -p newdir/childdir  1.1.2 rmdir功能说明：删除（空）目录补充说明：该命令只能删除空目录，">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://dongwei1220.github.io/.io//C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200828185816514.png">
+<meta property="og:image" content="https://dongwei1220.github.io/.io//C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200828185940452.png">
+<meta property="og:updated_time" content="2020-08-28T10:59:50.719Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux基础常用命令大全(一)">
+<meta name="twitter:description" content="1. 目录和文件管理1.1目录相关1.1.1 mkdir功能说明：创建目录语 法：mkdir [-p] &amp;lt;dir1 [dir2 …]&amp;gt;参 数：-p 若所要建立目录的上层目录目前尚未建立，则会一并建立上层目录。Example ： 12mkdir testdirmkdir -p newdir/childdir  1.1.2 rmdir功能说明：删除（空）目录补充说明：该命令只能删除空目录，">
+<meta name="twitter:image" content="https://dongwei1220.github.io/.io//C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200828185816514.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://dongwei1220.github.io/2020/08/28/linux-basic-command1/">
+
+
+
+
+
+  <title>Linux基础常用命令大全(一) | Davey's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Davey's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Bioinfomics</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br>
+            
+            Links
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://dongwei1220.github.io/2020/08/28/linux-basic-command1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wei Dong">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/people.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Davey's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux基础常用命令大全(一)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-28T16:01:01+08:00">
+                2020-08-28
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-08-28T18:59:50+08:00">
+                2020-08-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  22k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  20 mins.
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-目录和文件管理"><a href="#1-目录和文件管理" class="headerlink" title="1. 目录和文件管理"></a>1. 目录和文件管理</h2><h3 id="1-1目录相关"><a href="#1-1目录相关" class="headerlink" title="1.1目录相关"></a>1.1目录相关</h3><h4 id="1-1-1-mkdir"><a href="#1-1-1-mkdir" class="headerlink" title="1.1.1 mkdir"></a>1.1.1 mkdir</h4><p>功能说明：创建目录<br>语 法：mkdir [-p] &lt;dir1 [dir2 …]&gt;<br>参 数：<br>-p 若所要建立目录的上层目录目前尚未建立，则会一并建立上层目录。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir testdir</span><br><span class="line">mkdir -p newdir/childdir</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-2-rmdir"><a href="#1-1-2-rmdir" class="headerlink" title="1.1.2 rmdir"></a>1.1.2 rmdir</h4><p>功能说明：删除（空）目录<br>补充说明：该命令只能删除空目录，若要删除非空目录，请使用rm –r dirname<br>语 法：rmdir [-p] &lt;dir1 [dir2…]&gt;<br>参 数：<br>-p 删除指定目录后，若该目录的上层目录已变成空目录，则将其一并删除。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rmdir testdir</span><br><span class="line">rmdir -p childdir</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-3-ls"><a href="#1-1-3-ls" class="headerlink" title="1.1.3 ls"></a>1.1.3 ls</h4><p>功能说明：列出目录内容<br>语 法：ls [-alhtr] &lt;file/dirname&gt;<br>参 数：<br>-a 显示目录下所有文件和目录（显示隐藏文件和目录）。<br>-l 显示文件/目录详细信息，每行显示一个文件/目录。<br>-h 文件大小按’K’，’M’，’G’，来显示（需要加 -l 参数）。<br>-t 用文件和目录的更改时间排序。<br>-r 反向排序<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls -a dirname</span><br><span class="line">ls -lh dirname</span><br><span class="line">ls -ltr dirname</span><br></pre></td></tr></table></figure>
+
+<p><strong>补充说明</strong>：ll 并不是linux下的基本命令，实际上是ls -l 的一个别名（缩写），别名可在~/.bashrc中使用alias定义，如alias ll=’ls -l’</p>
+<h4 id="1-1-4-cd"><a href="#1-1-4-cd" class="headerlink" title="1.1.4 cd"></a>1.1.4 cd</h4><p>功能说明：切换目录<br>语 法：cd &lt;dirname&gt;<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /path/dirname/</span><br></pre></td></tr></table></figure>
+
+<p>特殊例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> / <span class="comment">#转换到根目录</span></span><br><span class="line"><span class="built_in">cd</span> ~ <span class="comment">#转换到家目录（即/home/yourname/）</span></span><br><span class="line"><span class="built_in">cd</span> ../ <span class="comment">#转换到上一级目录 </span></span><br><span class="line"><span class="built_in">cd</span> - <span class="comment">#转换到上一次cd前所在的目录</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-5-pwd"><a href="#1-1-5-pwd" class="headerlink" title="1.1.5 pwd"></a>1.1.5 pwd</h4><p>功能说明：显示工作目录绝对路径<br>语 法：pwd<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>特殊目录</strong>的表示：<br>/ 根目录<br>~ 家目录<br>./ 当前目录<br>../ 上一级目录<br><strong>特殊说明</strong>：linux 下以”.”开头的文件名为隐藏文件，使用ls -a时才会显示</p>
+<h3 id="1-2-文件处理"><a href="#1-2-文件处理" class="headerlink" title="1.2 文件处理"></a>1.2 文件处理</h3><h4 id="1-2-1-touch"><a href="#1-2-1-touch" class="headerlink" title="1.2.1 touch"></a>1.2.1 touch</h4><p>功能说明：创建一个空文件或者更改文件修改时间<br>语 法：touch &lt;filename&gt;<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch newfile <span class="comment">#创建一个名为newfile的空文件</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-2-cp"><a href="#1-2-2-cp" class="headerlink" title="1.2.2 cp"></a>1.2.2 cp</h4><p>功能说明：复制文件或目录<br>语 法：cp [-r] &lt;source file/dirname&gt; &lt; destination file/dirname&gt;<br>参 数：<br>-r/-R 将一个目录及目录内所有文件复制到另一个目录<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp file1 file2 <span class="comment">#将file1复制并重命名为file2</span></span><br><span class="line">cp file1 file2 dirname/ <span class="comment">#将file1，file2复制到一个目录下</span></span><br><span class="line">cp -r dir1 dir2 <span class="comment">#若dir2已存在，dir1复制到dir2下，若不存在，dir1复制并重命名为dir2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-3-mv"><a href="#1-2-3-mv" class="headerlink" title="1.2.3 mv"></a>1.2.3 mv</h4><p>功能说明：移动或更名现有的文件或目录。<br>语 法：mv &lt;source file/dirname&gt;<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv file1file2 <span class="comment">#将file1重命名为file2</span></span><br><span class="line">mv file1 file2 dirname/ <span class="comment">#将file1，file2移动到dirname/目录下</span></span><br><span class="line">mv dir1 dir2 <span class="comment">#若目录dir2已存在，dir1移动到dir2下，若dir2不存在，dir1移动并重命名为dir2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-4-rm"><a href="#1-2-4-rm" class="headerlink" title="1.2.4 rm"></a>1.2.4 rm</h4><p>功能说明：删除目录或文件<br>语 法：rm [-r] &lt;file1/dir1 [file2/dir2 …]&gt;<br>参 数：<br>-r/-R 删除目录和该目录下的所有文件<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm file1 [file2 …] <span class="comment">#删除file1[file2 …]</span></span><br><span class="line">rm -r dir1 [dir2 …] <span class="comment">#删除dir1 [dir2 …] 目录及目录下所有文件</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-5-less"><a href="#1-2-5-less" class="headerlink" title="1.2.5 less"></a>1.2.5 less</h4><p>功能说明：查看文件内容<br>语 法：less [-SN] &lt;file1 [file2 …]&gt;<br>参 数：<br>-S 每行不显示长于屏幕宽度的字符（默认显示在下一行）<br>-N 显示行号<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">less -S file </span><br><span class="line">less -SN file</span><br></pre></td></tr></table></figure>
+
+<p><strong>补充说明</strong>：使用less 打开文件后，使用ctrl+u向上翻页，ctrl+d向下翻页，/pattern可以进行向下匹配查找，?pattern<br>可以进行向上匹配查找。使用“q”退出。</p>
+<h4 id="1-2-6-more"><a href="#1-2-6-more" class="headerlink" title="1.2.6 more"></a>1.2.6 more</h4><p>功能说明：显示文件内容<br>语 法：more &lt;file1 [file2…]&gt;<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more file</span><br></pre></td></tr></table></figure>
+
+<p><strong>补充说明</strong>：使用more 显示文件内容后，使用空格键“space”向下翻页，使用“q”退出</p>
+<h4 id="1-2-7-head"><a href="#1-2-7-head" class="headerlink" title="1.2.7 head"></a>1.2.7 head</h4><p>功能说明：显示文件开头部分<br>语 法：head [-n] &lt;file1 [file2…]&gt;<br>参 数：<br>-n显示文件头number行的内容（默认显示头10行）<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">head file <span class="comment">#显示file文件的头10行的内容</span></span><br><span class="line">head -n 100 file <span class="comment">#显示file文件头100行的内容</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-8-tail"><a href="#1-2-8-tail" class="headerlink" title="1.2.8 tail"></a>1.2.8 tail</h4><p>功能说明：显示文件末尾部分<br>语 法：tail [-n] &lt;file1 [file2…]&gt;<br>参 数：<br>-n显示文件末尾number行的内容（默认显示末尾10行）<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tail file <span class="comment">#显示file文件的末尾10行的内容</span></span><br><span class="line">tail -n 100 file <span class="comment">#显示file文件末尾100行的内容</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-9-cut"><a href="#1-2-9-cut" class="headerlink" title="1.2.9 cut"></a>1.2.9 cut</h4><p>功能说明：显示文件每行指定范围的字符<br>语 法：cut [-cdf] &lt;file&gt;<br>参 数：<br>-c num1-num2，显示每行从开头算起第num1到num2的字符<br>-d 指定域分割符，默认“\t”<br>-f num1-num2，显示每行从开头算起第num1到num2的域<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cut -c 1-10 file <span class="comment">#显示文件file每行开头的10个字符</span></span><br><span class="line">cut -f 1-10 file <span class="comment">#显示文件file每行开头10列（以“\t”分割）</span></span><br><span class="line">cut -d <span class="string">" "</span> -f 2 <span class="comment">#显示文件file第二列（以空格分割）</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-10-cat"><a href="#1-2-10-cat" class="headerlink" title="1.2.10 cat"></a>1.2.10 cat</h4><p>功能说明：将文件连接后显示到标准输出（或使用“&gt;”重定向到其他文件）<br>语 法：cat [-n] &lt;file [file2…]&gt; [&gt; newfile]<br>参 数：<br>-n 在文件内容前加行号显示<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat file <span class="comment">#将file文件的内容显示到屏幕。</span></span><br><span class="line">cat -n file &gt; newfile <span class="comment">#将file内容加行号后重定向到newfile中。</span></span><br><span class="line">cat file1 file2 &gt; newfile <span class="comment">#将file1和file2的内容重定向到newfile。</span></span><br><span class="line">cat file1 file2 &gt;&gt; file <span class="comment">#将file1和file2的内容追加到file文件的末尾。</span></span><br><span class="line">cat &gt; filenew word    <span class="comment">#生成file文件并将“new word”添加到文件中。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-11-ln"><a href="#1-2-11-ln" class="headerlink" title="1.2.11 ln"></a>1.2.11 ln</h4><p>功能说明：链接目录或文件<br>语 法：ln [-s] &lt;source file/dirname&gt; [file/dirname]<br>参 数：<br>-s 对目标文件进行符号链接而非硬链接<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s file1 file2 <span class="comment">#将file1链接为file2（注：file2必须不存在）</span></span><br><span class="line">ln -s file1 file2 dirname/ <span class="comment">#将file1和file2链接到dirname/下</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-压缩解压缩"><a href="#1-3-压缩解压缩" class="headerlink" title="1.3 压缩解压缩"></a>1.3 压缩解压缩</h3><h4 id="1-3-1-tar"><a href="#1-3-1-tar" class="headerlink" title="1.3.1 tar"></a>1.3.1 tar</h4><p>功能说明：加入或还原备份文件内的文件<br>语 法：tar -f[cxzjv] &lt;file&gt;<br>参 数：<br>-f 必加参数<br>-c 创建备份文件<br>-x 从备份文件中还原文件<br>-z 调用gzip/gunzip来压缩/解压缩文件<br>-j 调用bzip2/bunzip2来压缩/解压缩文件<br>-v 显示命令执行过程<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -cf newfile.tar file1 file2 <span class="comment">#将file1，file2文件打包到newfile.tar</span></span><br><span class="line">tar -xf newfile.tar <span class="comment">#提取newfile.tar中的文件</span></span><br><span class="line">tar -czvf newfile.tar.gz file1 file2 <span class="comment">#将file1，file2文件打包并调用gzip程序将文件压缩为 newfile.tar.gz</span></span><br><span class="line">tar -xzvf newfile.tar.gz <span class="comment">#将newfile.tar.gz文件解压并提取里边的文件</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-2-zip"><a href="#1-3-2-zip" class="headerlink" title="1.3.2 zip"></a>1.3.2 zip</h4><p>功能说明：压缩并生成“.zip”结尾的文件<br>语 法：zip [-1..9][-r] &lt;newfile.zip&gt; &lt;sourcefile/dir&gt;<br>参 数：<br>-r 将子目录下所有文件和目录一并处理<br>-1..9 压缩效率，数值越大，压缩效率越高<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip newfile.zip file1 file2 <span class="comment">#将file1，file2进行压缩到newfile.zip内</span></span><br></pre></td></tr></table></figure>
+
+<p>解压方式：使用unzip进行解压，unzip newfile.zip</p>
+<h4 id="1-3-3-gzip"><a href="#1-3-3-gzip" class="headerlink" title="1.3.3 gzip"></a>1.3.3 gzip</h4><p>功能说明：压缩并生成“.gz”结尾的文件<br>语 法：gzip [-1..9][-r] &lt;file/dirname&gt;<br>参 数：<br>-r 对目录下的文件进行压缩，但不会对目录进行压缩<br>-1..9 压缩效率，数值越大，压缩效率越高（默认6）<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip file <span class="comment">#将file压缩为file.gz并删除源文件</span></span><br></pre></td></tr></table></figure>
+
+<p>解压方式：使用gunzip进行解压，gunzip file.gz</p>
+<h4 id="1-3-4-bzip2"><a href="#1-3-4-bzip2" class="headerlink" title="1.3.4 bzip2"></a>1.3.4 bzip2</h4><p>功能说明：压缩并生成“.bz2”结尾的文件<br>语 法：bzip2 &lt;file&gt;<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bzip2 file <span class="comment">#将file压缩为file.bz2并删除源文件</span></span><br></pre></td></tr></table></figure>
+
+<p>解压方式：使用bunzip2进行解压，bunzip2file.bz2</p>
+<h3 id="1-4数据统计与处理"><a href="#1-4数据统计与处理" class="headerlink" title="1.4数据统计与处理"></a>1.4数据统计与处理</h3><h4 id="1-4-1-sort"><a href="#1-4-1-sort" class="headerlink" title="1.4.1 sort"></a>1.4.1 sort</h4><p>功能说明：将文本文件内容进行排序<br>语 法：sort [-nkr] &lt;filename&gt;<br>参 数：<br>-n/-g 将文件按数值大小从小到大排序（默认按ascii码从小到大排序）<br>-k按第num列内容对文件排序（默认按第一列）<br>-r 反向排序<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sort file <span class="comment">#对file文件按第一列内容ascii码值从小到大排序并输出。</span></span><br><span class="line">sort -n -k 3 file <span class="comment">#对file文件按第3列内容数值大小从小到大排序。</span></span><br><span class="line">sort -nr -k1,2 file <span class="comment">#对file文件按数值大小反向排序，优先考虑第一列，再考虑第二列</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-2-uniq"><a href="#1-4-2-uniq" class="headerlink" title="1.4.2 uniq"></a>1.4.2 uniq</h4><p>功能说明：合并文件中相邻的相同的行<br>语 法：uniq [-cd] &lt;file&gt; [outfile]<br>参 数：<br>-c 在每行第一列显示该行重复次数<br>-d 仅显示有重复的行<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uniq -c file <span class="comment">#合并相同的行，并统计每行重复次数，输出到屏幕</span></span><br><span class="line">uniq -d file outfile <span class="comment">#合并相同的行，并显示file中有重复出现的行，输出到outfile文件中</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-3-wc"><a href="#1-4-3-wc" class="headerlink" title="1.4.3 wc"></a>1.4.3 wc</h4><p>功能说明：统计文件中字节数<br>语 法：wc [-cwl] &lt;file&gt;<br>参 数：<br>-c 只统计字节数/Bytes数<br>-w 只统计字数（单词数）<br>-l 只统计行数<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wc file <span class="comment">#显示文件file的字节数，字数，行数</span></span><br><span class="line">wc -l file <span class="comment">#显示文件file的行数</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-4-grep"><a href="#1-4-4-grep" class="headerlink" title="1.4.4 grep"></a>1.4.4 grep</h4><p>功能说明：查找文件中符合条件的行<br>语 法：grep [-v] &lt;string&gt;<br>参 数：<br>-v 不匹配，显示文件中不匹配string的行<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep world file <span class="comment">#查找文件中含有“world”的行</span></span><br><span class="line">grep -v world file <span class="comment">#查找文件中不含有“world”的行</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-5-awk"><a href="#1-4-5-awk" class="headerlink" title="1.4.5 awk"></a>1.4.5 awk</h4><p>功能说明：对特定的行中特定的列进行操作<br>语 法：awk [-F] ‘(condition){operate}’ &lt;filename&gt;<br>参 数：<br>-F 指定列的分割符，可以使任意字符，默认按空白分割<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">":"</span> <span class="string">'&#123;print $1&#125;'</span> <span class="comment">#按“：”来分割并打印出第一列</span></span><br><span class="line">awk <span class="string">'($1 &gt; 100)&#123;print $0&#125;'</span> <span class="comment">#对第一列大于100的行整行输出</span></span><br><span class="line">awk <span class="string">'($1 &gt; 100)&#123;print $1”\t”$2&#125;'</span> <span class="comment">#对第一列大于100的行输出第一列和第二列的结果并以“\t”分割。</span></span><br><span class="line">awk <span class="string">'($3~/world/)&#123; x+= $1&#125;END&#123;print x&#125;'</span> <span class="comment">#对第三列匹配“world”的行的第一列求和，全部处理完之后输出结果x的值</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-6-sed"><a href="#1-4-6-sed" class="headerlink" title="1.4.6 sed"></a>1.4.6 sed</h4><p>功能说明：文本处理并可对文件进行编辑<br>语 法：sed [-i] ‘{command}’ &lt;filename&gt;<br>参 数：<br>-i 直接在原文件中修改（默认修改后屏幕输出，原文件不变）<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'s/test/new_word/'</span> file <span class="comment">#将file文件中的test字符替换为new_word</span></span><br><span class="line">sed -i <span class="string">'/pattern/ s/test/new_word/'</span> file <span class="comment">#将file文件中匹配pattern字串的行进行替换操作</span></span><br><span class="line">sed -i <span class="string">'/^$/ d'</span> file <span class="comment">#将文件file中的空白行删除（d）</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-1-md5sum"><a href="#1-5-1-md5sum" class="headerlink" title="1.5.1 md5sum"></a>1.5.1 md5sum</h4><p>功能说明：验证文件传输的完整性<br>语 法：md5sum [-c] &lt;filename&gt;<br>参 数：<br>-c 校验文件传输后是否完整<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">md5sumfile1 <span class="comment">#对file1文件生成md5值。</span></span><br><span class="line">md5sum file1 &gt; newfile <span class="comment">#对file1文件生成md5值并重定向到newfile中。</span></span><br><span class="line">md5sum -c newfile <span class="comment">#检验newfile中文件的md5值是否和文件一致。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-2-chmod"><a href="#1-5-2-chmod" class="headerlink" title="1.5.2 chmod"></a>1.5.2 chmod</h4><p>功能说明：设置文件或目录权限<br>语 法：chmod [-R]&lt;file/dirname&gt;<br>参 数：<br>-R 对目录和目录下所有文件均设置权限<br>详细说明：文件权限分为是否可读(r)、是否可写(w)、是否可执行(x)3种，同时对应档案拥有者(u)、同组成员(g)、其他成员(o)3种。mode分为符号模式和数值模式。<br>符号模式：[ugoa] [+-=] [rwx]<br>数值模式：用1/0表示，则111表示可读可写可执行，000表示不可读不可写不可执行，可读可写可执行分别对应10进制的4,2,1，则5表示可读不可写可执行。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod u+xg=rx o-rwx file <span class="comment">#对file 文件用户自身增加可执行权限，同组成员权限设置为可读可写，对其他成员移除rwx权限。</span></span><br><span class="line">chmod a-w file <span class="comment">#对file文件所有成员移除可写权限。</span></span><br><span class="line">chmod -R 750 dirname <span class="comment">#对dirname目录及其下所有文件权限设置为用户自身可读可写可执行，同组成员可读可执行，其他成员无权限。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-3-find"><a href="#1-5-3-find" class="headerlink" title="1.5.3 find"></a>1.5.3 find</h4><p>功能说明：查找文件<br>语 法：find [path] [expression]<br>详细说明：<br>path 在path路径下进行查找<br>expression 查找模式，常用的有<br>-name &lt;filename&gt; 按文件名查找（文件名允许通配符）<br>-perm &lt;mode&gt; 按文件权限查找<br>-user &lt;user name&gt; 按文件所有者查找<br>-group &lt;group name&gt; 按文件所在组查找<br>-mtime &lt;+n/-n&gt; 按文件更改时间查找，-n表示更改时间距现在n天以内，+n表示距现在n天以外<br>-type &lt;l/d/f&gt; 按文件类型查找，l：符号链接文件，f：普通文件，d：目录文件<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find./ -name file <span class="comment">#在当前目录及其子目录下查找文件名为file的文件</span></span><br><span class="line">find ./ -name ‘*a’ -<span class="built_in">type</span> d <span class="comment">#寻找文件名以a结尾的目录文件。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-4-du"><a href="#1-5-4-du" class="headerlink" title="1.5.4 du"></a>1.5.4 du</h4><p>功能说明：显示目录或文件的大小<br>语 法：du [-ash] [–max-depth=] &lt;file/dirname&gt;<br>参 数：<br>-a 显示目录中个别文件大小<br>-s 只显示总计<br>-h 以“K” ，“M” ，“G”为单位显示<br>–max-depth=&lt;n&gt; 只显示n层目录以内的文件<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">du -sh ./ <span class="comment">#显示当前目录的大小</span></span><br><span class="line">du -ah --max-depth=1 dir <span class="comment">#显示dir目录下所有文件大小，不包括下一级目录</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/.io//C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200828185816514.png" alt="image-20200828185816514"></p>
+<hr>
+<h3 id="欢迎关注微信公众账号"><a href="#欢迎关注微信公众账号" class="headerlink" title="欢迎关注微信公众账号"></a>欢迎关注微信公众账号</h3><p><img src="/.io//C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200828185940452.png" alt="image-20200828185940452"></p>
+<p> 本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Wei Dong
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://dongwei1220.github.io/2020/08/28/linux-basic-command1/" title="Linux基础常用命令大全(一)">https://dongwei1220.github.io/2020/08/28/linux-basic-command1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/Shell/" rel="tag"># Shell</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/27/samtools-usage/" rel="next" title="Samtools使用大全">
+                <i class="fa fa-chevron-left"></i> Samtools使用大全
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/28/linux-basic-command2/" rel="prev" title="Linux基础常用命令大全(二)">
+                Linux基础常用命令大全(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/people.jpg" alt="Wei Dong">
+            
+              <p class="site-author-name" itemprop="name">Wei Dong</p>
+              <p class="site-description motion-element" itemprop="description">Cease to struggle and you cease to live!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/dongwei1220" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1369852697@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.researchgate.net/profile/Wei_Dong34" target="_blank" title="Research">
+                      
+                        <i class="fa fa-fw fa-google"></i>Research</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-目录和文件管理"><span class="nav-number">1.</span> <span class="nav-text">1. 目录和文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1目录相关"><span class="nav-number">1.1.</span> <span class="nav-text">1.1目录相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-mkdir"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 mkdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-rmdir"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 rmdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3-ls"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3 ls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4-cd"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4 cd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-5-pwd"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.1.5 pwd</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-文件处理"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 文件处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-touch"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 touch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-cp"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 cp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-3-mv"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 mv</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-4-rm"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4 rm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-5-less"><span class="nav-number">1.2.5.</span> <span class="nav-text">1.2.5 less</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-6-more"><span class="nav-number">1.2.6.</span> <span class="nav-text">1.2.6 more</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-7-head"><span class="nav-number">1.2.7.</span> <span class="nav-text">1.2.7 head</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-8-tail"><span class="nav-number">1.2.8.</span> <span class="nav-text">1.2.8 tail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-9-cut"><span class="nav-number">1.2.9.</span> <span class="nav-text">1.2.9 cut</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-10-cat"><span class="nav-number">1.2.10.</span> <span class="nav-text">1.2.10 cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-11-ln"><span class="nav-number">1.2.11.</span> <span class="nav-text">1.2.11 ln</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-压缩解压缩"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 压缩解压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-tar"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 tar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-zip"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 zip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-gzip"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3 gzip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-4-bzip2"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.3.4 bzip2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4数据统计与处理"><span class="nav-number">1.4.</span> <span class="nav-text">1.4数据统计与处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-1-sort"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.4.1 sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-2-uniq"><span class="nav-number">1.4.2.</span> <span class="nav-text">1.4.2 uniq</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-3-wc"><span class="nav-number">1.4.3.</span> <span class="nav-text">1.4.3 wc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-4-grep"><span class="nav-number">1.4.4.</span> <span class="nav-text">1.4.4 grep</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-5-awk"><span class="nav-number">1.4.5.</span> <span class="nav-text">1.4.5 awk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-6-sed"><span class="nav-number">1.4.6.</span> <span class="nav-text">1.4.6 sed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-1-md5sum"><span class="nav-number">1.4.7.</span> <span class="nav-text">1.5.1 md5sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-2-chmod"><span class="nav-number">1.4.8.</span> <span class="nav-text">1.5.2 chmod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-3-find"><span class="nav-number">1.4.9.</span> <span class="nav-text">1.5.3 find</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-4-du"><span class="nav-number">1.4.10.</span> <span class="nav-text">1.5.4 du</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思维导图"><span class="nav-number">1.5.</span> <span class="nav-text">思维导图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#欢迎关注微信公众账号"><span class="nav-number">1.6.</span> <span class="nav-text">欢迎关注微信公众账号</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wei Dong</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">42k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

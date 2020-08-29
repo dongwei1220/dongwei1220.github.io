@@ -19,6 +19,57 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Linux基础常用命令大全(二)</title>
+    <url>/2020/08/28/linux-basic-command2/</url>
+    <content><![CDATA[<h2 id="2-进程管理"><a href="#2-进程管理" class="headerlink" title="2 进程管理"></a>2 进程管理</h2><h3 id="2-1进程查看"><a href="#2-1进程查看" class="headerlink" title="2.1进程查看"></a>2.1进程查看</h3><h4 id="2-1-1-ps-process-status"><a href="#2-1-1-ps-process-status" class="headerlink" title="2.1.1 ps(process status)"></a>2.1.1 ps(process status)</h4><p>功能说明：显示用户进程<br>语 法：ps x [-u &lt;usrname&gt;]<br>参 数：<br>-u &lt;usrname&gt; 显示usr用户的进程（默认显示自身用户进程）<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps x</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-2-top"><a href="#2-1-2-top" class="headerlink" title="2.1.2 top"></a>2.1.2 top</h4><p>功能说明：显示用户进程（实时）<br>语 法：top [-bcdu]<br>参 数：<br>-b 批处理模式，可以将top内容重定向到文件中<br>-c 显示详细信息<br>-d &lt;n&gt; 刷新时间间隔，n秒刷新一次<br>-u &lt;usrname&gt; 只显示usr用户的进程<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">toptop -c -u usr</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3-jobs"><a href="#2-1-3-jobs" class="headerlink" title="2.1.3 jobs"></a>2.1.3 jobs</h4><p>功能说明：显示后台任务（当前节点，当前窗口）<br>语 法：jobs [-l]<br>参 数：<br>-l 显示任务进程ID<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">jobs</span></span><br><span class="line"><span class="built_in">jobs</span> -l</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2进程控制"><a href="#2-2进程控制" class="headerlink" title="2.2进程控制"></a>2.2进程控制</h3><h4 id="2-2-1-kill-terminate-or-signal-a-process"><a href="#2-2-1-kill-terminate-or-signal-a-process" class="headerlink" title="2.2.1 kill(terminate or signal a process)"></a>2.2.1 kill(terminate or signal a process)</h4><p>功能说明：删除或控制执行中的进程<br>语 法：kill [-num] &lt;PID&gt; [-l]<br>参 数：<br>-num 通过num传递一个信号控制进程（默认15，终止进程），常用值如下<br>-9 强制删除进程<br>-19 暂停一个进程（使之处于T状态）<br>-18 继续暂停的进程<br>-l 显示信号列表</p>
+<p>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> 28004 <span class="comment">#终止进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 28004 <span class="comment">#强制删除进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -19 28004 <span class="comment">#暂停进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -18 28004 <span class="comment">#继续进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -l <span class="comment">#显示信号列表</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-fg"><a href="#2-2-2-fg" class="headerlink" title="2.2.2 fg"></a>2.2.2 fg</h4><p>功能说明：将后台进程转换到前台<br>语 法：fg [%num]<br>参 数：<br>%num 将编号为num的后台任务转换到前台，num由jobs 命令得到。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">fg</span> <span class="comment">#将最近的一个转后台的任务转为前台</span></span><br><span class="line"><span class="built_in">fg</span> %2 <span class="comment">#将编号为2的后台任务转到前台</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-3-bg"><a href="#2-2-3-bg" class="headerlink" title="2.2.3 bg"></a>2.2.3 bg</h4><p>功能说明：将前台任务转为后台（需先用ctrl+z暂停任务），或者继续后台暂停的任务<br>语 法：bg [%num]<br>参 数：<br>%num 将编号为num的后台暂停任务继续。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bgbg %2 <span class="comment">#将编号为2的后台暂停任务继续。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-帮助命令"><a href="#3-帮助命令" class="headerlink" title="3.帮助命令"></a>3.帮助命令</h2><h4 id="3-1-man"><a href="#3-1-man" class="headerlink" title="3.1 man"></a>3.1 man</h4><p>功能说明：给出大多数命令的详细在线帮助内容</p>
+<h4 id="3-2-whatis"><a href="#3-2-whatis" class="headerlink" title="3.2 whatis"></a>3.2 whatis</h4><p>功能说明：对该命令给出一行文字描述，但不包括命令的参数等其他信息。</p>
+<h4 id="3-3-apropos"><a href="#3-3-apropos" class="headerlink" title="3.3 apropos"></a>3.3 apropos</h4><p>功能说明：当对linux命令比较模糊时，可以使用命令apropos来搜索与关键字匹配的命令。</p>
+<h2 id="4-其他"><a href="#4-其他" class="headerlink" title="4.其他"></a>4.其他</h2><h4 id="4-1-history"><a href="#4-1-history" class="headerlink" title="4.1 history"></a>4.1 history</h4><p>功能说明：查询该节点上执行过的历史命令<br>语 法：history<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">history</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-nohup"><a href="#4-2-nohup" class="headerlink" title="4.2 nohup"></a>4.2 nohup</h4><p>功能说明：加到命令前使得该命令在用户退出登录后也能继续执行<br>特殊说明：一般与转后台’&amp;’一起使用，屏幕输出默认重定向到nohup.out文件中<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup perl test.pl &amp;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-转后台-amp"><a href="#4-3-转后台-amp" class="headerlink" title="4.3 转后台 &amp;"></a>4.3 转后台 &amp;</h4><p>功能说明：加到命令结尾，使该命令在后台运行<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp file1file2 &amp; <span class="comment">#后台执行拷贝命令</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-4-重定向-gt"><a href="#4-4-重定向-gt" class="headerlink" title="4.4 重定向 &gt;"></a>4.4 重定向 &gt;</h4><p>功能说明：将标准输出内容重定向到文件中<br>相关符号：&gt;&gt; 表示将内容追加到文件末尾。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls dir &gt; dir_list <span class="comment">#显示dir目录下的文件并将内容输出到dir_list文件中，若dir_list文件存在，则会被清空，若不纯在，将创建。</span></span><br><span class="line">ls dir &gt;&gt; dir_list <span class="comment">#显示dir目录下的文件并将内容追加到dir_list文件中，若dir_list文件存在，内容追加到文件末尾，若不纯在，将创建。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-5-管道符"><a href="#4-5-管道符" class="headerlink" title="4.5 管道符 |"></a>4.5 管道符 |</h4><p>功能说明：将”|”前一部分的输出作为”|”后一部分的输入<br>语 法：command1 | command2<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">less file1| grep world | awk ‘&#123;<span class="built_in">print</span> <span class="variable">$1</span>&#125;’ <span class="comment">#显示file1的内容，将带有world的行输出，打印该行的第一列</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/zN67RpvO3kaKDtPK0wdvUicS5WZa7BeBsRPhu5W0CibapAybVK2vjibiagHhcyu5TicqvLbl8RxfspvKPXEg96fFdXg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/zN67RpvO3kaKDtPK0wdvUicS5WZa7BeBsREAdnHRPiaVh5ibiaQGf1oDgNqoQJhLxPicpNKrw5OaSWu4z8Lw3lTHE1A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用R pagedown给自己做一份精致的简历</title>
     <url>/2020/08/27/my-cv/</url>
     <content><![CDATA[<h3 id="先看下简历的最终效果："><a href="#先看下简历的最终效果：" class="headerlink" title="先看下简历的最终效果："></a>先看下简历的最终效果：</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-46b3804cca9b311a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
@@ -52,6 +103,122 @@
       <tags>
         <tag>R</tag>
         <tag>CV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux基础常用命令大全(一)</title>
+    <url>/2020/08/28/linux-basic-command1/</url>
+    <content><![CDATA[<h2 id="1-目录和文件管理"><a href="#1-目录和文件管理" class="headerlink" title="1. 目录和文件管理"></a>1. 目录和文件管理</h2><h3 id="1-1目录相关"><a href="#1-1目录相关" class="headerlink" title="1.1目录相关"></a>1.1目录相关</h3><h4 id="1-1-1-mkdir"><a href="#1-1-1-mkdir" class="headerlink" title="1.1.1 mkdir"></a>1.1.1 mkdir</h4><p>功能说明：创建目录<br>语 法：mkdir [-p] &lt;dir1 [dir2 …]&gt;<br>参 数：<br>-p 若所要建立目录的上层目录目前尚未建立，则会一并建立上层目录。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir testdir</span><br><span class="line">mkdir -p newdir/childdir</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-2-rmdir"><a href="#1-1-2-rmdir" class="headerlink" title="1.1.2 rmdir"></a>1.1.2 rmdir</h4><p>功能说明：删除（空）目录<br>补充说明：该命令只能删除空目录，若要删除非空目录，请使用rm –r dirname<br>语 法：rmdir [-p] &lt;dir1 [dir2…]&gt;<br>参 数：<br>-p 删除指定目录后，若该目录的上层目录已变成空目录，则将其一并删除。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rmdir testdir</span><br><span class="line">rmdir -p childdir</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-3-ls"><a href="#1-1-3-ls" class="headerlink" title="1.1.3 ls"></a>1.1.3 ls</h4><p>功能说明：列出目录内容<br>语 法：ls [-alhtr] &lt;file/dirname&gt;<br>参 数：<br>-a 显示目录下所有文件和目录（显示隐藏文件和目录）。<br>-l 显示文件/目录详细信息，每行显示一个文件/目录。<br>-h 文件大小按’K’，’M’，’G’，来显示（需要加 -l 参数）。<br>-t 用文件和目录的更改时间排序。<br>-r 反向排序<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -a dirname</span><br><span class="line">ls -lh dirname</span><br><span class="line">ls -ltr dirname</span><br></pre></td></tr></table></figure>
+
+<p><strong>补充说明</strong>：ll 并不是linux下的基本命令，实际上是ls -l 的一个别名（缩写），别名可在~/.bashrc中使用alias定义，如alias ll=’ls -l’</p>
+<h4 id="1-1-4-cd"><a href="#1-1-4-cd" class="headerlink" title="1.1.4 cd"></a>1.1.4 cd</h4><p>功能说明：切换目录<br>语 法：cd &lt;dirname&gt;<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /path/dirname/</span><br></pre></td></tr></table></figure>
+
+<p>特殊例子：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> / <span class="comment">#转换到根目录</span></span><br><span class="line"><span class="built_in">cd</span> ~ <span class="comment">#转换到家目录（即/home/yourname/）</span></span><br><span class="line"><span class="built_in">cd</span> ../ <span class="comment">#转换到上一级目录 </span></span><br><span class="line"><span class="built_in">cd</span> - <span class="comment">#转换到上一次cd前所在的目录</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-5-pwd"><a href="#1-1-5-pwd" class="headerlink" title="1.1.5 pwd"></a>1.1.5 pwd</h4><p>功能说明：显示工作目录绝对路径<br>语 法：pwd<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>特殊目录</strong>的表示：<br>/ 根目录<br>~ 家目录<br>./ 当前目录<br>../ 上一级目录<br><strong>特殊说明</strong>：linux 下以”.”开头的文件名为隐藏文件，使用ls -a时才会显示</p>
+<h3 id="1-2-文件处理"><a href="#1-2-文件处理" class="headerlink" title="1.2 文件处理"></a>1.2 文件处理</h3><h4 id="1-2-1-touch"><a href="#1-2-1-touch" class="headerlink" title="1.2.1 touch"></a>1.2.1 touch</h4><p>功能说明：创建一个空文件或者更改文件修改时间<br>语 法：touch &lt;filename&gt;<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">touch newfile <span class="comment">#创建一个名为newfile的空文件</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-2-cp"><a href="#1-2-2-cp" class="headerlink" title="1.2.2 cp"></a>1.2.2 cp</h4><p>功能说明：复制文件或目录<br>语 法：cp [-r] &lt;source file/dirname&gt; &lt; destination file/dirname&gt;<br>参 数：<br>-r/-R 将一个目录及目录内所有文件复制到另一个目录<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp file1 file2 <span class="comment">#将file1复制并重命名为file2</span></span><br><span class="line">cp file1 file2 dirname/ <span class="comment">#将file1，file2复制到一个目录下</span></span><br><span class="line">cp -r dir1 dir2 <span class="comment">#若dir2已存在，dir1复制到dir2下，若不存在，dir1复制并重命名为dir2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-3-mv"><a href="#1-2-3-mv" class="headerlink" title="1.2.3 mv"></a>1.2.3 mv</h4><p>功能说明：移动或更名现有的文件或目录。<br>语 法：mv &lt;source file/dirname&gt;<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mv file1file2 <span class="comment">#将file1重命名为file2</span></span><br><span class="line">mv file1 file2 dirname/ <span class="comment">#将file1，file2移动到dirname/目录下</span></span><br><span class="line">mv dir1 dir2 <span class="comment">#若目录dir2已存在，dir1移动到dir2下，若dir2不存在，dir1移动并重命名为dir2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-4-rm"><a href="#1-2-4-rm" class="headerlink" title="1.2.4 rm"></a>1.2.4 rm</h4><p>功能说明：删除目录或文件<br>语 法：rm [-r] &lt;file1/dir1 [file2/dir2 …]&gt;<br>参 数：<br>-r/-R 删除目录和该目录下的所有文件<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm file1 [file2 …] <span class="comment">#删除file1[file2 …]</span></span><br><span class="line">rm -r dir1 [dir2 …] <span class="comment">#删除dir1 [dir2 …] 目录及目录下所有文件</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-5-less"><a href="#1-2-5-less" class="headerlink" title="1.2.5 less"></a>1.2.5 less</h4><p>功能说明：查看文件内容<br>语 法：less [-SN] &lt;file1 [file2 …]&gt;<br>参 数：<br>-S 每行不显示长于屏幕宽度的字符（默认显示在下一行）<br>-N 显示行号<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">less -S file </span><br><span class="line">less -SN file</span><br></pre></td></tr></table></figure>
+
+<p><strong>补充说明</strong>：使用less 打开文件后，使用ctrl+u向上翻页，ctrl+d向下翻页，/pattern可以进行向下匹配查找，?pattern<br>可以进行向上匹配查找。使用“q”退出。</p>
+<h4 id="1-2-6-more"><a href="#1-2-6-more" class="headerlink" title="1.2.6 more"></a>1.2.6 more</h4><p>功能说明：显示文件内容<br>语 法：more &lt;file1 [file2…]&gt;<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">more file</span><br></pre></td></tr></table></figure>
+
+<p><strong>补充说明</strong>：使用more 显示文件内容后，使用空格键“space”向下翻页，使用“q”退出</p>
+<h4 id="1-2-7-head"><a href="#1-2-7-head" class="headerlink" title="1.2.7 head"></a>1.2.7 head</h4><p>功能说明：显示文件开头部分<br>语 法：head [-n] &lt;file1 [file2…]&gt;<br>参 数：<br>-n显示文件头number行的内容（默认显示头10行）<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">head file <span class="comment">#显示file文件的头10行的内容</span></span><br><span class="line">head -n 100 file <span class="comment">#显示file文件头100行的内容</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-8-tail"><a href="#1-2-8-tail" class="headerlink" title="1.2.8 tail"></a>1.2.8 tail</h4><p>功能说明：显示文件末尾部分<br>语 法：tail [-n] &lt;file1 [file2…]&gt;<br>参 数：<br>-n显示文件末尾number行的内容（默认显示末尾10行）<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tail file <span class="comment">#显示file文件的末尾10行的内容</span></span><br><span class="line">tail -n 100 file <span class="comment">#显示file文件末尾100行的内容</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-9-cut"><a href="#1-2-9-cut" class="headerlink" title="1.2.9 cut"></a>1.2.9 cut</h4><p>功能说明：显示文件每行指定范围的字符<br>语 法：cut [-cdf] &lt;file&gt;<br>参 数：<br>-c num1-num2，显示每行从开头算起第num1到num2的字符<br>-d 指定域分割符，默认“\t”<br>-f num1-num2，显示每行从开头算起第num1到num2的域<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cut -c 1-10 file <span class="comment">#显示文件file每行开头的10个字符</span></span><br><span class="line">cut -f 1-10 file <span class="comment">#显示文件file每行开头10列（以“\t”分割）</span></span><br><span class="line">cut -d <span class="string">" "</span> -f 2 <span class="comment">#显示文件file第二列（以空格分割）</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-10-cat"><a href="#1-2-10-cat" class="headerlink" title="1.2.10 cat"></a>1.2.10 cat</h4><p>功能说明：将文件连接后显示到标准输出（或使用“&gt;”重定向到其他文件）<br>语 法：cat [-n] &lt;file [file2…]&gt; [&gt; newfile]<br>参 数：<br>-n 在文件内容前加行号显示<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat file <span class="comment">#将file文件的内容显示到屏幕。</span></span><br><span class="line">cat -n file &gt; newfile <span class="comment">#将file内容加行号后重定向到newfile中。</span></span><br><span class="line">cat file1 file2 &gt; newfile <span class="comment">#将file1和file2的内容重定向到newfile。</span></span><br><span class="line">cat file1 file2 &gt;&gt; file <span class="comment">#将file1和file2的内容追加到file文件的末尾。</span></span><br><span class="line">cat &gt; filenew word    <span class="comment">#生成file文件并将“new word”添加到文件中。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-11-ln"><a href="#1-2-11-ln" class="headerlink" title="1.2.11 ln"></a>1.2.11 ln</h4><p>功能说明：链接目录或文件<br>语 法：ln [-s] &lt;source file/dirname&gt; [file/dirname]<br>参 数：<br>-s 对目标文件进行符号链接而非硬链接<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ln -s file1 file2 <span class="comment">#将file1链接为file2（注：file2必须不存在）</span></span><br><span class="line">ln -s file1 file2 dirname/ <span class="comment">#将file1和file2链接到dirname/下</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-压缩解压缩"><a href="#1-3-压缩解压缩" class="headerlink" title="1.3 压缩解压缩"></a>1.3 压缩解压缩</h3><h4 id="1-3-1-tar"><a href="#1-3-1-tar" class="headerlink" title="1.3.1 tar"></a>1.3.1 tar</h4><p>功能说明：加入或还原备份文件内的文件<br>语 法：tar -f[cxzjv] &lt;file&gt;<br>参 数：<br>-f 必加参数<br>-c 创建备份文件<br>-x 从备份文件中还原文件<br>-z 调用gzip/gunzip来压缩/解压缩文件<br>-j 调用bzip2/bunzip2来压缩/解压缩文件<br>-v 显示命令执行过程<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cf newfile.tar file1 file2 <span class="comment">#将file1，file2文件打包到newfile.tar</span></span><br><span class="line">tar -xf newfile.tar <span class="comment">#提取newfile.tar中的文件</span></span><br><span class="line">tar -czvf newfile.tar.gz file1 file2 <span class="comment">#将file1，file2文件打包并调用gzip程序将文件压缩为 newfile.tar.gz</span></span><br><span class="line">tar -xzvf newfile.tar.gz <span class="comment">#将newfile.tar.gz文件解压并提取里边的文件</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-2-zip"><a href="#1-3-2-zip" class="headerlink" title="1.3.2 zip"></a>1.3.2 zip</h4><p>功能说明：压缩并生成“.zip”结尾的文件<br>语 法：zip [-1..9][-r] &lt;newfile.zip&gt; &lt;sourcefile/dir&gt;<br>参 数：<br>-r 将子目录下所有文件和目录一并处理<br>-1..9 压缩效率，数值越大，压缩效率越高<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zip newfile.zip file1 file2 <span class="comment">#将file1，file2进行压缩到newfile.zip内</span></span><br></pre></td></tr></table></figure>
+
+<p>解压方式：使用unzip进行解压，unzip newfile.zip</p>
+<h4 id="1-3-3-gzip"><a href="#1-3-3-gzip" class="headerlink" title="1.3.3 gzip"></a>1.3.3 gzip</h4><p>功能说明：压缩并生成“.gz”结尾的文件<br>语 法：gzip [-1..9][-r] &lt;file/dirname&gt;<br>参 数：<br>-r 对目录下的文件进行压缩，但不会对目录进行压缩<br>-1..9 压缩效率，数值越大，压缩效率越高（默认6）<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gzip file <span class="comment">#将file压缩为file.gz并删除源文件</span></span><br></pre></td></tr></table></figure>
+
+<p>解压方式：使用gunzip进行解压，gunzip file.gz</p>
+<h4 id="1-3-4-bzip2"><a href="#1-3-4-bzip2" class="headerlink" title="1.3.4 bzip2"></a>1.3.4 bzip2</h4><p>功能说明：压缩并生成“.bz2”结尾的文件<br>语 法：bzip2 &lt;file&gt;<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bzip2 file <span class="comment">#将file压缩为file.bz2并删除源文件</span></span><br></pre></td></tr></table></figure>
+
+<p>解压方式：使用bunzip2进行解压，bunzip2file.bz2</p>
+<h3 id="1-4数据统计与处理"><a href="#1-4数据统计与处理" class="headerlink" title="1.4数据统计与处理"></a>1.4数据统计与处理</h3><h4 id="1-4-1-sort"><a href="#1-4-1-sort" class="headerlink" title="1.4.1 sort"></a>1.4.1 sort</h4><p>功能说明：将文本文件内容进行排序<br>语 法：sort [-nkr] &lt;filename&gt;<br>参 数：<br>-n/-g 将文件按数值大小从小到大排序（默认按ascii码从小到大排序）<br>-k按第num列内容对文件排序（默认按第一列）<br>-r 反向排序<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sort file <span class="comment">#对file文件按第一列内容ascii码值从小到大排序并输出。</span></span><br><span class="line">sort -n -k 3 file <span class="comment">#对file文件按第3列内容数值大小从小到大排序。</span></span><br><span class="line">sort -nr -k1,2 file <span class="comment">#对file文件按数值大小反向排序，优先考虑第一列，再考虑第二列</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-2-uniq"><a href="#1-4-2-uniq" class="headerlink" title="1.4.2 uniq"></a>1.4.2 uniq</h4><p>功能说明：合并文件中相邻的相同的行<br>语 法：uniq [-cd] &lt;file&gt; [outfile]<br>参 数：<br>-c 在每行第一列显示该行重复次数<br>-d 仅显示有重复的行<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uniq -c file <span class="comment">#合并相同的行，并统计每行重复次数，输出到屏幕</span></span><br><span class="line">uniq -d file outfile <span class="comment">#合并相同的行，并显示file中有重复出现的行，输出到outfile文件中</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-3-wc"><a href="#1-4-3-wc" class="headerlink" title="1.4.3 wc"></a>1.4.3 wc</h4><p>功能说明：统计文件中字节数<br>语 法：wc [-cwl] &lt;file&gt;<br>参 数：<br>-c 只统计字节数/Bytes数<br>-w 只统计字数（单词数）<br>-l 只统计行数<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wc file <span class="comment">#显示文件file的字节数，字数，行数</span></span><br><span class="line">wc -l file <span class="comment">#显示文件file的行数</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-4-grep"><a href="#1-4-4-grep" class="headerlink" title="1.4.4 grep"></a>1.4.4 grep</h4><p>功能说明：查找文件中符合条件的行<br>语 法：grep [-v] &lt;string&gt;<br>参 数：<br>-v 不匹配，显示文件中不匹配string的行<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep world file <span class="comment">#查找文件中含有“world”的行</span></span><br><span class="line">grep -v world file <span class="comment">#查找文件中不含有“world”的行</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-5-awk"><a href="#1-4-5-awk" class="headerlink" title="1.4.5 awk"></a>1.4.5 awk</h4><p>功能说明：对特定的行中特定的列进行操作<br>语 法：awk [-F] ‘(condition){operate}’ &lt;filename&gt;<br>参 数：<br>-F 指定列的分割符，可以使任意字符，默认按空白分割<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">awk -F <span class="string">":"</span> <span class="string">'&#123;print $1&#125;'</span> <span class="comment">#按“：”来分割并打印出第一列</span></span><br><span class="line">awk <span class="string">'($1 &gt; 100)&#123;print $0&#125;'</span> <span class="comment">#对第一列大于100的行整行输出</span></span><br><span class="line">awk <span class="string">'($1 &gt; 100)&#123;print $1”\t”$2&#125;'</span> <span class="comment">#对第一列大于100的行输出第一列和第二列的结果并以“\t”分割。</span></span><br><span class="line">awk <span class="string">'($3~/world/)&#123; x+= $1&#125;END&#123;print x&#125;'</span> <span class="comment">#对第三列匹配“world”的行的第一列求和，全部处理完之后输出结果x的值</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-6-sed"><a href="#1-4-6-sed" class="headerlink" title="1.4.6 sed"></a>1.4.6 sed</h4><p>功能说明：文本处理并可对文件进行编辑<br>语 法：sed [-i] ‘{command}’ &lt;filename&gt;<br>参 数：<br>-i 直接在原文件中修改（默认修改后屏幕输出，原文件不变）<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i <span class="string">'s/test/new_word/'</span> file <span class="comment">#将file文件中的test字符替换为new_word</span></span><br><span class="line">sed -i <span class="string">'/pattern/ s/test/new_word/'</span> file <span class="comment">#将file文件中匹配pattern字串的行进行替换操作</span></span><br><span class="line">sed -i <span class="string">'/^$/ d'</span> file <span class="comment">#将文件file中的空白行删除（d）</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-1-md5sum"><a href="#1-5-1-md5sum" class="headerlink" title="1.5.1 md5sum"></a>1.5.1 md5sum</h4><p>功能说明：验证文件传输的完整性<br>语 法：md5sum [-c] &lt;filename&gt;<br>参 数：<br>-c 校验文件传输后是否完整<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">md5sumfile1 <span class="comment">#对file1文件生成md5值。</span></span><br><span class="line">md5sum file1 &gt; newfile <span class="comment">#对file1文件生成md5值并重定向到newfile中。</span></span><br><span class="line">md5sum -c newfile <span class="comment">#检验newfile中文件的md5值是否和文件一致。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-2-chmod"><a href="#1-5-2-chmod" class="headerlink" title="1.5.2 chmod"></a>1.5.2 chmod</h4><p>功能说明：设置文件或目录权限<br>语 法：chmod [-R]&lt;file/dirname&gt;<br>参 数：<br>-R 对目录和目录下所有文件均设置权限<br>详细说明：文件权限分为是否可读(r)、是否可写(w)、是否可执行(x)3种，同时对应档案拥有者(u)、同组成员(g)、其他成员(o)3种。mode分为符号模式和数值模式。<br>符号模式：[ugoa] [+-=] [rwx]<br>数值模式：用1/0表示，则111表示可读可写可执行，000表示不可读不可写不可执行，可读可写可执行分别对应10进制的4,2,1，则5表示可读不可写可执行。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod u+xg=rx o-rwx file <span class="comment">#对file 文件用户自身增加可执行权限，同组成员权限设置为可读可写，对其他成员移除rwx权限。</span></span><br><span class="line">chmod a-w file <span class="comment">#对file文件所有成员移除可写权限。</span></span><br><span class="line">chmod -R 750 dirname <span class="comment">#对dirname目录及其下所有文件权限设置为用户自身可读可写可执行，同组成员可读可执行，其他成员无权限。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-3-find"><a href="#1-5-3-find" class="headerlink" title="1.5.3 find"></a>1.5.3 find</h4><p>功能说明：查找文件<br>语 法：find [path] [expression]<br>详细说明：<br>path 在path路径下进行查找<br>expression 查找模式，常用的有<br>-name &lt;filename&gt; 按文件名查找（文件名允许通配符）<br>-perm &lt;mode&gt; 按文件权限查找<br>-user &lt;user name&gt; 按文件所有者查找<br>-group &lt;group name&gt; 按文件所在组查找<br>-mtime &lt;+n/-n&gt; 按文件更改时间查找，-n表示更改时间距现在n天以内，+n表示距现在n天以外<br>-type &lt;l/d/f&gt; 按文件类型查找，l：符号链接文件，f：普通文件，d：目录文件<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find./ -name file <span class="comment">#在当前目录及其子目录下查找文件名为file的文件</span></span><br><span class="line">find ./ -name ‘*a’ -<span class="built_in">type</span> d <span class="comment">#寻找文件名以a结尾的目录文件。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-4-du"><a href="#1-5-4-du" class="headerlink" title="1.5.4 du"></a>1.5.4 du</h4><p>功能说明：显示目录或文件的大小<br>语 法：du [-ash] [–max-depth=] &lt;file/dirname&gt;<br>参 数：<br>-a 显示目录中个别文件大小<br>-s 只显示总计<br>-h 以“K” ，“M” ，“G”为单位显示<br>–max-depth=&lt;n&gt; 只显示n层目录以内的文件<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">du -sh ./ <span class="comment">#显示当前目录的大小</span></span><br><span class="line">du -ah --max-depth=1 dir <span class="comment">#显示dir目录下所有文件大小，不包括下一级目录</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/.io//C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200828185816514.png" alt="image-20200828185816514"></p>
+<hr>
+<h3 id="欢迎关注微信公众账号"><a href="#欢迎关注微信公众账号" class="headerlink" title="欢迎关注微信公众账号"></a>欢迎关注微信公众账号</h3><p><img src="/.io//C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200828185940452.png" alt="image-20200828185940452"></p>
+<p> 本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 </p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
       </tags>
   </entry>
   <entry>
