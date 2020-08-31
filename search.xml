@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2019/07/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Linux基础常用命令大全(二)</title>
     <url>/2020/08/28/linux-basic-command2/</url>
     <content><![CDATA[<h2 id="2-进程管理"><a href="#2-进程管理" class="headerlink" title="2 进程管理"></a>2 进程管理</h2><h3 id="2-1进程查看"><a href="#2-1进程查看" class="headerlink" title="2.1进程查看"></a>2.1进程查看</h3><h4 id="2-1-1-ps-process-status"><a href="#2-1-1-ps-process-status" class="headerlink" title="2.1.1 ps(process status)"></a>2.1.1 ps(process status)</h4><p>功能说明：显示用户进程<br>语 法：ps x [-u &lt;usrname&gt;]<br>参 数：<br>-u &lt;usrname&gt; 显示usr用户的进程（默认显示自身用户进程）<br>Example ：</p>
@@ -58,8 +40,11 @@
 <h4 id="4-5-管道符"><a href="#4-5-管道符" class="headerlink" title="4.5 管道符 |"></a>4.5 管道符 |</h4><p>功能说明：将”|”前一部分的输出作为”|”后一部分的输入<br>语 法：command1 | command2<br>Example ：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">less file1| grep world | awk ‘&#123;<span class="built_in">print</span> <span class="variable">$1</span>&#125;’ <span class="comment">#显示file1的内容，将带有world的行输出，打印该行的第一列</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/zN67RpvO3kaKDtPK0wdvUicS5WZa7BeBsRPhu5W0CibapAybVK2vjibiagHhcyu5TicqvLbl8RxfspvKPXEg96fFdXg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/zN67RpvO3kaKDtPK0wdvUicS5WZa7BeBsREAdnHRPiaVh5ibiaQGf1oDgNqoQJhLxPicpNKrw5OaSWu4z8Lw3lTHE1A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-0dfe71ac92cfcdea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="进程管理与内存查看.png"> </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-402dbc54e18b90ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="压缩与解压缩.png"> </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-f065e477cfa47b2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="其他.png"> </p>
+<hr>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 ！</p>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -72,29 +57,30 @@
   <entry>
     <title>使用R pagedown给自己做一份精致的简历</title>
     <url>/2020/08/27/my-cv/</url>
-    <content><![CDATA[<h3 id="先看下简历的最终效果："><a href="#先看下简历的最终效果：" class="headerlink" title="先看下简历的最终效果："></a>先看下简历的最终效果：</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-46b3804cca9b311a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6ea76cdf92f33311?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-b2d1a8fdf47e0656?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+    <content><![CDATA[<h3 id="先看下简历的最终效果："><a href="#先看下简历的最终效果：" class="headerlink" title="先看下简历的最终效果："></a>先看下简历的最终效果：</h3><p> <img src="https://upload-images.jianshu.io/upload_images/8723194-81aca00d4283be0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"> </p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/8723194-531394ebd7055b7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"> </p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/8723194-0b85ba5e887e4189.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"> </p>
 <hr>
 <h3 id="下载并安装所需的R包"><a href="#下载并安装所需的R包" class="headerlink" title="下载并安装所需的R包"></a>下载并安装所需的R包</h3><blockquote>
-<p>简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：<a href="https://github.com/nstrayer/cv的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个`position.csv`文件中，使用比较方便。" target="_blank" rel="noopener">https://github.com/nstrayer/cv的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个`position.csv`文件中，使用比较方便。</a></p>
+<p>简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：<a href="https://github.com/nstrayer/cv" target="_blank" rel="noopener">https://github.com/nstrayer/cv</a> 的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个<code>position.csv</code>文件中，使用比较方便。</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-c854bee8a4766475?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/8723194-16fddefc9a85512e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"> </p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装所需的R</span></span><br><span class="line">rm(list = ls()) </span><br><span class="line">options(<span class="string">"repos"</span> = c(CRAN=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span>))</span><br><span class="line">install.packages(<span class="string">"tidyverse"</span>)</span><br><span class="line">install.packages(<span class="string">"rmarkdown"</span>)</span><br><span class="line">install.packages(<span class="string">"glue"</span>)</span><br><span class="line">install.packages(<span class="string">"devtools"</span>)</span><br><span class="line">devtools::install_github(<span class="string">'rstudio/pagedown'</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="编辑并填写个人简历信息"><a href="#编辑并填写个人简历信息" class="headerlink" title="编辑并填写个人简历信息"></a>编辑并填写个人简历信息</h3><p>用Excel打开<code>position.csv</code>文件，根据相应的条目填写个人简历信息</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-83e0ad0d227627d2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<h3 id="在Rstudio中编辑更改index-Rmd文件"><a href="#在Rstudio中编辑更改index-Rmd文件" class="headerlink" title="在Rstudio中编辑更改index.Rmd文件"></a>在Rstudio中编辑更改index.Rmd文件</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-15935b37e76112b6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<h3 id="使用kint生成index-html网页文件"><a href="#使用kint生成index-html网页文件" class="headerlink" title="使用kint生成index.html网页文件"></a>使用kint生成index.html网页文件</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-21efdaf4fb61cb40?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/8723194-db6a27d0969274da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"> </p>
+<h3 id="在Rstudio中编辑更改index-Rmd文件"><a href="#在Rstudio中编辑更改index-Rmd文件" class="headerlink" title="在Rstudio中编辑更改index.Rmd文件"></a>在Rstudio中编辑更改index.Rmd文件</h3><p> <img src="https://upload-images.jianshu.io/upload_images/8723194-3adec99c9088314a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"> </p>
+<h3 id="使用kint生成index-html网页文件"><a href="#使用kint生成index-html网页文件" class="headerlink" title="使用kint生成index.html网页文件"></a>使用kint生成index.html网页文件</h3><p> <img src="https://upload-images.jianshu.io/upload_images/8723194-ac26c13509708a79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"> </p>
 <p>运行完kint后会在自己的文件夹中生成一个<code>index.html</code>格式的网页版简历</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-0cfe17c13be61aa3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/8723194-1634c1bd961b1ed8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"> </p>
 <p>简历整体的布局形式可以通过<code>styles.css</code>文件进行调整</p>
 <h3 id="将网页文件另存为pdf文件"><a href="#将网页文件另存为pdf文件" class="headerlink" title="将网页文件另存为pdf文件"></a>将网页文件另存为pdf文件</h3><p>使用谷歌浏览器打开<code>index.html</code>文件，通过快捷键Ctrl + P进行页面打印，然后选择另存为PDF进行pdf文件的保存。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6d97b664c888449e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/8723194-cd6104e2aeca52fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"> </p>
 <p>最后可以将自己的代码上传到github上进行存储共享<a href="https://github.com/dongwei1220/cv" target="_blank" rel="noopener">https://github.com/dongwei1220/cv</a></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6e0d52e4bb3e8f8f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p>▼更多精彩推荐，请关注我们▼<br><img src="https://upload-images.jianshu.io/upload_images/8723194-576a39ab53a209ae?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/8723194-49facde68e06488b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"> </p>
 <p>参考来源：【质感满满的简历，你也可以有！】<a href="https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ</a></p>
+<hr>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处！</p>
 ]]></content>
       <categories>
         <category>Research</category>
@@ -208,10 +194,10 @@
 <h4 id="1-5-4-du"><a href="#1-5-4-du" class="headerlink" title="1.5.4 du"></a>1.5.4 du</h4><p>功能说明：显示目录或文件的大小<br>语 法：du [-ash] [–max-depth=] &lt;file/dirname&gt;<br>参 数：<br>-a 显示目录中个别文件大小<br>-s 只显示总计<br>-h 以“K” ，“M” ，“G”为单位显示<br>–max-depth=&lt;n&gt; 只显示n层目录以内的文件<br>Example ：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">du -sh ./ <span class="comment">#显示当前目录的大小</span></span><br><span class="line">du -ah --max-depth=1 dir <span class="comment">#显示dir目录下所有文件大小，不包括下一级目录</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/.io//C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200828185816514.png" alt="image-20200828185816514"></p>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-28dc798b1362e4b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文件和目录管理.png"> </p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/8723194-1cb71952e9e153de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文本处理与统计.png"> </p>
 <hr>
-<h3 id="欢迎关注微信公众账号"><a href="#欢迎关注微信公众账号" class="headerlink" title="欢迎关注微信公众账号"></a>欢迎关注微信公众账号</h3><p><img src="/.io//C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200828185940452.png" alt="image-20200828185940452"></p>
-<p> 本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 </p>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 ！</p>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -219,63 +205,6 @@
       <tags>
         <tag>Linux</tag>
         <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>11.火山图绘制</title>
-    <url>/2019/07/13/volcano-plot/</url>
-    <content><![CDATA[<h3 id="清除当前环境中的变量"><a href="#清除当前环境中的变量" class="headerlink" title="清除当前环境中的变量"></a>清除当前环境中的变量</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm(list=ls())</span><br></pre></td></tr></table></figure>
-
-<h3 id="设置工作目录"><a href="#设置工作目录" class="headerlink" title="设置工作目录"></a>设置工作目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">setwd(&quot;C:/Users/Dell/Desktop/R_Plots/11volcano/&quot;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="读取示例数据"><a href="#读取示例数据" class="headerlink" title="读取示例数据"></a>读取示例数据</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data &lt;- read.table(&quot;demo_volcano.txt&quot;,header = T,</span><br><span class="line">                   check.names = F,row.names = 1,sep=&quot;\t&quot;)</span><br><span class="line"></span><br><span class="line"># 查看示例数据</span><br><span class="line">head(data)</span><br><span class="line">##                LOG_count WT0_count LOG_rpkm WT0_rpkm log2_Ratio(WT0/LOG)</span><br><span class="line">## Unigene0000003     17243     17525 931.5677 942.4515          0.01675776</span><br><span class="line">## Unigene0000004        65       101   4.1156   6.3657          0.62921640</span><br><span class="line">## Unigene0000005       909       984  36.8859  39.7458          0.10773298</span><br><span class="line">## Unigene0000006      1376      1082  74.7026  58.4714         -0.35342732</span><br><span class="line">## Unigene0000007       121        73  15.6800   9.4163         -0.73569337</span><br><span class="line">## Unigene0000008       221       308  13.1401  18.2287          0.47223542</span><br><span class="line">##                      Pvalue          FDR significant</span><br><span class="line">## Unigene0000003 0.5149484880 0.6733042200          no</span><br><span class="line">## Unigene0000004 0.0066439000 0.0178825370          no</span><br><span class="line">## Unigene0000005 0.1259729560 0.2246500490          no</span><br><span class="line">## Unigene0000006 0.0000000117 0.0000000686          no</span><br><span class="line">## Unigene0000007 0.0007419290 0.0024460860          no</span><br><span class="line">## Unigene0000008 0.0003037820 0.0010721500          no</span><br></pre></td></tr></table></figure>
-
-<h2 id="base-plot函数绘制火山图"><a href="#base-plot函数绘制火山图" class="headerlink" title="base plot函数绘制火山图"></a>base plot函数绘制火山图</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">attach(data)</span><br><span class="line"># 基础火山图</span><br><span class="line">plot(x=`log2_Ratio(WT0/LOG)`,y=-1*log10(FDR))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-34534a04ad20fe6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加颜色和标题</span><br><span class="line">plot(x=`log2_Ratio(WT0/LOG)`,y=-1*log10(FDR),</span><br><span class="line">     type = &quot;p&quot;, pch=20, col=significant,</span><br><span class="line">     main=&quot;Volcano plot&quot;,</span><br><span class="line">     xlab=&quot;log2(FC)&quot;,ylab=&quot;-log10(FDR)&quot;)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6e41b45b117558fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加水平线和垂直线</span><br><span class="line">abline(v=c(-1,1),lty=2,lwd = 2,col=&quot;red&quot;)</span><br><span class="line">abline(h=-log10(0.05),lty=2,lwd=2,col=&quot;blue&quot;</span><br><span class="line"># 添加图例</span><br><span class="line">legend(&quot;topright&quot;, inset = 0.01, title = &quot;Significant&quot;, c(&quot;yes&quot;,&quot;no&quot;),</span><br><span class="line">       pch=c(16,16),col = c(&quot;red&quot;,&quot;black&quot;))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-dd14d6e376147e46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加gene注释信息</span><br><span class="line">gene_selected &lt;- c(&quot;Unigene0034898&quot;,&quot;Unigene0038455&quot;,&quot;Unigene0003997&quot;,</span><br><span class="line">                   &quot;Unigene0026444&quot;,&quot;Unigene0039482&quot;,&quot;Unigene0028163&quot;</span><br><span class="line">                   )</span><br><span class="line">data_selected &lt;- data[gene_selected,]</span><br><span class="line">text(x=data_selected$`log2_Ratio(WT0/LOG)`,y=-1*log10(data_selected$FDR),</span><br><span class="line">     labels = rownames(data_selected),col=&quot;red&quot;,adj = 0.5)</span><br><span class="line">detach(data)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-c615f54231401244.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="ggplot2包绘制火山图"><a href="#ggplot2包绘制火山图" class="headerlink" title="ggplot2包绘制火山图"></a>ggplot2包绘制火山图</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">library(ggplot2)</span><br><span class="line">head(data)</span><br><span class="line">##                LOG_count WT0_count LOG_rpkm WT0_rpkm log2_Ratio(WT0/LOG)</span><br><span class="line">## Unigene0000003     17243     17525 931.5677 942.4515          0.01675776</span><br><span class="line">## Unigene0000004        65       101   4.1156   6.3657          0.62921640</span><br><span class="line">## Unigene0000005       909       984  36.8859  39.7458          0.10773298</span><br><span class="line">## Unigene0000006      1376      1082  74.7026  58.4714         -0.35342732</span><br><span class="line">## Unigene0000007       121        73  15.6800   9.4163         -0.73569337</span><br><span class="line">## Unigene0000008       221       308  13.1401  18.2287          0.47223542</span><br><span class="line">##                      Pvalue          FDR significant</span><br><span class="line">## Unigene0000003 0.5149484880 0.6733042200          no</span><br><span class="line">## Unigene0000004 0.0066439000 0.0178825370          no</span><br><span class="line">## Unigene0000005 0.1259729560 0.2246500490          no</span><br><span class="line">## Unigene0000006 0.0000000117 0.0000000686          no</span><br><span class="line">## Unigene0000007 0.0007419290 0.0024460860          no</span><br><span class="line">## Unigene0000008 0.0003037820 0.0010721500          no</span><br><span class="line"></span><br><span class="line"># 基础火山图</span><br><span class="line">ggplot(data,aes(`log2_Ratio(WT0/LOG)`,-log10(FDR))) + geom_point()</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-c5a37685aabf8f0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加颜色和标题</span><br><span class="line">ggplot(data,aes(`log2_Ratio(WT0/LOG)`,-log10(FDR),color=significant)) +</span><br><span class="line">  geom_point() +</span><br><span class="line">  labs(title=&quot;Volcano plot&quot;,x=expression(log[2](FC)), y=expression(-log[10](FDR)))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-398bf3c15686b458.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 更改颜色，主题，添加水平线和垂直线，去掉网格线</span><br><span class="line">p &lt;- ggplot(data,aes(`log2_Ratio(WT0/LOG)`,-log10(FDR),color=significant)) +</span><br><span class="line">  geom_point() + theme_bw() +</span><br><span class="line">  labs(title=&quot;Volcano plot&quot;,x=expression(log[2](FC)), y=expression(-log[10](FDR))) +</span><br><span class="line">  scale_color_manual(values = c(&quot;blue&quot;,&quot;red&quot;)) +</span><br><span class="line">  geom_vline(xintercept=-1, linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  geom_vline(xintercept=1, linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  geom_hline(yintercept=-log(0.05), linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  theme(plot.title = element_text(hjust = 0.5)) +</span><br><span class="line">  theme(panel.grid.major = element_blank(),</span><br><span class="line">        panel.grid.minor = element_blank(),</span><br><span class="line">        panel.background = element_blank())</span><br><span class="line">p</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-103405766d01d474.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加基因注释信息</span><br><span class="line">library(ggrepel)</span><br><span class="line">p + geom_text_repel(data=data_selected,</span><br><span class="line">                    aes(label=rownames(data_selected)))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-edc254b64a0342d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">p + geom_label_repel(data=data_selected,</span><br><span class="line">                     aes(label=rownames(data_selected)))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-9f7e96a2edf62ebb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="ggpubr包绘制火山图"><a href="#ggpubr包绘制火山图" class="headerlink" title="ggpubr包绘制火山图"></a>ggpubr包绘制火山图</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">library(ggpubr)</span><br><span class="line">data$FDR &lt;- -log10(data$FDR)</span><br><span class="line">data$FC &lt;- data$`log2_Ratio(WT0/LOG)`</span><br><span class="line">head(data)</span><br><span class="line">##                LOG_count WT0_count LOG_rpkm WT0_rpkm log2_Ratio(WT0/LOG)</span><br><span class="line">## Unigene0000003     17243     17525 931.5677 942.4515          0.01675776</span><br><span class="line">## Unigene0000004        65       101   4.1156   6.3657          0.62921640</span><br><span class="line">## Unigene0000005       909       984  36.8859  39.7458          0.10773298</span><br><span class="line">## Unigene0000006      1376      1082  74.7026  58.4714         -0.35342732</span><br><span class="line">## Unigene0000007       121        73  15.6800   9.4163         -0.73569337</span><br><span class="line">## Unigene0000008       221       308  13.1401  18.2287          0.47223542</span><br><span class="line">##                      Pvalue       FDR significant          FC</span><br><span class="line">## Unigene0000003 0.5149484880 0.1717887          no  0.01675776</span><br><span class="line">## Unigene0000004 0.0066439000 1.7475709          no  0.62921640</span><br><span class="line">## Unigene0000005 0.1259729560 0.6484935          no  0.10773298</span><br><span class="line">## Unigene0000006 0.0000000117 7.1636759          no -0.35342732</span><br><span class="line">## Unigene0000007 0.0007419290 2.6115283          no -0.73569337</span><br><span class="line">## Unigene0000008 0.0003037820 2.9697445          no  0.47223542</span><br><span class="line"></span><br><span class="line"># 基础火山图</span><br><span class="line">ggscatter(data,x=&quot;FC&quot;,y=&quot;FDR&quot;)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-51512ede162a780f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加颜色，标题，坐标轴标签</span><br><span class="line">ggscatter(data,x=&quot;FC&quot;,y=&quot;FDR&quot;,size = 1.5,</span><br><span class="line">          color = &quot;significant&quot;, palette = c(&quot;#BBBBBB&quot;,&quot;#CC0000&quot;),</span><br><span class="line">          title = &quot;Volcano plot&quot;,xlab = &quot;log2(FC)&quot;,ylab = &quot;-log10(FDR)&quot;)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-7d55b31bc518a67e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加水平线和垂直线，标题居中</span><br><span class="line">ggscatter(data,x=&quot;FC&quot;,y=&quot;FDR&quot;,size = 1.5,</span><br><span class="line">          color = &quot;significant&quot;, palette = c(&quot;#BBBBBB&quot;,&quot;#CC0000&quot;),</span><br><span class="line">          title = &quot;Volcano plot&quot;,xlab = &quot;log2(FC)&quot;,ylab = &quot;-log10(FDR)&quot;) +</span><br><span class="line">  geom_vline(xintercept=c(-1,1), linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  geom_hline(yintercept=-log(0.05), linetype=2, colour=&quot;gray30&quot;) +</span><br><span class="line">  theme(plot.title = element_text(hjust = 0.5))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-d6e49ad02150cc42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sessionInfo()</span><br><span class="line">## R version 3.6.0 (2019-04-26)</span><br><span class="line">## Platform: x86_64-w64-mingw32/x64 (64-bit)</span><br><span class="line">## Running under: Windows 10 x64 (build 18363)</span><br><span class="line">##</span><br><span class="line">## Matrix products: default</span><br><span class="line">##</span><br><span class="line">## locale:</span><br><span class="line">## [1] LC_COLLATE=Chinese (Simplified)_China.936</span><br><span class="line">## [2] LC_CTYPE=Chinese (Simplified)_China.936</span><br><span class="line">## [3] LC_MONETARY=Chinese (Simplified)_China.936</span><br><span class="line">## [4] LC_NUMERIC=C</span><br><span class="line">## [5] LC_TIME=Chinese (Simplified)_China.936</span><br><span class="line">##</span><br><span class="line">## attached base packages:</span><br><span class="line">## [1] stats     graphics  grDevices utils     datasets  methods   base</span><br><span class="line">##</span><br><span class="line">## other attached packages:</span><br><span class="line">## [1] ggpubr_0.2.1  magrittr_1.5  ggrepel_0.8.1 ggplot2_3.2.0</span><br><span class="line">##</span><br><span class="line">## loaded via a namespace (and not attached):</span><br><span class="line">##  [1] Rcpp_1.0.5       knitr_1.23       tidyselect_0.2.5 munsell_0.5.0</span><br><span class="line">##  [5] colorspace_1.4-1 R6_2.4.0         rlang_0.4.7      stringr_1.4.0</span><br><span class="line">##  [9] dplyr_0.8.3      tools_3.6.0      grid_3.6.0       gtable_0.3.0</span><br><span class="line">## [13] xfun_0.8         withr_2.1.2      htmltools_0.3.6  yaml_2.2.0</span><br><span class="line">## [17] lazyeval_0.2.2   digest_0.6.20    assertthat_0.2.1 tibble_2.1.3</span><br><span class="line">## [21] ggsignif_0.5.0   crayon_1.3.4     purrr_0.3.2      glue_1.3.1</span><br><span class="line">## [25] evaluate_0.14    rmarkdown_1.13   labeling_0.3     stringi_1.4.3</span><br><span class="line">## [29] compiler_3.6.0   pillar_1.4.2     scales_1.0.0     pkgconfig_2.0.2</span><br></pre></td></tr></table></figure>
-
-<p>▼更多精彩推荐，请关注我们▼</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-e68184a658204a7c?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp" alt="image"></p>
-]]></content>
-      <categories>
-        <category>Visualization</category>
-      </categories>
-      <tags>
-        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -733,8 +662,8 @@
 <blockquote>
 <p>参考来源：<br><a href="http://www.htslib.org/doc/samtools.html" target="_blank" rel="noopener">http://www.htslib.org/doc/samtools.html</a><br><a href="https://www.cnblogs.com/xiaofeiIDO/p/6805373.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaofeiIDO/p/6805373.html</a><br><a href="https://blog.csdn.net/sunchengquan/article/details/85176940" target="_blank" rel="noopener">https://blog.csdn.net/sunchengquan/article/details/85176940</a> </p>
 </blockquote>
-<p>▼更多精彩推荐，请关注我们▼</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-23037b02cac7415b?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp" alt="image"></p>
+<hr>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 ！</p>
 ]]></content>
       <categories>
         <category>NGS</category>

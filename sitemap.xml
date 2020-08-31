@@ -2,72 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://dongwei1220.github.io/2020/08/28/linux-basic-command2/</loc>
+    <loc>http://bioinfomics.top/2020/08/27/samtools-usage/</loc>
     
-    <lastmod>2020-08-28T12:03:46.318Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongwei1220.github.io/2020/08/28/linux-basic-command1/</loc>
-    
-    <lastmod>2020-08-28T10:59:50.719Z</lastmod>
+    <lastmod>2020-08-31T14:27:24.494Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongwei1220.github.io/about/index.html</loc>
+    <loc>http://bioinfomics.top/2020/08/28/linux-basic-command2/</loc>
+    
+    <lastmod>2020-08-31T14:27:04.229Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bioinfomics.top/2020/08/28/linux-basic-command1/</loc>
+    
+    <lastmod>2020-08-31T14:26:53.551Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bioinfomics.top/2020/08/27/my-cv/</loc>
+    
+    <lastmod>2020-08-31T14:22:41.055Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bioinfomics.top/links/index.html</loc>
+    
+    <lastmod>2020-08-31T13:37:35.400Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bioinfomics.top/about/index.html</loc>
     
     <lastmod>2020-08-28T07:52:58.432Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongwei1220.github.io/links/index.html</loc>
-    
-    <lastmod>2020-08-28T03:21:27.939Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongwei1220.github.io/categories/index.html</loc>
+    <loc>http://bioinfomics.top/categories/index.html</loc>
     
     <lastmod>2020-08-27T08:37:02.933Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongwei1220.github.io/tags/index.html</loc>
+    <loc>http://bioinfomics.top/tags/index.html</loc>
     
     <lastmod>2020-08-27T08:36:34.072Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongwei1220.github.io/2020/08/27/samtools-usage/</loc>
-    
-    <lastmod>2020-08-27T07:16:47.961Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongwei1220.github.io/2020/08/27/my-cv/</loc>
-    
-    <lastmod>2020-08-27T07:07:13.180Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongwei1220.github.io/2019/07/13/volcano-plot/</loc>
-    
-    <lastmod>2020-08-27T06:55:04.808Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongwei1220.github.io/2019/07/13/hello-world/</loc>
-    
-    <lastmod>2019-07-13T01:47:40.787Z</lastmod>
     
   </url>
   

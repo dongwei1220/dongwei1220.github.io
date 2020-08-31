@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -85,16 +92,14 @@
 <meta name="keywords" content="NGS,Samtools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Samtools使用大全">
-<meta property="og:url" content="https://dongwei1220.github.io/2020/08/27/samtools-usage/index.html">
+<meta property="og:url" content="http://bioinfomics.top/2020/08/27/samtools-usage/index.html">
 <meta property="og:site_name" content="Davey&#39;s Blog">
 <meta property="og:description" content="一、简介 Samtools是一个用于操作sam和bam格式文件的应用程序集合，具有众多的功能。 它从SAM（序列比对/映射）格式导入和导出，进行排序，合并和索引，并允许快速检索任何区域中的读数。SAM和BAM格式的比对文件主要由bwa、bowtie2、tophat和hisat2等序列比对工具产生，用于记录测序reads在参考基因组上的映射信息。其中，BAM格式文件是SAM文件的 的二进制格式，占据">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-23037b02cac7415b?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp">
-<meta property="og:updated_time" content="2020-08-27T07:16:47.961Z">
+<meta property="og:updated_time" content="2020-08-31T14:27:24.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Samtools使用大全">
 <meta name="twitter:description" content="一、简介 Samtools是一个用于操作sam和bam格式文件的应用程序集合，具有众多的功能。 它从SAM（序列比对/映射）格式导入和导出，进行排序，合并和索引，并允许快速检索任何区域中的读数。SAM和BAM格式的比对文件主要由bwa、bowtie2、tophat和hisat2等序列比对工具产生，用于记录测序reads在参考基因组上的映射信息。其中，BAM格式文件是SAM文件的 的二进制格式，占据">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8723194-23037b02cac7415b?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp">
 
 
 
@@ -104,7 +109,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -124,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://dongwei1220.github.io/2020/08/27/samtools-usage/">
+  <link rel="canonical" href="http://bioinfomics.top/2020/08/27/samtools-usage/">
 
 
 
@@ -149,8 +154,9 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
+    <a href="https://github.com/dongwei1220" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -309,12 +315,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dongwei1220.github.io/2020/08/27/samtools-usage/">
+    <link itemprop="mainEntityOfPage" href="http://bioinfomics.top/2020/08/27/samtools-usage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wei Dong">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/people.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -354,8 +360,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-08-27T15:16:47+08:00">
-                2020-08-27
+              <time title="Post modified" itemprop="dateModified" datetime="2020-08-31T22:27:24+08:00">
+                2020-08-31
               </time>
             
           </span>
@@ -904,8 +910,8 @@
 <blockquote>
 <p>参考来源：<br><a href="http://www.htslib.org/doc/samtools.html" target="_blank" rel="noopener">http://www.htslib.org/doc/samtools.html</a><br><a href="https://www.cnblogs.com/xiaofeiIDO/p/6805373.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaofeiIDO/p/6805373.html</a><br><a href="https://blog.csdn.net/sunchengquan/article/details/85176940" target="_blank" rel="noopener">https://blog.csdn.net/sunchengquan/article/details/85176940</a> </p>
 </blockquote>
-<p>▼更多精彩推荐，请关注我们▼</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8723194-23037b02cac7415b?imageMogr2/auto-orient/strip%7CimageView2/2/w/500/format/webp" alt="image"></p>
+<hr>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 ！</p>
 
       
     </div>
@@ -914,7 +920,39 @@
     
 
     
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="Wei Dong wechat" style="width: 200px; max-width: 100%;">
+    <div>subscribe to my blog by scanning my public wechat account</div>
+</div>
 
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Wei Dong WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -926,7 +964,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://dongwei1220.github.io/2020/08/27/samtools-usage/" title="Samtools使用大全">https://dongwei1220.github.io/2020/08/27/samtools-usage/</a>
+    <a href="http://bioinfomics.top/2020/08/27/samtools-usage/" title="Samtools使用大全">http://bioinfomics.top/2020/08/27/samtools-usage/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -941,9 +979,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NGS/" rel="tag"># NGS</a>
+            <a href="/tags/NGS/" rel="tag"><i class="fa fa-tag"></i> NGS</a>
           
-            <a href="/tags/Samtools/" rel="tag"># Samtools</a>
+            <a href="/tags/Samtools/" rel="tag"><i class="fa fa-tag"></i> Samtools</a>
           
         </div>
       
@@ -1034,7 +1072,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/people.jpg" alt="Wei Dong">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Wei Dong">
             
               <p class="site-author-name" itemprop="name">Wei Dong</p>
               <p class="site-description motion-element" itemprop="description">Cease to struggle and you cease to live!</p>
@@ -1047,7 +1085,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1058,7 +1096,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1115,6 +1153,36 @@
 
           
           
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/d27c7f02a323" title="简书" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com/people/davey1220" title="知乎" target="_blank">知乎</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hiplot.com.cn" title="HiPlot" target="_blank">HiPlot</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.biotrainee.com" title="生信技能树" target="_blank">生信技能树</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.bio-info-trainee.com" title="生信菜鸟团" target="_blank">生信菜鸟团</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
 
           
 
@@ -1165,7 +1233,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">42k</span>
+    <span title="Site words total count">36k</span>
   
 </div>
 
@@ -1229,6 +1297,8 @@
   
 
 
+  
+
 
 
 
@@ -1267,6 +1337,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -1675,3 +1750,7 @@
 
 </body>
 </html>
+
+<!-- added latter -->
+<!--页面点击出小红心-->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
