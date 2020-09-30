@@ -63,10 +63,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -96,13 +96,14 @@
 <meta property="og:site_name" content="Davey&#39;s Blog">
 <meta property="og:description" content="1. 目录和文件管理1.1目录相关1.1.1 mkdir功能说明：创建目录语 法：mkdir [-p] &amp;lt;dir1 [dir2 …]&amp;gt;参 数：-p 若所要建立目录的上层目录目前尚未建立，则会一并建立上层目录。Example ： 12mkdir testdirmkdir -p newdir/childdir  1.1.2 rmdir功能说明：删除（空）目录补充说明：该命令只能删除空目录，">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-28dc798b1362e4b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-1cb71952e9e153de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2020-08-31T14:26:53.551Z">
+<meta property="og:image" content="https://i.loli.net/2020/09/30/1gJ67KBcDs34ptH.png">
+<meta property="og:image" content="https://i.loli.net/2020/09/30/Ga4dysgF1fJlpz9.png">
+<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%8E%E7%BB%9F%E8%AE%A1.png">
+<meta property="og:updated_time" content="2020-09-30T08:35:03.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础常用命令大全(一)">
 <meta name="twitter:description" content="1. 目录和文件管理1.1目录相关1.1.1 mkdir功能说明：创建目录语 法：mkdir [-p] &amp;lt;dir1 [dir2 …]&amp;gt;参 数：-p 若所要建立目录的上层目录目前尚未建立，则会一并建立上层目录。Example ： 12mkdir testdirmkdir -p newdir/childdir  1.1.2 rmdir功能说明：删除（空）目录补充说明：该命令只能删除空目录，">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8723194-28dc798b1362e4b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="https://i.loli.net/2020/09/30/1gJ67KBcDs34ptH.png">
 
 
 
@@ -253,6 +254,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-tools">
+          <a href="/tools/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cubes"></i> <br>
+            
+            Tools
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -363,8 +374,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-08-31T22:26:53+08:00">
-                2020-08-31
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-30T16:35:03+08:00">
+                2020-09-30
               </time>
             
           </span>
@@ -400,6 +411,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -550,8 +566,9 @@
 <h4 id="1-5-4-du"><a href="#1-5-4-du" class="headerlink" title="1.5.4 du"></a>1.5.4 du</h4><p>功能说明：显示目录或文件的大小<br>语 法：du [-ash] [–max-depth=] &lt;file/dirname&gt;<br>参 数：<br>-a 显示目录中个别文件大小<br>-s 只显示总计<br>-h 以“K” ，“M” ，“G”为单位显示<br>–max-depth=&lt;n&gt; 只显示n层目录以内的文件<br>Example ：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">du -sh ./ <span class="comment">#显示当前目录的大小</span></span><br><span class="line">du -ah --max-depth=1 dir <span class="comment">#显示dir目录下所有文件大小，不包括下一级目录</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="https://upload-images.jianshu.io/upload_images/8723194-28dc798b1362e4b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文件和目录管理.png"> </p>
-<p> <img src="https://upload-images.jianshu.io/upload_images/8723194-1cb71952e9e153de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文本处理与统计.png"> </p>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="https://i.loli.net/2020/09/30/1gJ67KBcDs34ptH.png" alt></p>
+<p><img src="https://i.loli.net/2020/09/30/Ga4dysgF1fJlpz9.png" alt> </p>
+<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%8E%E7%BB%9F%E8%AE%A1.png" alt> </p>
 <hr>
 <p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 ！</p>
 
@@ -560,6 +577,17 @@
     
     
     
+
+    <div>
+      
+        <div>
+      
+          <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+      
+</div>
+
+      
+    </div>
 
     
       <div>
@@ -727,7 +755,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -738,7 +766,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -749,7 +777,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -841,7 +869,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-目录和文件管理"><span class="nav-number">1.</span> <span class="nav-text">1. 目录和文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1目录相关"><span class="nav-number">1.1.</span> <span class="nav-text">1.1目录相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-mkdir"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 mkdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-rmdir"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 rmdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3-ls"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3 ls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4-cd"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4 cd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-5-pwd"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.1.5 pwd</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-文件处理"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 文件处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-touch"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 touch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-cp"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 cp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-3-mv"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 mv</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-4-rm"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4 rm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-5-less"><span class="nav-number">1.2.5.</span> <span class="nav-text">1.2.5 less</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-6-more"><span class="nav-number">1.2.6.</span> <span class="nav-text">1.2.6 more</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-7-head"><span class="nav-number">1.2.7.</span> <span class="nav-text">1.2.7 head</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-8-tail"><span class="nav-number">1.2.8.</span> <span class="nav-text">1.2.8 tail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-9-cut"><span class="nav-number">1.2.9.</span> <span class="nav-text">1.2.9 cut</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-10-cat"><span class="nav-number">1.2.10.</span> <span class="nav-text">1.2.10 cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-11-ln"><span class="nav-number">1.2.11.</span> <span class="nav-text">1.2.11 ln</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-压缩解压缩"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 压缩解压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-tar"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 tar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-zip"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 zip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-gzip"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3 gzip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-4-bzip2"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.3.4 bzip2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4数据统计与处理"><span class="nav-number">1.4.</span> <span class="nav-text">1.4数据统计与处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-1-sort"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.4.1 sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-2-uniq"><span class="nav-number">1.4.2.</span> <span class="nav-text">1.4.2 uniq</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-3-wc"><span class="nav-number">1.4.3.</span> <span class="nav-text">1.4.3 wc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-4-grep"><span class="nav-number">1.4.4.</span> <span class="nav-text">1.4.4 grep</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-5-awk"><span class="nav-number">1.4.5.</span> <span class="nav-text">1.4.5 awk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-6-sed"><span class="nav-number">1.4.6.</span> <span class="nav-text">1.4.6 sed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-1-md5sum"><span class="nav-number">1.4.7.</span> <span class="nav-text">1.5.1 md5sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-2-chmod"><span class="nav-number">1.4.8.</span> <span class="nav-text">1.5.2 chmod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-3-find"><span class="nav-number">1.4.9.</span> <span class="nav-text">1.5.3 find</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-4-du"><span class="nav-number">1.4.10.</span> <span class="nav-text">1.5.4 du</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思维导图"><span class="nav-number">1.5.</span> <span class="nav-text">思维导图</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-目录和文件管理"><span class="nav-text">1. 目录和文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1目录相关"><span class="nav-text">1.1目录相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-mkdir"><span class="nav-text">1.1.1 mkdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-rmdir"><span class="nav-text">1.1.2 rmdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3-ls"><span class="nav-text">1.1.3 ls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4-cd"><span class="nav-text">1.1.4 cd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-5-pwd"><span class="nav-text">1.1.5 pwd</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-文件处理"><span class="nav-text">1.2 文件处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-touch"><span class="nav-text">1.2.1 touch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-cp"><span class="nav-text">1.2.2 cp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-3-mv"><span class="nav-text">1.2.3 mv</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-4-rm"><span class="nav-text">1.2.4 rm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-5-less"><span class="nav-text">1.2.5 less</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-6-more"><span class="nav-text">1.2.6 more</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-7-head"><span class="nav-text">1.2.7 head</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-8-tail"><span class="nav-text">1.2.8 tail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-9-cut"><span class="nav-text">1.2.9 cut</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-10-cat"><span class="nav-text">1.2.10 cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-11-ln"><span class="nav-text">1.2.11 ln</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-压缩解压缩"><span class="nav-text">1.3 压缩解压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-tar"><span class="nav-text">1.3.1 tar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-zip"><span class="nav-text">1.3.2 zip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-gzip"><span class="nav-text">1.3.3 gzip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-4-bzip2"><span class="nav-text">1.3.4 bzip2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4数据统计与处理"><span class="nav-text">1.4数据统计与处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-1-sort"><span class="nav-text">1.4.1 sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-2-uniq"><span class="nav-text">1.4.2 uniq</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-3-wc"><span class="nav-text">1.4.3 wc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-4-grep"><span class="nav-text">1.4.4 grep</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-5-awk"><span class="nav-text">1.4.5 awk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-6-sed"><span class="nav-text">1.4.6 sed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-1-md5sum"><span class="nav-text">1.5.1 md5sum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-2-chmod"><span class="nav-text">1.5.2 chmod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-3-find"><span class="nav-text">1.5.3 find</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-4-du"><span class="nav-text">1.5.4 du</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思维导图"><span class="nav-text">思维导图</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -875,7 +903,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">36k</span>
+    <span title="Site words total count">42k</span>
   
 </div>
 
@@ -896,6 +924,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 

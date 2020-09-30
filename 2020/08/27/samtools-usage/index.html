@@ -63,10 +63,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Davey&#39;s Blog">
 <meta property="og:description" content="一、简介 Samtools是一个用于操作sam和bam格式文件的应用程序集合，具有众多的功能。 它从SAM（序列比对/映射）格式导入和导出，进行排序，合并和索引，并允许快速检索任何区域中的读数。SAM和BAM格式的比对文件主要由bwa、bowtie2、tophat和hisat2等序列比对工具产生，用于记录测序reads在参考基因组上的映射信息。其中，BAM格式文件是SAM文件的 的二进制格式，占据">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2020-08-31T14:27:24.494Z">
+<meta property="og:updated_time" content="2020-09-30T07:45:39.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Samtools使用大全">
 <meta name="twitter:description" content="一、简介 Samtools是一个用于操作sam和bam格式文件的应用程序集合，具有众多的功能。 它从SAM（序列比对/映射）格式导入和导出，进行排序，合并和索引，并允许快速检索任何区域中的读数。SAM和BAM格式的比对文件主要由bwa、bowtie2、tophat和hisat2等序列比对工具产生，用于记录测序reads在参考基因组上的映射信息。其中，BAM格式文件是SAM文件的 的二进制格式，占据">
@@ -250,6 +250,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-tools">
+          <a href="/tools/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-cubes"></i> <br>
+            
+            Tools
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -360,8 +370,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-08-31T22:27:24+08:00">
-                2020-08-31
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-30T15:45:39+08:00">
+                2020-09-30
               </time>
             
           </span>
@@ -408,6 +418,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -919,6 +934,17 @@
     
     
 
+    <div>
+      
+        <div>
+      
+          <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+      
+</div>
+
+      
+    </div>
+
     
       <div>
         <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
@@ -1085,7 +1111,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1096,7 +1122,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1107,7 +1133,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1199,7 +1225,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、简介"><span class="nav-number">1.</span> <span class="nav-text">一、简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本用法"><span class="nav-number">2.</span> <span class="nav-text">二、基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-构建索引-Indexing"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 构建索引(Indexing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-文件编辑-Editing"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 文件编辑(Editing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-文件处理-File-operations"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 文件处理(File operations)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-数据统计-Statistics"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 数据统计(Statistics)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-可视化-Viewing"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 可视化(Viewing)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、常用示例"><span class="nav-number">3.</span> <span class="nav-text">三、常用示例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、简介"><span class="nav-text">一、简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本用法"><span class="nav-text">二、基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-构建索引-Indexing"><span class="nav-text">2.1 构建索引(Indexing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-文件编辑-Editing"><span class="nav-text">2.2 文件编辑(Editing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-文件处理-File-operations"><span class="nav-text">2.3 文件处理(File operations)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-数据统计-Statistics"><span class="nav-text">2.4 数据统计(Statistics)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-可视化-Viewing"><span class="nav-text">2.5 可视化(Viewing)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、常用示例"><span class="nav-text">三、常用示例</span></a></li></ol></div>
             
 
           </div>
@@ -1233,7 +1259,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">36k</span>
+    <span title="Site words total count">42k</span>
   
 </div>
 
@@ -1254,6 +1280,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
