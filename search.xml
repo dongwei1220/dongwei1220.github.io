@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>如何轻松绘制基因表达聚类趋势图</title>
+    <url>/2020/10/02/how-to-plot-gene-cluster-line-chart/</url>
+    <content><![CDATA[<hr>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-8f82416cc5499743.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清除当前环境中的变量</span></span><br><span class="line">rm(list=ls())</span><br><span class="line"><span class="comment"># 设置工作路径</span></span><br><span class="line">setwd(<span class="string">"C:/Users/Dell/Desktop/"</span>)</span><br><span class="line"><span class="comment"># 加载所需的R包</span></span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line"><span class="keyword">library</span>(pheatmap)</span><br><span class="line"><span class="keyword">library</span>(reshape2)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 读取测试数据</span></span><br><span class="line">data &lt;- read.table(<span class="string">"test.txt"</span>,header = <span class="literal">T</span>, row.names = <span class="number">1</span>,check.names = <span class="literal">F</span>)</span><br><span class="line"><span class="comment"># 查看数据基本信息</span></span><br><span class="line">head(data)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">##              Stage1_R1 Stage1_R2  Stage2_R1  Stage2_R2  Stage3_R1</span></span><br><span class="line"><span class="comment">## Unigene0001 -1.1777172 -1.036102  0.8423829  1.3458754  0.1080678</span></span><br><span class="line"><span class="comment">## Unigene0002  1.0596877  1.490939 -0.7663244 -0.6255567 -0.5333080</span></span><br><span class="line"><span class="comment">## Unigene0003  0.9206594  1.575844 -0.7861697 -0.3860003 -0.5501094</span></span><br><span class="line"><span class="comment">## Unigene0004 -1.3553173 -1.145970  0.2097526  0.7059886  0.9516353</span></span><br><span class="line"><span class="comment">## Unigene0005  1.0134516  1.445897 -0.9705129 -0.8560422 -0.2556562</span></span><br><span class="line"><span class="comment">## Unigene0006  0.8675939  1.575735 -1.0120718 -0.5856459 -0.2821991</span></span><br><span class="line"><span class="comment">##               Stage3_R2</span></span><br><span class="line"><span class="comment">## Unigene0001 -0.08250721</span></span><br><span class="line"><span class="comment">## Unigene0002 -0.62543728</span></span><br><span class="line"><span class="comment">## Unigene0003 -0.77422398</span></span><br><span class="line"><span class="comment">## Unigene0004  0.63391053</span></span><br><span class="line"><span class="comment">## Unigene0005 -0.37713783</span></span><br><span class="line"><span class="comment">## Unigene0006 -0.56341216</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用pheatmap绘制基因表达热图，并进行层次聚类分成不同的cluster</span></span><br><span class="line">p &lt;- pheatmap(data, show_rownames = <span class="literal">F</span>, cellwidth =<span class="number">40</span>, cluster_cols = <span class="literal">F</span>, </span><br><span class="line">         cutree_rows = <span class="number">6</span>,gaps_col = c(<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>), angle_col = <span class="number">45</span>,fontsize = <span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-7209a12f938c4f2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取聚类后的基因顺序</span></span><br><span class="line">row_cluster = cutree(p$tree_row,k=<span class="number">6</span>)</span><br><span class="line"><span class="comment"># 对聚类后的数据进行重新排序</span></span><br><span class="line">newOrder = data[p$tree_row$order,]</span><br><span class="line">newOrder[,ncol(newOrder)+<span class="number">1</span>]= row_cluster[match(rownames(newOrder),names(row_cluster))]</span><br><span class="line">colnames(newOrder)[ncol(newOrder)]=<span class="string">"Cluster"</span></span><br><span class="line"><span class="comment"># 查看重新排序后的数据</span></span><br><span class="line">head(newOrder)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">##             Stage1_R1 Stage1_R2  Stage2_R1  Stage2_R2  Stage3_R1 Stage3_R2</span></span><br><span class="line"><span class="comment">## Unigene0604 0.8097531  1.403759 -0.2668053 0.17819117 -0.9811268 -1.143771</span></span><br><span class="line"><span class="comment">## Unigene0262 0.8453759  1.408372 -0.2802646 0.12312391 -0.9767547 -1.119853</span></span><br><span class="line"><span class="comment">## Unigene0069 0.8279061  1.428306 -0.3124647 0.12820543 -0.9524584 -1.119494</span></span><br><span class="line"><span class="comment">## Unigene0219 0.8536163  1.423168 -0.3082219 0.09583306 -0.9584284 -1.105967</span></span><br><span class="line"><span class="comment">## Unigene0116 0.8282198  1.491489 -0.4344344 0.05187827 -0.8641523 -1.073000</span></span><br><span class="line"><span class="comment">## Unigene0297 0.8008572  1.459959 -0.3661415 0.13242699 -0.9111229 -1.115978</span></span><br><span class="line"><span class="comment">##             Cluster</span></span><br><span class="line"><span class="comment">## Unigene0604       6</span></span><br><span class="line"><span class="comment">## Unigene0262       6</span></span><br><span class="line"><span class="comment">## Unigene0069       6</span></span><br><span class="line"><span class="comment">## Unigene0219       6</span></span><br><span class="line"><span class="comment">## Unigene0116       6</span></span><br><span class="line"><span class="comment">## Unigene0297       6</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看聚类后cluster的基本信息</span></span><br><span class="line">unique(newOrder$Cluster)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">## [1] 6 2 5 3 4 1</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">table(newOrder$Cluster)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">## </span></span><br><span class="line"><span class="comment">##   1   2   3   4   5   6 </span></span><br><span class="line"><span class="comment">## 258 314  68   9  12  39</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将新排序后的数据保存输出</span></span><br><span class="line">newOrder$Cluster = paste0(<span class="string">"cluster"</span>,newOrder$Cluster)</span><br><span class="line">write.table(newOrder, <span class="string">"expr_DE.pheatmap.cluster.txt"</span>,sep=<span class="string">"\t"</span>,quote = <span class="literal">F</span>,row.names = <span class="literal">T</span>,col.names = <span class="literal">T</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 绘制每个cluster的基因聚类趋势图</span></span><br><span class="line">newOrder$gene = rownames(newOrder)</span><br><span class="line">head(newOrder)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">##             Stage1_R1 Stage1_R2  Stage2_R1  Stage2_R2  Stage3_R1 Stage3_R2</span></span><br><span class="line"><span class="comment">## Unigene0604 0.8097531  1.403759 -0.2668053 0.17819117 -0.9811268 -1.143771</span></span><br><span class="line"><span class="comment">## Unigene0262 0.8453759  1.408372 -0.2802646 0.12312391 -0.9767547 -1.119853</span></span><br><span class="line"><span class="comment">## Unigene0069 0.8279061  1.428306 -0.3124647 0.12820543 -0.9524584 -1.119494</span></span><br><span class="line"><span class="comment">## Unigene0219 0.8536163  1.423168 -0.3082219 0.09583306 -0.9584284 -1.105967</span></span><br><span class="line"><span class="comment">## Unigene0116 0.8282198  1.491489 -0.4344344 0.05187827 -0.8641523 -1.073000</span></span><br><span class="line"><span class="comment">## Unigene0297 0.8008572  1.459959 -0.3661415 0.13242699 -0.9111229 -1.115978</span></span><br><span class="line"><span class="comment">##              Cluster        gene</span></span><br><span class="line"><span class="comment">## Unigene0604 cluster6 Unigene0604</span></span><br><span class="line"><span class="comment">## Unigene0262 cluster6 Unigene0262</span></span><br><span class="line"><span class="comment">## Unigene0069 cluster6 Unigene0069</span></span><br><span class="line"><span class="comment">## Unigene0219 cluster6 Unigene0219</span></span><br><span class="line"><span class="comment">## Unigene0116 cluster6 Unigene0116</span></span><br><span class="line"><span class="comment">## Unigene0297 cluster6 Unigene0297</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="keyword">library</span>(reshape2)</span><br><span class="line"><span class="comment"># 将短数据格式转换为长数据格式</span></span><br><span class="line">data_new = melt(newOrder)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">## Using Cluster, gene as id variables</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">head(data_new)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">##    Cluster        gene  variable     value</span></span><br><span class="line"><span class="comment">## 1 cluster6 Unigene0604 Stage1_R1 0.8097531</span></span><br><span class="line"><span class="comment">## 2 cluster6 Unigene0262 Stage1_R1 0.8453759</span></span><br><span class="line"><span class="comment">## 3 cluster6 Unigene0069 Stage1_R1 0.8279061</span></span><br><span class="line"><span class="comment">## 4 cluster6 Unigene0219 Stage1_R1 0.8536163</span></span><br><span class="line"><span class="comment">## 5 cluster6 Unigene0116 Stage1_R1 0.8282198</span></span><br><span class="line"><span class="comment">## 6 cluster6 Unigene0297 Stage1_R1 0.8008572</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 绘制基因表达趋势折线图</span></span><br><span class="line">ggplot(data_new,aes(variable, value, group=gene)) + geom_line(color=<span class="string">"gray90"</span>,size=<span class="number">0.8</span>) + </span><br><span class="line">  geom_hline(yintercept =<span class="number">0</span>,linetype=<span class="number">2</span>) +</span><br><span class="line">  stat_summary(aes(group=<span class="number">1</span>),fun.y=mean, geom=<span class="string">"line"</span>, size=<span class="number">1.2</span>, color=<span class="string">"#c51b7d"</span>) + </span><br><span class="line">  facet_wrap(Cluster~.) +</span><br><span class="line">  theme_bw() + </span><br><span class="line">  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),</span><br><span class="line">        axis.text = element_text(size=<span class="number">8</span>, face = <span class="string">"bold"</span>),</span><br><span class="line">        strip.text = element_text(size = <span class="number">8</span>, face = <span class="string">"bold"</span>))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-c31dfa6703d716f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">sessionInfo()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment">## R version 3.6.0 (2019-04-26)</span></span><br><span class="line"><span class="comment">## Platform: x86_64-w64-mingw32/x64 (64-bit)</span></span><br><span class="line"><span class="comment">## Running under: Windows 10 x64 (build 17763)</span></span><br><span class="line"><span class="comment">## </span></span><br><span class="line"><span class="comment">## Matrix products: default</span></span><br><span class="line"><span class="comment">## </span></span><br><span class="line"><span class="comment">## locale:</span></span><br><span class="line"><span class="comment">## [1] LC_COLLATE=Chinese (Simplified)_China.936 </span></span><br><span class="line"><span class="comment">## [2] LC_CTYPE=Chinese (Simplified)_China.936   </span></span><br><span class="line"><span class="comment">## [3] LC_MONETARY=Chinese (Simplified)_China.936</span></span><br><span class="line"><span class="comment">## [4] LC_NUMERIC=C                              </span></span><br><span class="line"><span class="comment">## [5] LC_TIME=Chinese (Simplified)_China.936    </span></span><br><span class="line"><span class="comment">## </span></span><br><span class="line"><span class="comment">## attached base packages:</span></span><br><span class="line"><span class="comment">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span><br><span class="line"><span class="comment">## </span></span><br><span class="line"><span class="comment">## other attached packages:</span></span><br><span class="line"><span class="comment">## [1] reshape2_1.4.3  pheatmap_1.0.12 ggplot2_3.2.0  </span></span><br><span class="line"><span class="comment">## </span></span><br><span class="line"><span class="comment">## loaded via a namespace (and not attached):</span></span><br><span class="line"><span class="comment">##  [1] Rcpp_1.0.1         knitr_1.23         magrittr_1.5      </span></span><br><span class="line"><span class="comment">##  [4] tidyselect_0.2.5   munsell_0.5.0      colorspace_1.4-1  </span></span><br><span class="line"><span class="comment">##  [7] R6_2.4.0           rlang_0.4.0        plyr_1.8.4        </span></span><br><span class="line"><span class="comment">## [10] stringr_1.4.0      dplyr_0.8.3        tools_3.6.0       </span></span><br><span class="line"><span class="comment">## [13] grid_3.6.0         gtable_0.3.0       xfun_0.8          </span></span><br><span class="line"><span class="comment">## [16] withr_2.1.2        htmltools_0.3.6    yaml_2.2.0        </span></span><br><span class="line"><span class="comment">## [19] lazyeval_0.2.2     digest_0.6.20      assertthat_0.2.1  </span></span><br><span class="line"><span class="comment">## [22] tibble_2.1.3       crayon_1.3.4       RColorBrewer_1.1-2</span></span><br><span class="line"><span class="comment">## [25] purrr_0.3.2        glue_1.3.1         evaluate_0.14     </span></span><br><span class="line"><span class="comment">## [28] rmarkdown_1.13     labeling_0.3       stringi_1.4.3     </span></span><br><span class="line"><span class="comment">## [31] compiler_3.6.0     pillar_1.4.2       scales_1.0.0      </span></span><br><span class="line"><span class="comment">## [34] pkgconfig_2.0.2</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 ！</p>
+]]></content>
+      <categories>
+        <category>R</category>
+        <category>Visualization</category>
+      </categories>
+      <tags>
+        <tag>R</tag>
+        <tag>Gene expression</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用R pagedown给自己做一份精致的简历</title>
+    <url>/2020/08/27/my-cv/</url>
+    <content><![CDATA[<h3 id="先看下简历的最终效果："><a href="#先看下简历的最终效果：" class="headerlink" title="先看下简历的最终效果："></a>先看下简历的最终效果：</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154632.png" alt></p>
+<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154644.png" alt></p>
+<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154651.png" alt></p>
+<hr>
+<h3 id="下载并安装所需的R包"><a href="#下载并安装所需的R包" class="headerlink" title="下载并安装所需的R包"></a>下载并安装所需的R包</h3><blockquote>
+<p>简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：<a href="https://github.com/nstrayer/cv" target="_blank" rel="noopener">https://github.com/nstrayer/cv</a> 的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个<code>position.csv</code>文件中，使用比较方便。</p>
+</blockquote>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154658.png" alt></p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装所需的R</span></span><br><span class="line">rm(list = ls()) </span><br><span class="line">options(<span class="string">"repos"</span> = c(CRAN=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span>))</span><br><span class="line">install.packages(<span class="string">"tidyverse"</span>)</span><br><span class="line">install.packages(<span class="string">"rmarkdown"</span>)</span><br><span class="line">install.packages(<span class="string">"glue"</span>)</span><br><span class="line">install.packages(<span class="string">"devtools"</span>)</span><br><span class="line">devtools::install_github(<span class="string">'rstudio/pagedown'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="编辑并填写个人简历信息"><a href="#编辑并填写个人简历信息" class="headerlink" title="编辑并填写个人简历信息"></a>编辑并填写个人简历信息</h3><p>用Excel打开<code>position.csv</code>文件，根据相应的条目填写个人简历信息</p>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154706.png" alt> </p>
+<h3 id="在Rstudio中编辑更改index-Rmd文件"><a href="#在Rstudio中编辑更改index-Rmd文件" class="headerlink" title="在Rstudio中编辑更改index.Rmd文件"></a>在Rstudio中编辑更改index.Rmd文件</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154712.png" alt> </p>
+<h3 id="使用kint生成index-html网页文件"><a href="#使用kint生成index-html网页文件" class="headerlink" title="使用kint生成index.html网页文件"></a>使用kint生成index.html网页文件</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154717.png" alt> </p>
+<p>运行完kint后会在自己的文件夹中生成一个<code>index.html</code>格式的网页版简历</p>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154725.png" alt> </p>
+<p>简历整体的布局形式可以通过<code>styles.css</code>文件进行调整</p>
+<h3 id="将网页文件另存为pdf文件"><a href="#将网页文件另存为pdf文件" class="headerlink" title="将网页文件另存为pdf文件"></a>将网页文件另存为pdf文件</h3><p>使用谷歌浏览器打开<code>index.html</code>文件，通过快捷键Ctrl + P进行页面打印，然后选择另存为PDF进行pdf文件的保存。</p>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154730.png" alt> </p>
+<p>最后可以将自己的代码上传到github上进行存储共享<a href="https://github.com/dongwei1220/cv" target="_blank" rel="noopener">https://github.com/dongwei1220/cv</a></p>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154737.png" alt> </p>
+<p>参考来源：【质感满满的简历，你也可以有！】<a href="https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ</a></p>
+<hr>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处！</p>
+]]></content>
+      <categories>
+        <category>Research</category>
+        <category>CV</category>
+      </categories>
+      <tags>
+        <tag>R</tag>
+        <tag>CV</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux基础常用命令大全(二)</title>
     <url>/2020/08/28/linux-basic-command2/</url>
     <content><![CDATA[<h2 id="2-进程管理"><a href="#2-进程管理" class="headerlink" title="2 进程管理"></a>2 进程管理</h2><h3 id="2-1进程查看"><a href="#2-1进程查看" class="headerlink" title="2.1进程查看"></a>2.1进程查看</h3><h4 id="2-1-1-ps-process-status"><a href="#2-1-1-ps-process-status" class="headerlink" title="2.1.1 ps(process status)"></a>2.1.1 ps(process status)</h4><p>功能说明：显示用户进程<br>语 法：ps x [-u &lt;usrname&gt;]<br>参 数：<br>-u &lt;usrname&gt; 显示usr用户的进程（默认显示自身用户进程）<br>Example ：</p>
@@ -52,43 +148,6 @@
       <tags>
         <tag>Linux</tag>
         <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用R pagedown给自己做一份精致的简历</title>
-    <url>/2020/08/27/my-cv/</url>
-    <content><![CDATA[<h3 id="先看下简历的最终效果："><a href="#先看下简历的最终效果：" class="headerlink" title="先看下简历的最终效果："></a>先看下简历的最终效果：</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154632.png" alt></p>
-<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154644.png" alt></p>
-<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154651.png" alt></p>
-<hr>
-<h3 id="下载并安装所需的R包"><a href="#下载并安装所需的R包" class="headerlink" title="下载并安装所需的R包"></a>下载并安装所需的R包</h3><blockquote>
-<p>简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：<a href="https://github.com/nstrayer/cv" target="_blank" rel="noopener">https://github.com/nstrayer/cv</a> 的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个<code>position.csv</code>文件中，使用比较方便。</p>
-</blockquote>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154658.png" alt></p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装所需的R</span></span><br><span class="line">rm(list = ls()) </span><br><span class="line">options(<span class="string">"repos"</span> = c(CRAN=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span>))</span><br><span class="line">install.packages(<span class="string">"tidyverse"</span>)</span><br><span class="line">install.packages(<span class="string">"rmarkdown"</span>)</span><br><span class="line">install.packages(<span class="string">"glue"</span>)</span><br><span class="line">install.packages(<span class="string">"devtools"</span>)</span><br><span class="line">devtools::install_github(<span class="string">'rstudio/pagedown'</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="编辑并填写个人简历信息"><a href="#编辑并填写个人简历信息" class="headerlink" title="编辑并填写个人简历信息"></a>编辑并填写个人简历信息</h3><p>用Excel打开<code>position.csv</code>文件，根据相应的条目填写个人简历信息</p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154706.png" alt> </p>
-<h3 id="在Rstudio中编辑更改index-Rmd文件"><a href="#在Rstudio中编辑更改index-Rmd文件" class="headerlink" title="在Rstudio中编辑更改index.Rmd文件"></a>在Rstudio中编辑更改index.Rmd文件</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154712.png" alt> </p>
-<h3 id="使用kint生成index-html网页文件"><a href="#使用kint生成index-html网页文件" class="headerlink" title="使用kint生成index.html网页文件"></a>使用kint生成index.html网页文件</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154717.png" alt> </p>
-<p>运行完kint后会在自己的文件夹中生成一个<code>index.html</code>格式的网页版简历</p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154725.png" alt> </p>
-<p>简历整体的布局形式可以通过<code>styles.css</code>文件进行调整</p>
-<h3 id="将网页文件另存为pdf文件"><a href="#将网页文件另存为pdf文件" class="headerlink" title="将网页文件另存为pdf文件"></a>将网页文件另存为pdf文件</h3><p>使用谷歌浏览器打开<code>index.html</code>文件，通过快捷键Ctrl + P进行页面打印，然后选择另存为PDF进行pdf文件的保存。</p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154730.png" alt> </p>
-<p>最后可以将自己的代码上传到github上进行存储共享<a href="https://github.com/dongwei1220/cv" target="_blank" rel="noopener">https://github.com/dongwei1220/cv</a></p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154737.png" alt> </p>
-<p>参考来源：【质感满满的简历，你也可以有！】<a href="https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ</a></p>
-<hr>
-<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处！</p>
-]]></content>
-      <categories>
-        <category>Research</category>
-        <category>CV</category>
-      </categories>
-      <tags>
-        <tag>R</tag>
-        <tag>CV</tag>
       </tags>
   </entry>
   <entry>
