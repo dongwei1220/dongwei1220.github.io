@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="R,CV,">
+  <meta name="keywords" content="Pipeline,Genome duplication,">
 
 
 
@@ -88,29 +88,22 @@
 
 
 
-<meta name="description" content="先看下简历的最终效果：      下载并安装所需的R包 简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：https://github.com/nstrayer/cv 的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个position.csv文件中，使用比较方便。   12345678# 安装所需的Rrm(list = ls()) opti">
-<meta name="keywords" content="R,CV">
+<meta name="description" content="1. 前期准备 不同物种的蛋白和cds序列：  os.pep, os.cds, sb.pep, sb.cds  依赖程序：  blast+, clustalw2, ParaAT, KaKs_Calculator注：所依赖程序需提前安装好，并添加到环境变量中  所用脚本：  axt2one-line.py, calculate_4DTV_correction.pl 2. 获得不同物种之间的同源序列对">
+<meta name="keywords" content="Pipeline,Genome duplication">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用R pagedown给自己做一份精致的简历">
-<meta property="og:url" content="http://bioinfomics.top/2020/08/27/my-cv/index.html">
+<meta property="og:title" content="如何计算kaks值和4dtv值">
+<meta property="og:url" content="http://bioinfomics.top/2020/10/03/how-to-calculate-kaks-and-4dtv-value/index.html">
 <meta property="og:site_name" content="Davey&#39;s Blog">
-<meta property="og:description" content="先看下简历的最终效果：      下载并安装所需的R包 简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：https://github.com/nstrayer/cv 的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个position.csv文件中，使用比较方便。   12345678# 安装所需的Rrm(list = ls()) opti">
+<meta property="og:description" content="1. 前期准备 不同物种的蛋白和cds序列：  os.pep, os.cds, sb.pep, sb.cds  依赖程序：  blast+, clustalw2, ParaAT, KaKs_Calculator注：所依赖程序需提前安装好，并添加到环境变量中  所用脚本：  axt2one-line.py, calculate_4DTV_correction.pl 2. 获得不同物种之间的同源序列对">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154632.png">
-<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154644.png">
-<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154651.png">
-<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154658.png">
-<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154706.png">
-<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154712.png">
-<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154717.png">
-<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154725.png">
-<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154730.png">
-<meta property="og:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154737.png">
-<meta property="og:updated_time" content="2020-09-30T07:52:15.581Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-4f2946dabe92d0fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-daf706690a43b275.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-7205fb94a1705473.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2020-10-03T02:53:55.591Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用R pagedown给自己做一份精致的简历">
-<meta name="twitter:description" content="先看下简历的最终效果：      下载并安装所需的R包 简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：https://github.com/nstrayer/cv 的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个position.csv文件中，使用比较方便。   12345678# 安装所需的Rrm(list = ls()) opti">
-<meta name="twitter:image" content="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154632.png">
+<meta name="twitter:title" content="如何计算kaks值和4dtv值">
+<meta name="twitter:description" content="1. 前期准备 不同物种的蛋白和cds序列：  os.pep, os.cds, sb.pep, sb.cds  依赖程序：  blast+, clustalw2, ParaAT, KaKs_Calculator注：所依赖程序需提前安装好，并添加到环境变量中  所用脚本：  axt2one-line.py, calculate_4DTV_correction.pl 2. 获得不同物种之间的同源序列对">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8723194-4f2946dabe92d0fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -140,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://bioinfomics.top/2020/08/27/my-cv/">
+  <link rel="canonical" href="http://bioinfomics.top/2020/10/03/how-to-calculate-kaks-and-4dtv-value/">
 
 
 
 
 
-  <title>使用R pagedown给自己做一份精致的简历 | Davey's Blog</title>
+  <title>如何计算kaks值和4dtv值 | Davey's Blog</title>
   
 
 
@@ -336,7 +329,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bioinfomics.top/2020/08/27/my-cv/">
+    <link itemprop="mainEntityOfPage" href="http://bioinfomics.top/2020/10/03/how-to-calculate-kaks-and-4dtv-value/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wei Dong">
@@ -353,7 +346,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用R pagedown给自己做一份精致的简历</h1>
+          <h1 class="post-title" itemprop="name headline">如何计算kaks值和4dtv值</h1>
         
 
         <div class="post-meta">
@@ -365,8 +358,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-27T13:01:05+08:00">
-                2020-08-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-03T10:49:37+08:00">
+                2020-10-03
               </time>
             
 
@@ -381,8 +374,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-30T15:52:15+08:00">
-                2020-09-30
+              <time title="Post modified" itemprop="dateModified" datetime="2020-10-03T10:53:55+08:00">
+                2020-10-03
               </time>
             
           </span>
@@ -400,8 +393,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/" itemprop="url" rel="index">
-                    <span itemprop="name">Research</span>
+                  <a href="/categories/Comparative-genomics/" itemprop="url" rel="index">
+                    <span itemprop="name">Comparative genomics</span>
                   </a>
                 </span>
 
@@ -411,8 +404,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Research/CV/" itemprop="url" rel="index">
-                    <span itemprop="name">CV</span>
+                  <a href="/categories/Comparative-genomics/Genome-duplication/" itemprop="url" rel="index">
+                    <span itemprop="name">Genome duplication</span>
                   </a>
                 </span>
 
@@ -447,7 +440,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  3.8k
+                  18k
                 </span>
               
 
@@ -463,7 +456,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3 mins.
+                  16 mins.
                 </span>
               
             </div>
@@ -484,30 +477,46 @@
       
 
       
-        <h3 id="先看下简历的最终效果："><a href="#先看下简历的最终效果：" class="headerlink" title="先看下简历的最终效果："></a>先看下简历的最终效果：</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154632.png" alt></p>
-<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154644.png" alt></p>
-<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154651.png" alt></p>
-<hr>
-<h3 id="下载并安装所需的R包"><a href="#下载并安装所需的R包" class="headerlink" title="下载并安装所需的R包"></a>下载并安装所需的R包</h3><blockquote>
-<p>简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：<a href="https://github.com/nstrayer/cv" target="_blank" rel="noopener">https://github.com/nstrayer/cv</a> 的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个<code>position.csv</code>文件中，使用比较方便。</p>
-</blockquote>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154658.png" alt></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装所需的R</span></span><br><span class="line">rm(list = ls()) </span><br><span class="line">options(<span class="string">"repos"</span> = c(CRAN=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span>))</span><br><span class="line">install.packages(<span class="string">"tidyverse"</span>)</span><br><span class="line">install.packages(<span class="string">"rmarkdown"</span>)</span><br><span class="line">install.packages(<span class="string">"glue"</span>)</span><br><span class="line">install.packages(<span class="string">"devtools"</span>)</span><br><span class="line">devtools::install_github(<span class="string">'rstudio/pagedown'</span>)</span><br></pre></td></tr></table></figure>
+        <h2 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1. 前期准备"></a>1. 前期准备</h2><ul>
+<li>不同物种的蛋白和cds序列：</li>
+</ul>
+<p><strong>os.pep, os.cds, sb.pep, sb.cds</strong></p>
+<ul>
+<li>依赖程序：</li>
+</ul>
+<p><strong>blast+, clustalw2, ParaAT, KaKs_Calculator</strong><br><code>注：所依赖程序需提前安装好，并添加到环境变量中</code></p>
+<ul>
+<li>所用脚本：</li>
+</ul>
+<p><strong>axt2one-line.py, calculate_4DTV_correction.pl</strong></p>
+<h2 id="2-获得不同物种之间的同源序列"><a href="#2-获得不同物种之间的同源序列" class="headerlink" title="2. 获得不同物种之间的同源序列"></a>2. 获得不同物种之间的同源序列</h2><p>对参考物种的蛋白序列构建索引</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">makeblastdb -<span class="keyword">in</span> sb.pep -dbtype prot</span><br></pre></td></tr></table></figure>
 
-<h3 id="编辑并填写个人简历信息"><a href="#编辑并填写个人简历信息" class="headerlink" title="编辑并填写个人简历信息"></a>编辑并填写个人简历信息</h3><p>用Excel打开<code>position.csv</code>文件，根据相应的条目填写个人简历信息</p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154706.png" alt> </p>
-<h3 id="在Rstudio中编辑更改index-Rmd文件"><a href="#在Rstudio中编辑更改index-Rmd文件" class="headerlink" title="在Rstudio中编辑更改index.Rmd文件"></a>在Rstudio中编辑更改index.Rmd文件</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154712.png" alt> </p>
-<h3 id="使用kint生成index-html网页文件"><a href="#使用kint生成index-html网页文件" class="headerlink" title="使用kint生成index.html网页文件"></a>使用kint生成index.html网页文件</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154717.png" alt> </p>
-<p>运行完kint后会在自己的文件夹中生成一个<code>index.html</code>格式的网页版简历</p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154725.png" alt> </p>
-<p>简历整体的布局形式可以通过<code>styles.css</code>文件进行调整</p>
-<h3 id="将网页文件另存为pdf文件"><a href="#将网页文件另存为pdf文件" class="headerlink" title="将网页文件另存为pdf文件"></a>将网页文件另存为pdf文件</h3><p>使用谷歌浏览器打开<code>index.html</code>文件，通过快捷键Ctrl + P进行页面打印，然后选择另存为PDF进行pdf文件的保存。</p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154730.png" alt> </p>
-<p>最后可以将自己的代码上传到github上进行存储共享<a href="https://github.com/dongwei1220/cv" target="_blank" rel="noopener">https://github.com/dongwei1220/cv</a></p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154737.png" alt> </p>
-<p>参考来源：【质感满满的简历，你也可以有！】<a href="https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ</a></p>
+<p>将目标物种的蛋白序列与参考物种进行比对，并保留最优匹配结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blastp -query os.pep -db sb.pep -evalue 1e-5 -max_target_seqs 1 -num_threads 12 -out os2sb.blastp_out.m6 -outfmt 6</span><br></pre></td></tr></table></figure>
+
+<p>提取最优匹配的同源序列基因对</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut -f1-2 os2sb.blastp_out.m6|sort|uniq &gt; os2sb.homolog</span><br></pre></td></tr></table></figure>
+
+<p>合并目标物种和参考物种的蛋白序列和cds序列</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat os.cds sb.cds &gt;os_sb.cds</span><br><span class="line">cat os.pep sb.pep &gt;os_sb.pep</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-使用ParaAT程序将蛋白序列比对结果转化为cds序列比对结果"><a href="#3-使用ParaAT程序将蛋白序列比对结果转化为cds序列比对结果" class="headerlink" title="3. 使用ParaAT程序将蛋白序列比对结果转化为cds序列比对结果"></a>3. 使用ParaAT程序将蛋白序列比对结果转化为cds序列比对结果</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建proc文件, 设定12个线程</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"12"</span> &gt;proc</span><br><span class="line"><span class="comment"># -m参数指定多序列比对程序为clustalw2，-p参数指定多线程文件，-f参数指定输出文件格式为axt</span></span><br><span class="line">ParaAT.pl -h os2sb.homolog -n os_sb.cds -a os_sb.pep -m clustalw2 -p proc -f axt -o os2sb_out</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-计算kaks值和4dtv值"><a href="#4-计算kaks值和4dtv值" class="headerlink" title="4. 计算kaks值和4dtv值"></a>4. 计算kaks值和4dtv值</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> os2sb_out</span><br><span class="line"><span class="comment"># 使用KaKs_Calculator计算kaks值, -m参数指定kaks值的计算方法为YN模型</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls *.axt`;<span class="keyword">do</span> KaKs_Calculator -i <span class="variable">$i</span> -o <span class="variable">$&#123;i&#125;</span>.kaks -m YN;<span class="keyword">done</span></span><br><span class="line"><span class="comment"># 将多行axt文件转换成单行</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls *.axt`;<span class="keyword">do</span> axt2one-line.py <span class="variable">$i</span> <span class="variable">$&#123;i&#125;</span>.one-line;<span class="keyword">done</span></span><br><span class="line"><span class="comment"># 使用calculate_4DTV_correction.pl脚本计算4dtv值</span></span><br><span class="line">ls *.axt.one-line|<span class="keyword">while</span> <span class="built_in">read</span> id;<span class="keyword">do</span> calculate_4DTV_correction.pl <span class="variable">$id</span> &gt;<span class="variable">$&#123;id%%one-line&#125;</span>4dtv;<span class="keyword">done</span></span><br><span class="line"><span class="comment"># 合并所有同源基因对的4dtv</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls *.4dtv`;<span class="keyword">do</span> awk <span class="string">'NR&gt;1&#123;print $1"\t"$2&#125;'</span> <span class="variable">$i</span> &gt;&gt;all-4dtv.txt;<span class="keyword">done</span></span><br><span class="line"><span class="comment"># 合并所有同源基因对的kaks值</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls *.kaks`;<span class="keyword">do</span> awk <span class="string">'NR&gt;1&#123;print $1"\t"$3"\t"$4"\t"$5&#125;'</span> <span class="variable">$i</span> &gt;&gt;all-kaks.txt;<span class="keyword">done</span></span><br><span class="line"><span class="comment"># 给结果文件排序并去冗余</span></span><br><span class="line">sort all-4dtv.txt|uniq &gt;all-4dtv.results</span><br><span class="line">sort all-kaks.txt|uniq &gt;all-kaks.results</span><br><span class="line"><span class="comment"># 清除中间文件</span></span><br><span class="line">rm *one-line</span><br><span class="line">rm all-4dtv.txt</span><br><span class="line">rm all-kaks.txt</span><br><span class="line"><span class="comment"># 将kaks结果文件和4dtv结果文件进行合并</span></span><br><span class="line">join -1 1 -2 1 all-kaks.results all-4dtv.results &gt;all-results.txt</span><br><span class="line"><span class="comment"># 给结果文件添加标题</span></span><br><span class="line">sed -i <span class="string">'1i\Seq\tKa\tKs\tKa/Ks\t4dtv_corrected'</span> all-results.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-使用calc-kaks-4dtv-sh脚本一步计算kaks值和4dtv值"><a href="#5-使用calc-kaks-4dtv-sh脚本一步计算kaks值和4dtv值" class="headerlink" title="5. 使用calc_kaks_4dtv.sh脚本一步计算kaks值和4dtv值"></a>5. 使用calc_kaks_4dtv.sh脚本一步计算kaks值和4dtv值</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sh calc_kaks_4dtv.sh os sb &amp;</span><br></pre></td></tr></table></figure>
+
+<p>查看脚本文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="built_in">set</span> -u</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -lt 2 ];<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"Two parameters needed, but only <span class="variable">$#</span> given!"</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"Usage: sh calc_kaks_4dtv.sh &lt;Species1&gt; &lt;Species2&gt;"</span></span><br><span class="line"><span class="built_in">exit</span> 1;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">Species1=<span class="variable">$1</span></span><br><span class="line">Species2=<span class="variable">$2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对参考物种的蛋白序列构建索引</span></span><br><span class="line">makeblastdb -<span class="keyword">in</span> <span class="variable">$&#123;Species2&#125;</span>.pep -dbtype prot</span><br><span class="line"><span class="comment"># 将目标物种的蛋白序列与参考物种进行比对，并保留最优匹配结果</span></span><br><span class="line">blastp -query <span class="variable">$&#123;Species1&#125;</span>.pep -db <span class="variable">$&#123;Species2&#125;</span>.pep -evalue 1e-5 -max_target_seqs 1 -num_threads 10 -out <span class="variable">$&#123;Species1&#125;</span>2<span class="variable">$&#123;Species2&#125;</span>.blastp_out.m6 -outfmt 6</span><br><span class="line"><span class="comment"># 提取最优匹配的同源序列基因对</span></span><br><span class="line">cut -f1-2 <span class="variable">$&#123;Species1&#125;</span>2<span class="variable">$&#123;Species2&#125;</span>.blastp_out.m6|sort|uniq &gt; <span class="variable">$&#123;Species1&#125;</span>2<span class="variable">$&#123;Species2&#125;</span>.homolog</span><br><span class="line"><span class="comment"># 合并目标物种和参考物种的蛋白序列和cds序列</span></span><br><span class="line">cat <span class="variable">$&#123;Species1&#125;</span>.cds <span class="variable">$&#123;Species2&#125;</span>.cds &gt;<span class="variable">$&#123;Species1&#125;</span>_<span class="variable">$&#123;Species2&#125;</span>.cds</span><br><span class="line">cat <span class="variable">$&#123;Species1&#125;</span>.pep <span class="variable">$&#123;Species2&#125;</span>.pep &gt;<span class="variable">$&#123;Species1&#125;</span>_<span class="variable">$&#123;Species2&#125;</span>.pep</span><br><span class="line"><span class="comment"># 使用ParaAT程序将蛋白序列比对结果转化为cds序列比对结果</span></span><br><span class="line">ParaAT.pl -h <span class="variable">$&#123;Species1&#125;</span>2<span class="variable">$&#123;Species2&#125;</span>.homolog -n <span class="variable">$&#123;Species1&#125;</span>_<span class="variable">$&#123;Species2&#125;</span>.cds -a <span class="variable">$&#123;Species1&#125;</span>_<span class="variable">$&#123;Species2&#125;</span>.pep -p proc -m clustalw2 -f axt -o <span class="variable">$&#123;Species1&#125;</span>2<span class="variable">$&#123;Species2&#125;</span>_out</span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$&#123;Species1&#125;</span>2<span class="variable">$&#123;Species2&#125;</span>_out</span><br><span class="line"><span class="comment"># 使用KaKs_Calculator计算kaks值</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls *.axt`;<span class="keyword">do</span> KaKs_Calculator -i <span class="variable">$i</span> -o <span class="variable">$&#123;i&#125;</span>.kaks -m YN;<span class="keyword">done</span></span><br><span class="line"><span class="comment"># 将多行axt文件转换成单行</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls *.axt`;<span class="keyword">do</span> axt2one-line.py <span class="variable">$i</span> <span class="variable">$&#123;i&#125;</span>.one-line;<span class="keyword">done</span></span><br><span class="line"><span class="comment"># 使用calculate_4DTV_correction.pl脚本计算4dtv值</span></span><br><span class="line">ls *.one-line|<span class="keyword">while</span> <span class="built_in">read</span> id;<span class="keyword">do</span> calculate_4DTV_correction.pl <span class="variable">$id</span> &gt;<span class="variable">$&#123;id%%one-line&#125;</span>4dtv;<span class="keyword">done</span></span><br><span class="line"><span class="comment"># 合并所有同源基因对的4dtv值</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls *.4dtv`;<span class="keyword">do</span> awk <span class="string">'NR&gt;1&#123;print $1"\t"$2&#125;'</span> <span class="variable">$i</span> &gt;&gt;all-4dtv.txt;<span class="keyword">done</span></span><br><span class="line"><span class="comment"># 合并所有同源基因对的kaks值</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls *.kaks`;<span class="keyword">do</span> awk <span class="string">'NR&gt;1&#123;print $1"\t"$3"\t"$4"\t"$5&#125;'</span> <span class="variable">$i</span> &gt;&gt;all-kaks.txt;<span class="keyword">done</span></span><br><span class="line"><span class="comment"># 排序并去冗余</span></span><br><span class="line">sort all-4dtv.txt|uniq &gt;all-4dtv.results</span><br><span class="line">sort all-kaks.txt|uniq &gt;all-kaks.results</span><br><span class="line"><span class="comment"># 清除中间文件</span></span><br><span class="line">rm *one-line</span><br><span class="line">rm all-4dtv.txt</span><br><span class="line">rm all-kaks.txt</span><br><span class="line"><span class="comment"># 将kaks结果文件和4dtv结果文件进行合并</span></span><br><span class="line">join -1 1 -2 1 all-kaks.results all-4dtv.results &gt;all-results.txt</span><br><span class="line"><span class="comment"># 给结果文件添加标题</span></span><br><span class="line">sed -i <span class="string">'1i\Seq\tKa\tKs\tKa/Ks\t4dtv_corrected'</span> all-results.txt</span><br></pre></td></tr></table></figure>
+
+<p>脚本运行完后会生成以下结果文件<br><img src="https://upload-images.jianshu.io/upload_images/8723194-4f2946dabe92d0fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>最终得到的结果在os2sb_out文件夹中的all-results.txt文件中<br><img src="https://upload-images.jianshu.io/upload_images/8723194-daf706690a43b275.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="6-绘制kaks值和4dtv值的密度分布图"><a href="#6-绘制kaks值和4dtv值的密度分布图" class="headerlink" title="6. 绘制kaks值和4dtv值的密度分布图"></a>6. 绘制kaks值和4dtv值的密度分布图</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">setwd(<span class="string">"/Users/Davey/Desktop"</span>)</span><br><span class="line">library(ggplot2)</span><br><span class="line">library(patchwork)</span><br><span class="line">data &lt;- read.table(<span class="string">"all-results.txt"</span>,header=T,check.names=F)</span><br><span class="line">head(data)</span><br><span class="line">                       Seq        Ka       Ks     Ka/Ks 4dtv_corrected</span><br><span class="line">1 Os01g0276600-Sb03g022840 0.2954040 2.146660 0.1376110      0.3852584</span><br><span class="line">2 Os01g0276700-Sb03g022860 0.0372221 0.586840 0.0634280      0.2272330</span><br><span class="line">3 Os01g0276800-Sb03g022870 0.1293250 0.560683 0.2306560      0.2456600</span><br><span class="line">4 Os01g0721900-Sb03g158830 0.0769183 0.849214 0.0905759      0.1966413</span><br><span class="line">5 Os01g0723100-Sb03g158910 0.1109170 1.198870 0.0925176      0.4060341</span><br><span class="line">6 Os01g0723200-Sb03g158920 0.0398003 0.941168 0.0422882      0.1695289</span><br><span class="line">p1 &lt;- ggplot(data,aes(Ks))+ geom_line(<span class="built_in">stat</span>=<span class="string">"density"</span>,color=<span class="string">"red"</span>)+theme_classic()+theme(axis.title = element_text(size=24),axis.text = element_text(size = 22,color = <span class="string">"black"</span>))</span><br><span class="line">p2 &lt;- ggplot(data,aes(Ka/Ks))+ geom_line(<span class="built_in">stat</span>=<span class="string">"density"</span>,color=<span class="string">"blue"</span>)+theme_classic()+theme(axis.title = element_text(size=24),axis.text = element_text(size = 22,color = <span class="string">"black"</span>))</span><br><span class="line">p3 &lt;- ggplot(data,aes(`4dtv_corrected`))+ geom_line(<span class="built_in">stat</span>=<span class="string">"density"</span>,color=<span class="string">"orange"</span>)+theme_classic()+theme(axis.title = element_text(size=24),axis.text = element_text(size = 22,color = <span class="string">"black"</span>))</span><br><span class="line">p1 + p2 + p3</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-7205fb94a1705473.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <hr>
-<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处！</p>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 ！</p>
 
       
     </div>
@@ -571,7 +580,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://bioinfomics.top/2020/08/27/my-cv/" title="使用R pagedown给自己做一份精致的简历">http://bioinfomics.top/2020/08/27/my-cv/</a>
+    <a href="http://bioinfomics.top/2020/10/03/how-to-calculate-kaks-and-4dtv-value/" title="如何计算kaks值和4dtv值">http://bioinfomics.top/2020/10/03/how-to-calculate-kaks-and-4dtv-value/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -586,9 +595,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/R/" rel="tag"><i class="fa fa-tag"></i> R</a>
+            <a href="/tags/Pipeline/" rel="tag"><i class="fa fa-tag"></i> Pipeline</a>
           
-            <a href="/tags/CV/" rel="tag"><i class="fa fa-tag"></i> CV</a>
+            <a href="/tags/Genome-duplication/" rel="tag"><i class="fa fa-tag"></i> Genome duplication</a>
           
         </div>
       
@@ -601,15 +610,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2020/10/03/how-to-construct-species-tree/" rel="next" title="如何轻松构建物种系统发育树">
+                <i class="fa fa-chevron-left"></i> 如何轻松构建物种系统发育树
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/27/samtools-usage/" rel="prev" title="Samtools使用大全">
-                Samtools使用大全 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -802,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#先看下简历的最终效果："><span class="nav-text">先看下简历的最终效果：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载并安装所需的R包"><span class="nav-text">下载并安装所需的R包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑并填写个人简历信息"><span class="nav-text">编辑并填写个人简历信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Rstudio中编辑更改index-Rmd文件"><span class="nav-text">在Rstudio中编辑更改index.Rmd文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用kint生成index-html网页文件"><span class="nav-text">使用kint生成index.html网页文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将网页文件另存为pdf文件"><span class="nav-text">将网页文件另存为pdf文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-前期准备"><span class="nav-text">1. 前期准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-获得不同物种之间的同源序列"><span class="nav-text">2. 获得不同物种之间的同源序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用ParaAT程序将蛋白序列比对结果转化为cds序列比对结果"><span class="nav-text">3. 使用ParaAT程序将蛋白序列比对结果转化为cds序列比对结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-计算kaks值和4dtv值"><span class="nav-text">4. 计算kaks值和4dtv值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-使用calc-kaks-4dtv-sh脚本一步计算kaks值和4dtv值"><span class="nav-text">5. 使用calc_kaks_4dtv.sh脚本一步计算kaks值和4dtv值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-绘制kaks值和4dtv值的密度分布图"><span class="nav-text">6. 绘制kaks值和4dtv值的密度分布图</span></a></li></ol></div>
             
 
           </div>

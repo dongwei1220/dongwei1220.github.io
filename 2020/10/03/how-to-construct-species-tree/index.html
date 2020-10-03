@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Pipeline,Species tree,">
 
 
 
@@ -88,18 +88,31 @@
 
 
 
-<meta name="description" content="Wei Dong, Ph.D studentZhongshan School of Medicine, Molecular Medicine Sun Yat-Sen University E-mail: dongw26@mail2.sysu.edu.cn Github:  https://github.com/dongwei1220  ResearchGate: https://www.rese">
-<meta name="keywords" content="NGS, Single Cell Omics, 3D Genomics">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About">
-<meta property="og:url" content="http://bioinfomics.top/about/index.html">
+<meta name="description" content="在常规的基因组分析中，当我们对某一物种的基因组进行从头组装与注释获得其的基本信息后，通常会想知道该物种与一些其他近源物种之间的进化关系，此时就需要构建不同物种之间的系统发育树以探究该物种的进化地位。  我们这里将以不同物种之间保守的单拷贝核基因为基础，分别运用串联法(Concatenation)（先将不同物种之间的每个单拷贝基因单独进行多序列比对，然后将这些比对后的单拷贝基因进行首尾相连串接成一">
+<meta name="keywords" content="Pipeline,Species tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何轻松构建物种系统发育树">
+<meta property="og:url" content="http://bioinfomics.top/2020/10/03/how-to-construct-species-tree/index.html">
 <meta property="og:site_name" content="Davey&#39;s Blog">
-<meta property="og:description" content="Wei Dong, Ph.D studentZhongshan School of Medicine, Molecular Medicine Sun Yat-Sen University E-mail: dongw26@mail2.sysu.edu.cn Github:  https://github.com/dongwei1220  ResearchGate: https://www.rese">
+<meta property="og:description" content="在常规的基因组分析中，当我们对某一物种的基因组进行从头组装与注释获得其的基本信息后，通常会想知道该物种与一些其他近源物种之间的进化关系，此时就需要构建不同物种之间的系统发育树以探究该物种的进化地位。  我们这里将以不同物种之间保守的单拷贝核基因为基础，分别运用串联法(Concatenation)（先将不同物种之间的每个单拷贝基因单独进行多序列比对，然后将这些比对后的单拷贝基因进行首尾相连串接成一">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2020-08-28T07:52:58.432Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-34f92db6724e4fa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-8ce690d1d48ca683.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-0414ecfee9e835eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-1fa2f59475ec9062.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-19bedd29820626db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-cde851db23078eb8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-9ad4ef0a06cbe600.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-2c591d179bf4efb4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-6d65c44c568890f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-d7f58586ab257f02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-a87e36300311e7e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8723194-f4bbeb69428a107e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2020-10-03T02:54:22.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About">
-<meta name="twitter:description" content="Wei Dong, Ph.D studentZhongshan School of Medicine, Molecular Medicine Sun Yat-Sen University E-mail: dongw26@mail2.sysu.edu.cn Github:  https://github.com/dongwei1220  ResearchGate: https://www.rese">
+<meta name="twitter:title" content="如何轻松构建物种系统发育树">
+<meta name="twitter:description" content="在常规的基因组分析中，当我们对某一物种的基因组进行从头组装与注释获得其的基本信息后，通常会想知道该物种与一些其他近源物种之间的进化关系，此时就需要构建不同物种之间的系统发育树以探究该物种的进化地位。  我们这里将以不同物种之间保守的单拷贝核基因为基础，分别运用串联法(Concatenation)（先将不同物种之间的每个单拷贝基因单独进行多序列比对，然后将这些比对后的单拷贝基因进行首尾相连串接成一">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8723194-34f92db6724e4fa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -129,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://bioinfomics.top/about/">
+  <link rel="canonical" href="http://bioinfomics.top/2020/10/03/how-to-construct-species-tree/">
 
 
 
 
 
-  <title>About | Davey's Blog</title>
+  <title>如何轻松构建物种系统发育树 | Davey's Blog</title>
   
 
 
@@ -313,108 +326,354 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bioinfomics.top/2020/10/03/how-to-construct-species-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wei Dong">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Davey's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">About</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <hr>
-<h1 id="Wei-Dong-Ph-D-student"><a href="#Wei-Dong-Ph-D-student" class="headerlink" title="Wei Dong, Ph.D student"></a>Wei Dong, Ph.D student</h1><p>Zhongshan School of Medicine, Molecular Medicine</p>
-<p>Sun Yat-Sen University</p>
-<p>E-mail: <a href="mailto:dongw26@mail2.sysu.edu.cn" target="_blank" rel="noopener">dongw26@mail2.sysu.edu.cn</a></p>
-<p>Github:  <a href="https://github.com/dongwei1220" target="_blank" rel="noopener">https://github.com/dongwei1220</a> </p>
-<p>ResearchGate: <a href="https://www.researchgate.net/profile/Wei_Dong34" target="_blank" rel="noopener">https://www.researchgate.net/profile/Wei_Dong34</a></p>
+          <h1 class="post-title" itemprop="name headline">如何轻松构建物种系统发育树</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-03T10:45:06+08:00">
+                2020-10-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-10-03T10:54:22+08:00">
+                2020-10-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Comparative-genomics/" itemprop="url" rel="index">
+                    <span itemprop="name">Comparative genomics</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Comparative-genomics/Species-tree/" itemprop="url" rel="index">
+                    <span itemprop="name">Species tree</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  6.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  6 mins.
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>在常规的基因组分析中，当我们对某一物种的基因组进行从头组装与注释获得其的基本信息后，通常会想知道该物种与一些其他近源物种之间的进化关系，此时就需要构建不同物种之间的系统发育树以探究该物种的进化地位。</p>
 <blockquote>
-<p>I am broadly interested in bioinformatics, 3D genomics, single-cell sequencing, comparative genomics and molecular evolution.</p>
+<p>我们这里将以不同物种之间保守的<code>单拷贝核基因</code>为基础，分别运用<strong>串联法</strong>(Concatenation)（先将不同物种之间的每个单拷贝基因单独进行多序列比对，然后将这些比对后的单拷贝基因进行首尾相连串接成一个supergene矩阵，最后将这个supergene用于构建系统发育树）和<strong>并联法</strong>(Coalescence)（先将不同物种之间的每个单拷贝基因单独进行多序列比对，并构建每一个单拷贝基因对应的基因树，然后将所有单拷贝基因对应的基因树进行合并重构出相应的物种树）进行<code>ML系统发育树</code>的构建。</p>
 </blockquote>
-<hr>
-<h2 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h2><ul>
-<li>2019 - present:    Ph.D student in Molecular Medicine, Zhongshan School of Medicine, Sun Yat-Sen University, Guangzhou, China</li>
-<li>2016 - 2019:         M.Sc. in Bioinformatics, College of Life Sciences, Fujian Agriculture and Forestry University, Fuzhou, China</li>
-<li>2013 - 2016:        B.Sc. in English, School of Foreign Languages, Wuhan Polytechnic University, Wuhan, China (Second Bachelor’s degree)</li>
-<li>2012 - 2016:        B.Sc. in Biotechnology, School of Biology and Pharmaceutical Engineering, Wuhan Polytechnic University, Wuhan, China</li>
-</ul>
-<h2 id="Skills-and-Credentials"><a href="#Skills-and-Credentials" class="headerlink" title="Skills and Credentials"></a>Skills and Credentials</h2><ul>
-<li>Skilled in using Linux operating system and familiar with Shell, Python, R, Perl and other multi-programming languages</li>
-<li>Skilled in analysis of gene family and phylogenetic evolution</li>
-<li>Familiar with single cell sequencing, 3D genomics, genome assembly and annotation, and comparative genomics</li>
-<li>Participate in part of the analysis of water lily genome and the tung tree  genome project</li>
-<li>Second-level Certificate for National Computer, 2018</li>
-<li>College English Test Band 6 Certificate (CET6), 2015</li>
-<li>College English Test Band 4 Certificate (CET4), 2014</li>
-</ul>
-<h2 id="Honors-and-Awards"><a href="#Honors-and-Awards" class="headerlink" title="Honors and Awards"></a>Honors and Awards</h2><ul>
-<li>The First Prize Scholarship, Fujian Agriculture and Forestry University, 2019</li>
-<li>National Scholarship, Fujian Agriculture and Forestry University, 2018</li>
-<li>Merit Student, Fujian Agriculture and Forestry University, 2018</li>
-<li>National Encouragement Scholarship, Wuhan Polytechnic University, 2015</li>
-<li>National Encouragement Scholarship, Wuhan Polytechnic University, 2014</li>
-<li>Outstanding Student, Wuhan Polytechnic University, 2014</li>
-<li>National Encouragement Scholarship, Wuhan Polytechnic University, 2013</li>
-<li>Excellent Student Cadre, Wuhan Polytechnic University, 2013</li>
-<li>Outstanding Young Volunteer, Wuhan Polytechnic University, 2013</li>
-</ul>
-<h2 id="Publications"><a href="#Publications" class="headerlink" title="Publications"></a>Publications</h2><h5 id="1-Tung-Tree-Vernicia-Fordii-Genome-Provides-A-Resource-for-Understanding-Genome-Evolution-and-Improved-Oil-Production"><a href="#1-Tung-Tree-Vernicia-Fordii-Genome-Provides-A-Resource-for-Understanding-Genome-Evolution-and-Improved-Oil-Production" class="headerlink" title="1. Tung Tree (Vernicia Fordii) Genome Provides A Resource for Understanding Genome Evolution and Improved Oil Production"></a>1. <a href="https://doi.org/10.1016/j.gpb.2019.03.006" target="_blank" rel="noopener">Tung Tree (Vernicia Fordii) Genome Provides A Resource for Understanding Genome Evolution and Improved Oil Production</a></h5><p><strong><em>Genomics Proteomics Bioinformatics</em></strong>. 2020, S1672-0229(18)30216-X.</p>
-<ul>
-<li>Zhang L#*, Liu M#, Long H#, <strong>Dong W</strong>#,Pasha A, Esteban E, Li W, Yang X, Li Z, Song A, Ran D, Zhao G, Zeng Y, Chen H, Zou M, Li J, Liang F, Xie M, Hu J, Wang D, Cao HP, Provart NJ, Zhang LS, Tan X*</li>
-<li>Impact Factor = 6.597</li>
-</ul>
-<h5 id="2-The-Water-lily-Genome-and-the-Early-Evolution-of-Flowering-Plants"><a href="#2-The-Water-lily-Genome-and-the-Early-Evolution-of-Flowering-Plants" class="headerlink" title="2. The Water lily Genome and the Early Evolution of Flowering Plants"></a>2. <a href="https://doi.org/10.1038/s41586-019-1852-5" target="_blank" rel="noopener">The Water lily Genome and the Early Evolution of Flowering Plants</a></h5><p><strong><em>Nature</em></strong>. 2020, 577(7788):79-84.</p>
-<ul>
-<li>Zhang L#*, Chen F#, Zhang X#, Li Z#, Zhao Y#, Lohaus R#, Chang X#, <strong>Dong W</strong>, Ho SYW, Liu X, Song A, Chen J, Guo W, Wang Z, Zhuang Y, Wang H, Chen X, Hu J, Liu Y, Qin Y, Wang K, Dong S, Liu Y, Zhang S, Yu X, Wu Q, Wang L, Yan X, Jiao Y, Kong H, Zhou X, Yu C, Chen Y, Li F, Wang J, Chen W, Chen X, Jia Q, Zhang C, Jiang Y, Zhang W, Liu G, Fu J, Chen F, Ma H, Van de Peer Y, Tang H</li>
-<li>Impact Factor = 43.07</li>
-</ul>
-<h5 id="3-Transcriptomic-Analysis-of-Differentially-Expressed-Genes-and-Alternative-Splicing-Events-Associated-with-Crassulacean-Acid-Metabolism-in-Orchids"><a href="#3-Transcriptomic-Analysis-of-Differentially-Expressed-Genes-and-Alternative-Splicing-Events-Associated-with-Crassulacean-Acid-Metabolism-in-Orchids" class="headerlink" title="3. Transcriptomic Analysis of Differentially Expressed Genes and Alternative Splicing Events Associated with Crassulacean Acid Metabolism in Orchids"></a>3. <a href="https://doi.org/10.1016/j.hpj.2019.12.001" target="_blank" rel="noopener">Transcriptomic Analysis of Differentially Expressed Genes and Alternative Splicing Events Associated with Crassulacean Acid Metabolism in Orchids</a></h5><p><strong><em>Horticultural Plant Journal</em></strong>. 2019, 5 (6), 268-280.</p>
-<ul>
-<li>Zhang Y, <strong>Dong W</strong>, Zhao X, Song A, Guo K, Liu Z, Zhang L*</li>
-</ul>
-<h5 id="4-Expansion-and-Functional-Divergence-of-the-SHORT-VEGETATIVE-PHASE-SVP-Genes-in-Eudicots"><a href="#4-Expansion-and-Functional-Divergence-of-the-SHORT-VEGETATIVE-PHASE-SVP-Genes-in-Eudicots" class="headerlink" title="4. Expansion and Functional Divergence of the SHORT VEGETATIVE PHASE (SVP) Genes in Eudicots"></a>4. <a href="https://doi.org/10.1093/gbe/evy235" target="_blank" rel="noopener">Expansion and Functional Divergence of the SHORT VEGETATIVE PHASE (SVP) Genes in Eudicots</a></h5><p><strong><em>Genome Biology and Evolution</em></strong>. 2018, 10 (11), 3026-3037.</p>
-<ul>
-<li>Liu X#, Sun Z#, <strong>Dong W</strong>#, Wang Z, Zhang L*</li>
-<li>Impact Factor = 3.726</li>
-</ul>
-<h5 id="5-MORC-Domain-Definition-and-Evolutionary-Analysis-of-the-MORC-Gene-Family-in-Green-Plants"><a href="#5-MORC-Domain-Definition-and-Evolutionary-Analysis-of-the-MORC-Gene-Family-in-Green-Plants" class="headerlink" title="5. MORC Domain Definition and Evolutionary Analysis of the MORC Gene Family in Green Plants"></a>5. <a href="https://doi.org/10.1093/gbe/evy136" target="_blank" rel="noopener">MORC Domain Definition and Evolutionary Analysis of the MORC Gene Family in Green Plants</a></h5><p><strong><em>Genome Biology and Evolution</em></strong>. 2018, 10 (7), 1730-1744.</p>
-<ul>
-<li><strong>Dong W</strong>, Vannozzi A, Chen F, Hu Y, Chen Z, Zhang L*</li>
-<li>Impact Factor = 3.726</li>
-</ul>
-<h5 id="6-MGH-A-Genome-Hub-for-the-Medicinal-Plant-Maca-Lepidium-Meyenii"><a href="#6-MGH-A-Genome-Hub-for-the-Medicinal-Plant-Maca-Lepidium-Meyenii" class="headerlink" title="6. MGH: A Genome Hub for the Medicinal Plant Maca (Lepidium Meyenii)"></a>6. <a href="https://doi.org/10.1093/database/bay113" target="_blank" rel="noopener">MGH: A Genome Hub for the Medicinal Plant Maca (Lepidium Meyenii)</a></h5><p><strong><em>Database</em></strong>. 2018, 2018:bay113.</p>
-<ul>
-<li>Chen J, Zhang J, Lin M, <strong>Dong W</strong>, Guo X, Dong Y, Wang Z, Zhang L<em>, Chen F</em></li>
-<li>Impact Factor = 3.683</li>
-</ul>
-<h5 id="7-realDB-A-Genome-and-Transcriptome-Resource-for-the-Red-Algae-Phylum-Rhodophyta"><a href="#7-realDB-A-Genome-and-Transcriptome-Resource-for-the-Red-Algae-Phylum-Rhodophyta" class="headerlink" title="7. realDB: A Genome and Transcriptome Resource for the Red Algae (Phylum Rhodophyta)"></a>7. <a href="https://doi.org/10.1093/database/bay072" target="_blank" rel="noopener">realDB: A Genome and Transcriptome Resource for the Red Algae (Phylum Rhodophyta)</a></h5><p><strong><em>Database</em></strong>. 2018, 2018:bay072..</p>
-<ul>
-<li>Chen F#, Zhang J#, Chen J#, Li X#, <strong>Dong W</strong>,Hu J, Lin M, Liu Y, Li G, Wang Z, Zhang L*</li>
-<li>Impact Factor = 3.683</li>
-</ul>
-<h5 id="8-The-Sequenced-Angiosperm-Genomes-and-Genome-Databases"><a href="#8-The-Sequenced-Angiosperm-Genomes-and-Genome-Databases" class="headerlink" title="8. The Sequenced Angiosperm Genomes and Genome Databases"></a>8. <a href="https://doi.org/10.3389/fpls.2018.00418" target="_blank" rel="noopener">The Sequenced Angiosperm Genomes and Genome Databases</a></h5><p><strong><em>Frontiers in Plant Science</em></strong>. 2018, 9:418.</p>
-<ul>
-<li>Chen F#, <strong>Dong W</strong>#, Zhang J, Guo X, Chen J, Wang Z, Lin Z, Tang H, Zhang L*</li>
-<li>Impact Factor = 4.106</li>
-</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">准备文件：不同物种的蛋白序列文件: AT.fas  Bradi.fas  LOC_Os.fas  Potri.fas scaffold.fas  VIT.fas</span><br><span class="line">所需软件：OrthoFinder, Mafft, TrimAI, RAxML, ASTRAL</span><br><span class="line">所用脚本：EasySpeciesTree.py</span><br></pre></td></tr></table></figure>
 
-        
-      </div>
-      
-      
+<h2 id="1-使用OrthoFinder寻找不同物种之间的单拷贝基因"><a href="#1-使用OrthoFinder寻找不同物种之间的单拷贝基因" class="headerlink" title="1. 使用OrthoFinder寻找不同物种之间的单拷贝基因"></a>1. 使用OrthoFinder寻找不同物种之间的单拷贝基因</h2><blockquote>
+<p>下载OrthoFinder程序包解压后即可使用（该软件需要依赖blast，mcl，fastme，fasttree等程序，需要提前安装好并添加到环境变量中，详细信息可查看软件的README文件）<br><strong>查看软件帮助信息：./orthofinder -h</strong></p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-34f92db6724e4fa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"></p>
+<blockquote>
+<p>新建一个文件夹test，将所用物种的蛋白序列放入到该文件夹中<br><strong>软件使用：./orthofinder -f test/ -S diamond</strong><br><code>-f参数</code>指定所用文件夹，默认使用blastp进行蛋白序列的比对，可加<code>-S参数</code>指定使用diamond程序进行比对（diamond需提前安装并添加到环境变量中，比对速度比blast快很多）<br>程序运行结束后会在test文件夹中生成一个Results文件，里面即为不同物种之间的Orthogroups和单拷贝基因等相关信息。</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-8ce690d1d48ca683.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2.png"></p>
+<blockquote>
+<p>我们所需的单拷贝基因和对应的每个Orthogroups的具体信息在<code>SingleCopyOrthogroups.txt</code>和<code>Orthogroups.csv</code>文件中。</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-0414ecfee9e835eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="3.png"></p>
+<hr>
+<h2 id="2-使用EasySpeciesTree脚本进行物种系统发育树的构建"><a href="#2-使用EasySpeciesTree脚本进行物种系统发育树的构建" class="headerlink" title="2. 使用EasySpeciesTree脚本进行物种系统发育树的构建"></a>2. 使用EasySpeciesTree脚本进行物种系统发育树的构建</h2><blockquote>
+<p>该脚本依赖Mafft, TrimAI, RAxML和ASTRAL程序，需要自己提前安装好<br><strong>修改脚本中相应依赖程序的绝对路径：vim EasySpeciesTree.py</strong></p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-1fa2f59475ec9062.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4.png"></p>
+<blockquote>
+<p><strong>查看脚本帮助信息：python EasySpeciesTree.py -h<br>或添加脚本执行权限（chmod +x EasySpeciesTree.py)后运行./EasySpeciesTree.py -h</strong></p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-19bedd29820626db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="5.png"></p>
+<blockquote>
+<p>运行该脚本需要提供<strong>四个文件</strong>：所用物种基因名的缩写前缀文件，单拷贝基因文件SingleCopyOrthogroups.txt，所有物种的Orthogroups文件Orthogroups.csv，以及所有物种的蛋白序列合并后的文件all-pep.fas<br><strong>合并所有物种的蛋白序列文件：for i in <code>ls *.fas</code>;do cat $i &gt;&gt;all-pep.fas;done<br>新建所有物种基因名的缩写前缀文件：vim species_id.txt</strong></p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-cde851db23078eb8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="6.png"></p>
+<blockquote>
+<p><strong>运行脚本构建物种系统发育树：nohup ~/EasySpeciesTree.py -in1 species_id.txt -in2 SingleCopyOrthogroups.txt -in3 Orthogroups.csv -in4 all-pep.fas -nb 10 -t 16 &amp;</strong><br>这里为了演示快速生成结果加上<code>-nb参数</code>设定bootstrap值为10，<code>-t参数</code>设定线程数为16，默认bootstrap值为100，thread值为10，氨基酸替换模型选择默认的PROTGAMMAJTT模型。<br>程序运行结束后会在当前路径下生成<strong>四个文件夹</strong>：<code>SingleGene，SingleGene_MSA，Concatenation，Coalescence</code>，分别存放着所有单拷贝基因的序列，单拷贝基因比对后的序列，串联法建树的结果，并联法建树的结果。<br>详细运行过程可查看nohup.out文件中的日志信息。</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-9ad4ef0a06cbe600.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="7.png"></p>
+<blockquote>
+<p><strong>Concatenataion文件夹</strong>中的<code>RAxML_bipartitions.concatenation_out.nwk</code>即为<strong>串联法</strong>最终生成的树文件</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-2c591d179bf4efb4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="8.png"></p>
+<blockquote>
+<p><strong>Coalescence文件夹</strong>中的<code>Astral.coalescence_tree.nwk</code>即为<strong>并联法</strong>最终生成的树文件</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-6d65c44c568890f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="9.png"></p>
+<hr>
+<h2 id="3-使用FigTree或MEGA进行可视化"><a href="#3-使用FigTree或MEGA进行可视化" class="headerlink" title="3. 使用FigTree或MEGA进行可视化"></a>3. 使用FigTree或MEGA进行可视化</h2><blockquote>
+<p>将串联法和并联法生成的结果文件<code>RAxML_bipartitions.concatenation_out.nwk，Astral.coalescence_tree.nwk</code>导入FigTree中进行可视化</p>
+</blockquote>
+<blockquote>
+<p>串联法FigTree可视化结果</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-d7f58586ab257f02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="10.png"></p>
+<blockquote>
+<p>并联法FigTree可视化结果</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-a87e36300311e7e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="11.png"></p>
+<blockquote>
+<p>EasySpeciesTree程序下载链接：<a href="https://github.com/dongwei1220/EasySpeciesTree.git" target="_blank" rel="noopener">https://github.com/dongwei1220/EasySpeciesTree.git</a><br>可用git clone <a href="https://github.com/dongwei1220/EasySpeciesTree.git" target="_blank" rel="noopener">https://github.com/dongwei1220/EasySpeciesTree.git</a> 直接下载使用。</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/8723194-f4bbeb69428a107e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="12.png"></p>
+<hr>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 ！</p>
+
       
     </div>
     
     
     
+
+    <div>
+      
+        <div>
+      
+          <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+      
+</div>
+
+      
+    </div>
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="Wei Dong wechat" style="width: 200px; max-width: 100%;">
+    <div>subscribe to my blog by scanning my public wechat account</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Wei Dong WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Wei Dong
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://bioinfomics.top/2020/10/03/how-to-construct-species-tree/" title="如何轻松构建物种系统发育树">http://bioinfomics.top/2020/10/03/how-to-construct-species-tree/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Pipeline/" rel="tag"><i class="fa fa-tag"></i> Pipeline</a>
+          
+            <a href="/tags/Species-tree/" rel="tag"><i class="fa fa-tag"></i> Species tree</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/10/02/how-to-plot-gene-cluster-line-chart/" rel="next" title="如何轻松绘制基因表达聚类趋势图">
+                <i class="fa fa-chevron-left"></i> 如何轻松绘制基因表达聚类趋势图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/03/how-to-calculate-kaks-and-4dtv-value/" rel="prev" title="如何计算kaks值和4dtv值">
+                如何计算kaks值和4dtv值 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -588,7 +847,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Wei-Dong-Ph-D-student"><span class="nav-text">Wei Dong, Ph.D student</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Education"><span class="nav-text">Education</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Skills-and-Credentials"><span class="nav-text">Skills and Credentials</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Honors-and-Awards"><span class="nav-text">Honors and Awards</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Publications"><span class="nav-text">Publications</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Tung-Tree-Vernicia-Fordii-Genome-Provides-A-Resource-for-Understanding-Genome-Evolution-and-Improved-Oil-Production"><span class="nav-text">1. Tung Tree (Vernicia Fordii) Genome Provides A Resource for Understanding Genome Evolution and Improved Oil Production</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-The-Water-lily-Genome-and-the-Early-Evolution-of-Flowering-Plants"><span class="nav-text">2. The Water lily Genome and the Early Evolution of Flowering Plants</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Transcriptomic-Analysis-of-Differentially-Expressed-Genes-and-Alternative-Splicing-Events-Associated-with-Crassulacean-Acid-Metabolism-in-Orchids"><span class="nav-text">3. Transcriptomic Analysis of Differentially Expressed Genes and Alternative Splicing Events Associated with Crassulacean Acid Metabolism in Orchids</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Expansion-and-Functional-Divergence-of-the-SHORT-VEGETATIVE-PHASE-SVP-Genes-in-Eudicots"><span class="nav-text">4. Expansion and Functional Divergence of the SHORT VEGETATIVE PHASE (SVP) Genes in Eudicots</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-MORC-Domain-Definition-and-Evolutionary-Analysis-of-the-MORC-Gene-Family-in-Green-Plants"><span class="nav-text">5. MORC Domain Definition and Evolutionary Analysis of the MORC Gene Family in Green Plants</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-MGH-A-Genome-Hub-for-the-Medicinal-Plant-Maca-Lepidium-Meyenii"><span class="nav-text">6. MGH: A Genome Hub for the Medicinal Plant Maca (Lepidium Meyenii)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-realDB-A-Genome-and-Transcriptome-Resource-for-the-Red-Algae-Phylum-Rhodophyta"><span class="nav-text">7. realDB: A Genome and Transcriptome Resource for the Red Algae (Phylum Rhodophyta)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-The-Sequenced-Angiosperm-Genomes-and-Genome-Databases"><span class="nav-text">8. The Sequenced Angiosperm Genomes and Genome Databases</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-使用OrthoFinder寻找不同物种之间的单拷贝基因"><span class="nav-text">1. 使用OrthoFinder寻找不同物种之间的单拷贝基因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-使用EasySpeciesTree脚本进行物种系统发育树的构建"><span class="nav-text">2. 使用EasySpeciesTree脚本进行物种系统发育树的构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用FigTree或MEGA进行可视化"><span class="nav-text">3. 使用FigTree或MEGA进行可视化</span></a></li></ol></div>
             
 
           </div>
