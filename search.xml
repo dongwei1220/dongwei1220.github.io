@@ -130,60 +130,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux基础常用命令大全(二)</title>
-    <url>/2020/08/28/linux-basic-command2/</url>
-    <content><![CDATA[<h2 id="2-进程管理"><a href="#2-进程管理" class="headerlink" title="2 进程管理"></a>2 进程管理</h2><h3 id="2-1进程查看"><a href="#2-1进程查看" class="headerlink" title="2.1进程查看"></a>2.1进程查看</h3><h4 id="2-1-1-ps-process-status"><a href="#2-1-1-ps-process-status" class="headerlink" title="2.1.1 ps(process status)"></a>2.1.1 ps(process status)</h4><p>功能说明：显示用户进程<br>语 法：ps x [-u &lt;usrname&gt;]<br>参 数：<br>-u &lt;usrname&gt; 显示usr用户的进程（默认显示自身用户进程）<br>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps x</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-1-2-top"><a href="#2-1-2-top" class="headerlink" title="2.1.2 top"></a>2.1.2 top</h4><p>功能说明：显示用户进程（实时）<br>语 法：top [-bcdu]<br>参 数：<br>-b 批处理模式，可以将top内容重定向到文件中<br>-c 显示详细信息<br>-d &lt;n&gt; 刷新时间间隔，n秒刷新一次<br>-u &lt;usrname&gt; 只显示usr用户的进程<br>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">toptop -c -u usr</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-1-3-jobs"><a href="#2-1-3-jobs" class="headerlink" title="2.1.3 jobs"></a>2.1.3 jobs</h4><p>功能说明：显示后台任务（当前节点，当前窗口）<br>语 法：jobs [-l]<br>参 数：<br>-l 显示任务进程ID<br>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">jobs</span></span><br><span class="line"><span class="built_in">jobs</span> -l</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2进程控制"><a href="#2-2进程控制" class="headerlink" title="2.2进程控制"></a>2.2进程控制</h3><h4 id="2-2-1-kill-terminate-or-signal-a-process"><a href="#2-2-1-kill-terminate-or-signal-a-process" class="headerlink" title="2.2.1 kill(terminate or signal a process)"></a>2.2.1 kill(terminate or signal a process)</h4><p>功能说明：删除或控制执行中的进程<br>语 法：kill [-num] &lt;PID&gt; [-l]<br>参 数：<br>-num 通过num传递一个信号控制进程（默认15，终止进程），常用值如下<br>-9 强制删除进程<br>-19 暂停一个进程（使之处于T状态）<br>-18 继续暂停的进程<br>-l 显示信号列表</p>
-<p>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> 28004 <span class="comment">#终止进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 28004 <span class="comment">#强制删除进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -19 28004 <span class="comment">#暂停进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -18 28004 <span class="comment">#继续进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -l <span class="comment">#显示信号列表</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-2-2-fg"><a href="#2-2-2-fg" class="headerlink" title="2.2.2 fg"></a>2.2.2 fg</h4><p>功能说明：将后台进程转换到前台<br>语 法：fg [%num]<br>参 数：<br>%num 将编号为num的后台任务转换到前台，num由jobs 命令得到。<br>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">fg</span> <span class="comment">#将最近的一个转后台的任务转为前台</span></span><br><span class="line"><span class="built_in">fg</span> %2 <span class="comment">#将编号为2的后台任务转到前台</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-2-3-bg"><a href="#2-2-3-bg" class="headerlink" title="2.2.3 bg"></a>2.2.3 bg</h4><p>功能说明：将前台任务转为后台（需先用ctrl+z暂停任务），或者继续后台暂停的任务<br>语 法：bg [%num]<br>参 数：<br>%num 将编号为num的后台暂停任务继续。<br>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bgbg %2 <span class="comment">#将编号为2的后台暂停任务继续。</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-帮助命令"><a href="#3-帮助命令" class="headerlink" title="3.帮助命令"></a>3.帮助命令</h2><h4 id="3-1-man"><a href="#3-1-man" class="headerlink" title="3.1 man"></a>3.1 man</h4><p>功能说明：给出大多数命令的详细在线帮助内容</p>
-<h4 id="3-2-whatis"><a href="#3-2-whatis" class="headerlink" title="3.2 whatis"></a>3.2 whatis</h4><p>功能说明：对该命令给出一行文字描述，但不包括命令的参数等其他信息。</p>
-<h4 id="3-3-apropos"><a href="#3-3-apropos" class="headerlink" title="3.3 apropos"></a>3.3 apropos</h4><p>功能说明：当对linux命令比较模糊时，可以使用命令apropos来搜索与关键字匹配的命令。</p>
-<h2 id="4-其他"><a href="#4-其他" class="headerlink" title="4.其他"></a>4.其他</h2><h4 id="4-1-history"><a href="#4-1-history" class="headerlink" title="4.1 history"></a>4.1 history</h4><p>功能说明：查询该节点上执行过的历史命令<br>语 法：history<br>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">history</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-2-nohup"><a href="#4-2-nohup" class="headerlink" title="4.2 nohup"></a>4.2 nohup</h4><p>功能说明：加到命令前使得该命令在用户退出登录后也能继续执行<br>特殊说明：一般与转后台’&amp;’一起使用，屏幕输出默认重定向到nohup.out文件中<br>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup perl test.pl &amp;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-3-转后台-amp"><a href="#4-3-转后台-amp" class="headerlink" title="4.3 转后台 &amp;"></a>4.3 转后台 &amp;</h4><p>功能说明：加到命令结尾，使该命令在后台运行<br>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp file1file2 &amp; <span class="comment">#后台执行拷贝命令</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-4-重定向-gt"><a href="#4-4-重定向-gt" class="headerlink" title="4.4 重定向 &gt;"></a>4.4 重定向 &gt;</h4><p>功能说明：将标准输出内容重定向到文件中<br>相关符号：&gt;&gt; 表示将内容追加到文件末尾。<br>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls dir &gt; dir_list <span class="comment">#显示dir目录下的文件并将内容输出到dir_list文件中，若dir_list文件存在，则会被清空，若不纯在，将创建。</span></span><br><span class="line">ls dir &gt;&gt; dir_list <span class="comment">#显示dir目录下的文件并将内容追加到dir_list文件中，若dir_list文件存在，内容追加到文件末尾，若不纯在，将创建。</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-5-管道符"><a href="#4-5-管道符" class="headerlink" title="4.5 管道符 |"></a>4.5 管道符 |</h4><p>功能说明：将”|”前一部分的输出作为”|”后一部分的输入<br>语 法：command1 | command2<br>Example ：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">less file1| grep world | awk ‘&#123;<span class="built_in">print</span> <span class="variable">$1</span>&#125;’ <span class="comment">#显示file1的内容，将带有world的行输出，打印该行的第一列</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E4%B8%8E%E5%86%85%E5%AD%98%E6%9F%A5%E7%9C%8B.png" alt></p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B%E7%BC%A9.png" alt></p>
-<p> <img src="https://i.loli.net/2020/09/30/P2R1rqoOjgB89tf.png" alt> </p>
-<hr>
-<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 ！</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何轻松绘制基因表达聚类趋势图</title>
     <url>/2020/10/02/how-to-plot-gene-cluster-line-chart/</url>
     <content><![CDATA[<hr>
@@ -240,6 +186,97 @@
       <tags>
         <tag>R</tag>
         <tag>Gene expression</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux基础常用命令大全(二)</title>
+    <url>/2020/08/28/linux-basic-command2/</url>
+    <content><![CDATA[<h2 id="2-进程管理"><a href="#2-进程管理" class="headerlink" title="2 进程管理"></a>2 进程管理</h2><h3 id="2-1进程查看"><a href="#2-1进程查看" class="headerlink" title="2.1进程查看"></a>2.1进程查看</h3><h4 id="2-1-1-ps-process-status"><a href="#2-1-1-ps-process-status" class="headerlink" title="2.1.1 ps(process status)"></a>2.1.1 ps(process status)</h4><p>功能说明：显示用户进程<br>语 法：ps x [-u &lt;usrname&gt;]<br>参 数：<br>-u &lt;usrname&gt; 显示usr用户的进程（默认显示自身用户进程）<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps x</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-2-top"><a href="#2-1-2-top" class="headerlink" title="2.1.2 top"></a>2.1.2 top</h4><p>功能说明：显示用户进程（实时）<br>语 法：top [-bcdu]<br>参 数：<br>-b 批处理模式，可以将top内容重定向到文件中<br>-c 显示详细信息<br>-d &lt;n&gt; 刷新时间间隔，n秒刷新一次<br>-u &lt;usrname&gt; 只显示usr用户的进程<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">toptop -c -u usr</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3-jobs"><a href="#2-1-3-jobs" class="headerlink" title="2.1.3 jobs"></a>2.1.3 jobs</h4><p>功能说明：显示后台任务（当前节点，当前窗口）<br>语 法：jobs [-l]<br>参 数：<br>-l 显示任务进程ID<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">jobs</span></span><br><span class="line"><span class="built_in">jobs</span> -l</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2进程控制"><a href="#2-2进程控制" class="headerlink" title="2.2进程控制"></a>2.2进程控制</h3><h4 id="2-2-1-kill-terminate-or-signal-a-process"><a href="#2-2-1-kill-terminate-or-signal-a-process" class="headerlink" title="2.2.1 kill(terminate or signal a process)"></a>2.2.1 kill(terminate or signal a process)</h4><p>功能说明：删除或控制执行中的进程<br>语 法：kill [-num] &lt;PID&gt; [-l]<br>参 数：<br>-num 通过num传递一个信号控制进程（默认15，终止进程），常用值如下<br>-9 强制删除进程<br>-19 暂停一个进程（使之处于T状态）<br>-18 继续暂停的进程<br>-l 显示信号列表</p>
+<p>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> 28004 <span class="comment">#终止进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 28004 <span class="comment">#强制删除进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -19 28004 <span class="comment">#暂停进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -18 28004 <span class="comment">#继续进程号为28004的进程</span></span><br><span class="line"><span class="built_in">kill</span> -l <span class="comment">#显示信号列表</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-fg"><a href="#2-2-2-fg" class="headerlink" title="2.2.2 fg"></a>2.2.2 fg</h4><p>功能说明：将后台进程转换到前台<br>语 法：fg [%num]<br>参 数：<br>%num 将编号为num的后台任务转换到前台，num由jobs 命令得到。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">fg</span> <span class="comment">#将最近的一个转后台的任务转为前台</span></span><br><span class="line"><span class="built_in">fg</span> %2 <span class="comment">#将编号为2的后台任务转到前台</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-3-bg"><a href="#2-2-3-bg" class="headerlink" title="2.2.3 bg"></a>2.2.3 bg</h4><p>功能说明：将前台任务转为后台（需先用ctrl+z暂停任务），或者继续后台暂停的任务<br>语 法：bg [%num]<br>参 数：<br>%num 将编号为num的后台暂停任务继续。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bgbg %2 <span class="comment">#将编号为2的后台暂停任务继续。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-帮助命令"><a href="#3-帮助命令" class="headerlink" title="3.帮助命令"></a>3.帮助命令</h2><h4 id="3-1-man"><a href="#3-1-man" class="headerlink" title="3.1 man"></a>3.1 man</h4><p>功能说明：给出大多数命令的详细在线帮助内容</p>
+<h4 id="3-2-whatis"><a href="#3-2-whatis" class="headerlink" title="3.2 whatis"></a>3.2 whatis</h4><p>功能说明：对该命令给出一行文字描述，但不包括命令的参数等其他信息。</p>
+<h4 id="3-3-apropos"><a href="#3-3-apropos" class="headerlink" title="3.3 apropos"></a>3.3 apropos</h4><p>功能说明：当对linux命令比较模糊时，可以使用命令apropos来搜索与关键字匹配的命令。</p>
+<h2 id="4-其他"><a href="#4-其他" class="headerlink" title="4.其他"></a>4.其他</h2><h4 id="4-1-history"><a href="#4-1-history" class="headerlink" title="4.1 history"></a>4.1 history</h4><p>功能说明：查询该节点上执行过的历史命令<br>语 法：history<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">history</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-nohup"><a href="#4-2-nohup" class="headerlink" title="4.2 nohup"></a>4.2 nohup</h4><p>功能说明：加到命令前使得该命令在用户退出登录后也能继续执行<br>特殊说明：一般与转后台’&amp;’一起使用，屏幕输出默认重定向到nohup.out文件中<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nohup perl test.pl &amp;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-转后台-amp"><a href="#4-3-转后台-amp" class="headerlink" title="4.3 转后台 &amp;"></a>4.3 转后台 &amp;</h4><p>功能说明：加到命令结尾，使该命令在后台运行<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp file1file2 &amp; <span class="comment">#后台执行拷贝命令</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-4-重定向-gt"><a href="#4-4-重定向-gt" class="headerlink" title="4.4 重定向 &gt;"></a>4.4 重定向 &gt;</h4><p>功能说明：将标准输出内容重定向到文件中<br>相关符号：&gt;&gt; 表示将内容追加到文件末尾。<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls dir &gt; dir_list <span class="comment">#显示dir目录下的文件并将内容输出到dir_list文件中，若dir_list文件存在，则会被清空，若不纯在，将创建。</span></span><br><span class="line">ls dir &gt;&gt; dir_list <span class="comment">#显示dir目录下的文件并将内容追加到dir_list文件中，若dir_list文件存在，内容追加到文件末尾，若不纯在，将创建。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-5-管道符"><a href="#4-5-管道符" class="headerlink" title="4.5 管道符 |"></a>4.5 管道符 |</h4><p>功能说明：将”|”前一部分的输出作为”|”后一部分的输入<br>语 法：command1 | command2<br>Example ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">less file1| grep world | awk ‘&#123;<span class="built_in">print</span> <span class="variable">$1</span>&#125;’ <span class="comment">#显示file1的内容，将带有world的行输出，打印该行的第一列</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E4%B8%8E%E5%86%85%E5%AD%98%E6%9F%A5%E7%9C%8B.png" alt></p>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B%E7%BC%A9.png" alt></p>
+<p> <img src="https://i.loli.net/2020/09/30/P2R1rqoOjgB89tf.png" alt> </p>
+<hr>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处 ！</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用R pagedown给自己做一份精致的简历</title>
+    <url>/2020/08/27/my-cv/</url>
+    <content><![CDATA[<h3 id="先看下简历的最终效果："><a href="#先看下简历的最终效果：" class="headerlink" title="先看下简历的最终效果："></a>先看下简历的最终效果：</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154632.png" alt></p>
+<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154644.png" alt></p>
+<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154651.png" alt></p>
+<hr>
+<h3 id="下载并安装所需的R包"><a href="#下载并安装所需的R包" class="headerlink" title="下载并安装所需的R包"></a>下载并安装所需的R包</h3><blockquote>
+<p>简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：<a href="https://github.com/nstrayer/cv" target="_blank" rel="noopener">https://github.com/nstrayer/cv</a> 的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个<code>position.csv</code>文件中，使用比较方便。</p>
+</blockquote>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154658.png" alt></p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装所需的R</span></span><br><span class="line">rm(list = ls()) </span><br><span class="line">options(<span class="string">"repos"</span> = c(CRAN=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span>))</span><br><span class="line">install.packages(<span class="string">"tidyverse"</span>)</span><br><span class="line">install.packages(<span class="string">"rmarkdown"</span>)</span><br><span class="line">install.packages(<span class="string">"glue"</span>)</span><br><span class="line">install.packages(<span class="string">"devtools"</span>)</span><br><span class="line">devtools::install_github(<span class="string">'rstudio/pagedown'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="编辑并填写个人简历信息"><a href="#编辑并填写个人简历信息" class="headerlink" title="编辑并填写个人简历信息"></a>编辑并填写个人简历信息</h3><p>用Excel打开<code>position.csv</code>文件，根据相应的条目填写个人简历信息</p>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154706.png" alt> </p>
+<h3 id="在Rstudio中编辑更改index-Rmd文件"><a href="#在Rstudio中编辑更改index-Rmd文件" class="headerlink" title="在Rstudio中编辑更改index.Rmd文件"></a>在Rstudio中编辑更改index.Rmd文件</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154712.png" alt> </p>
+<h3 id="使用kint生成index-html网页文件"><a href="#使用kint生成index-html网页文件" class="headerlink" title="使用kint生成index.html网页文件"></a>使用kint生成index.html网页文件</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154717.png" alt> </p>
+<p>运行完kint后会在自己的文件夹中生成一个<code>index.html</code>格式的网页版简历</p>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154725.png" alt> </p>
+<p>简历整体的布局形式可以通过<code>styles.css</code>文件进行调整</p>
+<h3 id="将网页文件另存为pdf文件"><a href="#将网页文件另存为pdf文件" class="headerlink" title="将网页文件另存为pdf文件"></a>将网页文件另存为pdf文件</h3><p>使用谷歌浏览器打开<code>index.html</code>文件，通过快捷键Ctrl + P进行页面打印，然后选择另存为PDF进行pdf文件的保存。</p>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154730.png" alt> </p>
+<p>最后可以将自己的代码上传到github上进行存储共享<a href="https://github.com/dongwei1220/cv" target="_blank" rel="noopener">https://github.com/dongwei1220/cv</a></p>
+<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154737.png" alt> </p>
+<p>参考来源：【质感满满的简历，你也可以有！】<a href="https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ</a></p>
+<hr>
+<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处！</p>
+]]></content>
+      <categories>
+        <category>Research</category>
+        <category>CV</category>
+      </categories>
+      <tags>
+        <tag>R</tag>
+        <tag>CV</tag>
       </tags>
   </entry>
   <entry>
@@ -488,43 +525,6 @@
       <tags>
         <tag>Linux</tag>
         <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用R pagedown给自己做一份精致的简历</title>
-    <url>/2020/08/27/my-cv/</url>
-    <content><![CDATA[<h3 id="先看下简历的最终效果："><a href="#先看下简历的最终效果：" class="headerlink" title="先看下简历的最终效果："></a>先看下简历的最终效果：</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154632.png" alt></p>
-<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154644.png" alt></p>
-<p> <img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154651.png" alt></p>
-<hr>
-<h3 id="下载并安装所需的R包"><a href="#下载并安装所需的R包" class="headerlink" title="下载并安装所需的R包"></a>下载并安装所需的R包</h3><blockquote>
-<p>简历的源代码是从Y叔的github上下载来的，这个简历模板最早是来自于：<a href="https://github.com/nstrayer/cv" target="_blank" rel="noopener">https://github.com/nstrayer/cv</a> 的，原模板使用了四个表格填写信息，Y叔在此基础上进行了优化，并将个人填写信息简化到一个<code>position.csv</code>文件中，使用比较方便。</p>
-</blockquote>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154658.png" alt></p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装所需的R</span></span><br><span class="line">rm(list = ls()) </span><br><span class="line">options(<span class="string">"repos"</span> = c(CRAN=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span>))</span><br><span class="line">install.packages(<span class="string">"tidyverse"</span>)</span><br><span class="line">install.packages(<span class="string">"rmarkdown"</span>)</span><br><span class="line">install.packages(<span class="string">"glue"</span>)</span><br><span class="line">install.packages(<span class="string">"devtools"</span>)</span><br><span class="line">devtools::install_github(<span class="string">'rstudio/pagedown'</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="编辑并填写个人简历信息"><a href="#编辑并填写个人简历信息" class="headerlink" title="编辑并填写个人简历信息"></a>编辑并填写个人简历信息</h3><p>用Excel打开<code>position.csv</code>文件，根据相应的条目填写个人简历信息</p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154706.png" alt> </p>
-<h3 id="在Rstudio中编辑更改index-Rmd文件"><a href="#在Rstudio中编辑更改index-Rmd文件" class="headerlink" title="在Rstudio中编辑更改index.Rmd文件"></a>在Rstudio中编辑更改index.Rmd文件</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154712.png" alt> </p>
-<h3 id="使用kint生成index-html网页文件"><a href="#使用kint生成index-html网页文件" class="headerlink" title="使用kint生成index.html网页文件"></a>使用kint生成index.html网页文件</h3><p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154717.png" alt> </p>
-<p>运行完kint后会在自己的文件夹中生成一个<code>index.html</code>格式的网页版简历</p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154725.png" alt> </p>
-<p>简历整体的布局形式可以通过<code>styles.css</code>文件进行调整</p>
-<h3 id="将网页文件另存为pdf文件"><a href="#将网页文件另存为pdf文件" class="headerlink" title="将网页文件另存为pdf文件"></a>将网页文件另存为pdf文件</h3><p>使用谷歌浏览器打开<code>index.html</code>文件，通过快捷键Ctrl + P进行页面打印，然后选择另存为PDF进行pdf文件的保存。</p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154730.png" alt> </p>
-<p>最后可以将自己的代码上传到github上进行存储共享<a href="https://github.com/dongwei1220/cv" target="_blank" rel="noopener">https://github.com/dongwei1220/cv</a></p>
-<p><img src="https://gitee.com/dongwei1220/image-bed/raw/master/image/20200930154737.png" alt> </p>
-<p>参考来源：【质感满满的简历，你也可以有！】<a href="https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Dz2fa83O_P5QPD8VLR7DRQ</a></p>
-<hr>
-<p>本文出自于<a href="http://www.bioinfomics.top/" target="_blank" rel="noopener">http://www.bioinfomics.top</a>转载请注明出处！</p>
-]]></content>
-      <categories>
-        <category>Research</category>
-        <category>CV</category>
-      </categories>
-      <tags>
-        <tag>R</tag>
-        <tag>CV</tag>
       </tags>
   </entry>
   <entry>

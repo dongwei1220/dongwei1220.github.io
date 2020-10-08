@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://bioinfomics.top/tools/index.html</loc>
+    
+    <lastmod>2020-10-08T08:07:09.421Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://bioinfomics.top/about/index.html</loc>
+    
+    <lastmod>2020-10-08T08:03:30.896Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://bioinfomics.top/2020/10/03/how-to-construct-species-tree/</loc>
     
     <lastmod>2020-10-03T02:54:22.932Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>http://bioinfomics.top/2020/10/02/how-to-plot-gene-cluster-line-chart/</loc>
     
     <lastmod>2020-10-02T12:52:41.875Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bioinfomics.top/tools/index.html</loc>
-    
-    <lastmod>2020-09-30T09:16:54.326Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>http://bioinfomics.top/links/index.html</loc>
     
     <lastmod>2020-09-30T07:16:25.358Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://bioinfomics.top/about/index.html</loc>
-    
-    <lastmod>2020-08-28T07:52:58.432Z</lastmod>
     
   </url>
   
